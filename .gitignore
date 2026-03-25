@@ -1,0 +1,75 @@
+## .NET
+bin/
+obj/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+## Build results
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+bld/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Ll]ogs/
+
+## User secrets — NEVER commit these
+**/secrets.json
+**/appsettings.Development.json
+**/appsettings.Local.json
+
+## .NET user secrets store
+%APPDATA%/Microsoft/UserSecrets
+~/.microsoft/usersecrets
+
+## Visual Studio
+.vs/
+*.rsuser
+*.vscode/settings.json
+
+## Rider
+.idea/
+*.sln.iml
+
+## NuGet
+*.nupkg
+*.snupkg
+.nuget/
+packages/
+!**/packages/build/
+*.nuspec
+
+## Coverage
+coverage/
+*.coverage
+*.coveragexml
+TestResults/
+
+## OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+## Node (for commitlint)
+node_modules/
+npm-debug.log*
+package-lock.json
+
+## Azure
+PublishProfiles/
+*.pubxml
+*.pubxml.user
+
+## Terraform / infra
+*.tfstate
+*.tfstate.backup
+.terraform/

@@ -1,0 +1,13 @@
+#!/bin/sh
+
+echo "Running pre-push checks (full test suite)..."
+
+dotnet test --no-build --configuration Release -q
+if [ $? -ne 0 ]; then
+  echo ""
+  echo "TESTS FAILED: Fix all failing tests before pushing."
+  echo "Your commits are safe locally. Fix the tests, then push again."
+  exit 1
+fi
+
+echo "All tests passed. Pushing to remote."

@@ -1,0 +1,88 @@
+root = true
+
+[*]
+indent_style = space
+end_of_line = lf
+charset = utf-8
+trim_trailing_whitespace = true
+insert_final_newline = true
+
+[*.cs]
+indent_size = 4
+
+# File-scoped namespaces
+csharp_style_namespace_declarations = file_scoped:error
+
+# Prefer var only when type is obvious
+csharp_style_var_for_built_in_types = false:warning
+csharp_style_var_when_type_is_apparent = true:suggestion
+csharp_style_var_elsewhere = false:suggestion
+
+# Expression bodies
+csharp_style_expression_bodied_methods = false:silent
+csharp_style_expression_bodied_properties = true:suggestion
+
+# Null checks
+dotnet_style_null_propagation = true:warning
+dotnet_style_coalesce_expression = true:warning
+
+# Braces always
+csharp_prefer_braces = true:error
+
+# No this. qualification
+dotnet_style_qualification_for_field = false:warning
+dotnet_style_qualification_for_property = false:warning
+dotnet_style_qualification_for_method = false:warning
+dotnet_style_qualification_for_event = false:warning
+
+# ── Naming Rules ──────────────────────────────────────────
+
+# Interfaces must begin with I
+dotnet_naming_symbols.interfaces.applicable_kinds = interface
+dotnet_naming_style.prefix_i.required_prefix = I
+dotnet_naming_style.prefix_i.capitalization = pascal_case
+dotnet_naming_rule.interfaces_must_begin_with_i.symbols = interfaces
+dotnet_naming_rule.interfaces_must_begin_with_i.style = prefix_i
+dotnet_naming_rule.interfaces_must_begin_with_i.severity = error
+
+# Private fields must be _camelCase
+dotnet_naming_symbols.private_fields.applicable_kinds = field
+dotnet_naming_symbols.private_fields.applicable_accessibilities = private
+dotnet_naming_style.underscore_camel.required_prefix = _
+dotnet_naming_style.underscore_camel.capitalization = camel_case
+dotnet_naming_rule.private_fields_underscore.symbols = private_fields
+dotnet_naming_rule.private_fields_underscore.style = underscore_camel
+dotnet_naming_rule.private_fields_underscore.severity = warning
+
+# Async methods must end with Async
+dotnet_naming_symbols.async_methods.applicable_kinds = method
+dotnet_naming_symbols.async_methods.required_modifiers = async
+dotnet_naming_style.end_with_async.required_suffix = Async
+dotnet_naming_style.end_with_async.capitalization = pascal_case
+dotnet_naming_rule.async_suffix.symbols = async_methods
+dotnet_naming_rule.async_suffix.style = end_with_async
+dotnet_naming_rule.async_suffix.severity = warning
+
+# ── Analyser Severity ─────────────────────────────────────
+
+# ConfigureAwait — suggestion only, SK handles this internally
+dotnet_diagnostic.CA2007.severity = suggestion
+
+# Validate non-null public arguments
+dotnet_diagnostic.CA1062.severity = error
+
+# Unused variables
+dotnet_diagnostic.CS0168.severity = error
+dotnet_diagnostic.CS0219.severity = error
+
+# Suppress underscore naming in test methods (Given_When_Then pattern)
+# Applied per-project in test .csproj via <NoWarn>CA1707</NoWarn>
+
+[*.{json,yml,yaml}]
+indent_size = 2
+
+[*.md]
+trim_trailing_whitespace = false
+
+[Makefile]
+indent_style = tab

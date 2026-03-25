@@ -1,0 +1,52 @@
+name: Deploy
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+
+  deploy:
+    name: Build and deploy to Azure App Service
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup .NET 8
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+
+      - name: Restore packages
+        run: dotnet restore
+
+      - name: Build for production
+        run: |
+          dotnet publish src/FinanceAdvisor.API \
+            --configuration Release \
+            --output ./publish \
+            --no-restore
+
+      - name: Deploy to Azure App Service
+        uses: azure/webapps-deploy@v3
+        with:
+          app-name: ${{ secrets.AZURE_APP_NAME }}
+          publish-profile: ${{ secrets.AZURE_PUBLISH_PROFILE }}
+          package: ./publish
+
+      - name: Verify deployment health
+        run: |
+          echo "Waiting for App Service cold start..."
+          for i in {1..6}; do
+            STATUS=$(curl -s -o /dev/null -w "%{http_code}" \
+              https://${{ secrets.AZURE_APP_NAME }}.azurewebsites.net/health)
+            if [ "$STATUS" == "200" ]; then
+              echo "Health check passed!"
+              exit 0
+            fi
+            echo "Attempt $i failed (Status: $STATUS). Retrying in 10s..."
+            sleep 10
+          done
+          echo "Deployment health check failed after 60 seconds."
+          exit 1

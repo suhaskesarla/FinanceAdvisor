@@ -1,0 +1,9 @@
+# All PRs require review from the maintainer
+* @your-github-username
+
+# Core architectural files — extra visibility
+/src/FinanceAdvisor.Core/                    @your-github-username
+/src/FinanceAdvisor.Services/Orchestration/  @your-github-username
+/CLAUDE.md                                   @your-github-username
+/Directory.Build.props                       @your-github-username
+/Directory.Packages.props                    @your-github-username
