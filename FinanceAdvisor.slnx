@@ -1,0 +1,6 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/FinanceAdvisor.API/FinanceAdvisor.API.csproj" />
+    <Project Path="src/FinanceAdvisor.Core/FinanceAdvisor.Core.csproj" />
+  </Folder>
+</Solution>
