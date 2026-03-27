@@ -2,7 +2,7 @@
 
 echo "Running pre-commit checks..."
 
-# 1. Format check — fast, catches style issues immediately
+# 1. Format check
 dotnet format --verify-no-changes --severity error
 if [ $? -ne 0 ]; then
   echo ""
@@ -10,14 +10,13 @@ if [ $? -ne 0 ]; then
   exit 1
 fi
 
-# 2. Build check — catches compile errors before they hit the branch
-dotnet build --configuration Release --no-incremental -q
+# 2. Clean then build — clean prevents MSBuild file deletion warnings
+dotnet clean -q
+dotnet build --configuration Release -q
 if [ $? -ne 0 ]; then
   echo ""
   echo "BUILD FAILED: Fix all build errors before committing."
   exit 1
 fi
 
-# Note: dotnet test runs in pre-push (not here) to avoid
-# slowing down every commit as the test suite grows.
 echo "Pre-commit checks passed."

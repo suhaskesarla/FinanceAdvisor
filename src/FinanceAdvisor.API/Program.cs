@@ -1,15 +1,13 @@
-using DotNetEnv;
 using FinanceAdvisor.API.Startup;
-
-Env.Load();
 
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
 builder.AddAzureKeyVault();
+builder.AddFinanceAdvisorLogging();
 builder.Services.AddFinanceAdvisorServices(builder.Configuration);
 
 WebApplication app = builder.Build();
 
-app.UseHttpsRedirection();
+app.UseFinanceAdvisorPipeline();
 
 app.Run();
