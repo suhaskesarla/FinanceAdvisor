@@ -2,5 +2,9 @@
   <Folder Name="/src/">
     <Project Path="src/FinanceAdvisor.API/FinanceAdvisor.API.csproj" />
     <Project Path="src/FinanceAdvisor.Core/FinanceAdvisor.Core.csproj" />
+    <Project Path="src/FinanceAdvisor.Services/FinanceAdvisor.Services.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/FinanceAdvisor.Tests.Unit/FinanceAdvisor.Tests.Unit.csproj" />
   </Folder>
 </Solution>

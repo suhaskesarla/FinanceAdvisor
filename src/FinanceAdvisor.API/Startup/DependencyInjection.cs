@@ -10,6 +10,10 @@ internal static class DependencyInjection
         this IServiceCollection services,
         IConfiguration configuration)
     {
+        services.AddControllers();
+        services.AddMemoryCache();
+        services.AddHealthChecks();
+
         services.Configure<TelegramSettings>(configuration.GetSection("Telegram"));
         services.Configure<ZerodhaSettings>(configuration.GetSection("Zerodha"));
         services.Configure<GeminiSettings>(configuration.GetSection("Gemini"));
