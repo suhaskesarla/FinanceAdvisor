@@ -9,6 +9,9 @@ public sealed record TelegramSettings
     /// <summary>The public HTTPS URL Telegram will POST updates to.</summary>
     public string WebhookUrl { get; init; } = string.Empty;
 
+    /// <summary>The shared secret Telegram sends in X-Telegram-Bot-Api-Secret-Token.</summary>
+    public string WebhookSecret { get; init; } = string.Empty;
+
     /// <summary>The Telegram chat ID for administrative alerts.</summary>
     public string AdminChatId { get; init; } = string.Empty;
 }

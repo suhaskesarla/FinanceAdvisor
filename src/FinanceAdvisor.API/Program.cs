@@ -1,15 +1,13 @@
 using FinanceAdvisor.API.Startup;
 
-var builder = WebApplication.CreateBuilder(args);
+WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
 builder.AddAzureKeyVault();
+builder.AddFinanceAdvisorLogging();
 builder.Services.AddFinanceAdvisorServices(builder.Configuration);
 
-var app = builder.Build();
+WebApplication app = builder.Build();
 
-app.UseHttpsRedirection();
-app.UseMiddleware<FinanceAdvisor.API.Middleware.CorrelationIdMiddleware>();
-app.MapControllers();
-app.MapHealthChecks("/health");
+app.UseFinanceAdvisorPipeline();
 
 app.Run();
