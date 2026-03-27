@@ -1,6 +1,5 @@
 namespace FinanceAdvisor.API.Controllers;
 
-using FinanceAdvisor.Core.Constants;
 using FinanceAdvisor.Core.DTOs;
 using FinanceAdvisor.Core.Interfaces;
 using FinanceAdvisor.Core.Models.Configuration;
@@ -37,7 +36,7 @@ public sealed partial class TelegramController : ControllerBase
 
     /// <summary>Receives a Telegram update and dispatches it for processing.</summary>
     /// <param name="update">The Telegram update payload.</param>
-    /// <param name="ct">Cancellation token.</param>
+    /// <param name="ct">Cancellation token provided by the request timeout middleware.</param>
     [HttpPost("webhook")]
     public async Task<IActionResult> WebhookAsync(
         [FromBody] Update update,
@@ -59,10 +58,6 @@ public sealed partial class TelegramController : ControllerBase
         string correlationId = HttpContext.Items["CorrelationId"] as string ?? "none";
         string firstName = update?.Message?.From?.FirstName ?? string.Empty;
 
-        using CancellationTokenSource cts = CancellationTokenSource.CreateLinkedTokenSource(
-            HttpContext.RequestAborted, ct);
-        cts.CancelAfter(TimeSpan.FromSeconds(AppConstants.Timeouts.WebhookSeconds));
-
         try
         {
             IncomingMessageDto message = new()
@@ -71,7 +66,7 @@ public sealed partial class TelegramController : ControllerBase
                 FromFirstName = firstName,
                 CorrelationId = correlationId,
             };
-            await _webhookService.HandleUpdateAsync(message, cts.Token);
+            await _webhookService.HandleUpdateAsync(message, ct);
             LogWebhookProcessed(_logger, correlationId, firstName, text);
         }
         catch (OperationCanceledException)

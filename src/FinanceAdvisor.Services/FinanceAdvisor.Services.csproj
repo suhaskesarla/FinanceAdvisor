@@ -11,6 +11,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <!-- Required: DependencyInjection.cs has a compile-time reference to TelegramWebhookService -->
+    <InternalsVisibleTo Include="FinanceAdvisor.API" />
+    <InternalsVisibleTo Include="FinanceAdvisor.Tests.Unit" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\FinanceAdvisor.Core\FinanceAdvisor.Core.csproj" />
   </ItemGroup>
 

@@ -5,7 +5,7 @@ using FinanceAdvisor.Core.Interfaces;
 using Microsoft.Extensions.Logging;
 
 /// <summary>Handles incoming Telegram webhook update processing.</summary>
-public sealed partial class TelegramWebhookService : ITelegramWebhookService
+internal sealed partial class TelegramWebhookService : ITelegramWebhookService
 {
     private readonly ILogger<TelegramWebhookService> _logger;
 
