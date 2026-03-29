@@ -64,6 +64,7 @@ public sealed partial class TelegramController : ControllerBase
             {
                 Text = text,
                 FromFirstName = firstName,
+                ChatId = update?.Message?.Chat.Id ?? 0,
                 CorrelationId = correlationId,
             };
             await _webhookService.HandleUpdateAsync(message, ct);
