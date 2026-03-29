@@ -27,7 +27,15 @@ internal static class DependencyInjection
         this IServiceCollection services,
         IConfiguration configuration)
     {
-        services.AddControllers();
+        services.AddControllers()
+    .AddJsonOptions(options =>
+    {
+        // 1. This handles Telegram's snake_case (first_name -> FirstName)
+        options.JsonSerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.SnakeCaseLower;
+        
+        // 2. This allows your future controllers to still accept PascalCase (FirstName -> FirstName)
+        options.JsonSerializerOptions.PropertyNameCaseInsensitive = true;
+    });
         services.AddMemoryCache();
         services.AddHealthChecks();
 
