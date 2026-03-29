@@ -9,6 +9,9 @@ public sealed record IncomingMessageDto
     /// <summary>The first name of the Telegram user who sent the message.</summary>
     public string FromFirstName { get; init; } = string.Empty;
 
+    /// <summary>The Telegram chat ID to send replies to.</summary>
+    public long ChatId { get; init; }
+
     /// <summary>The correlation ID used to trace this request end-to-end.</summary>
     public string CorrelationId { get; init; } = string.Empty;
 }

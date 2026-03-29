@@ -14,6 +14,9 @@ public static class AppConstants
 
         /// <summary>TTL for news cache entries (minutes).</summary>
         public const int NewsMinutes = 10;
+
+        /// <summary>TTL for the Zerodha Kite Connect access token (hours).</summary>
+        public const int ZerodhaTokenHours = 24;
     }
 
     /// <summary>Timeout thresholds in seconds.</summary>
@@ -40,6 +43,42 @@ public static class AppConstants
 
         /// <summary>Maximum Gemini API requests permitted per minute.</summary>
         public const int MaxRequestsPerMinute = 10;
+    }
+
+    /// <summary>IMemoryCache string keys for well-known cache entries.</summary>
+    public static class CacheKeys
+    {
+        /// <summary>Cache key for the Zerodha Kite Connect access token.</summary>
+        public const string ZerodhaAccessToken = "zerodha:access_token";
+    }
+
+    /// <summary>Known external endpoint base URLs.</summary>
+    public static class ZerodhaEndpoints
+    {
+        /// <summary>Base URL for the Kite Connect OAuth login page.</summary>
+        public const string LoginBaseUrl = "https://kite.trade/connect/login";
+    }
+
+    /// <summary>Public-facing app endpoint URLs.</summary>
+    public static class AppEndpoints
+    {
+        /// <summary>URL the user must visit to initiate the Zerodha OAuth login flow.</summary>
+        public const string ZerodhaLoginInvite = "https://finadvai.azurewebsites.net/api/auth/login";
+    }
+
+    /// <summary>Bot reply messages sent to Telegram users.</summary>
+    public static class BotMessages
+    {
+        /// <summary>Invite prompt shown when no Zerodha token is cached.</summary>
+        public const string ZerodhaInvite =
+            "👋 To view your portfolio, please connect your Zerodha account first.";
+
+        /// <summary>Label for the inline keyboard button in the Zerodha invite.</summary>
+        public const string ZerodhaInviteButtonText = "🔐 Connect Zerodha";
+
+        /// <summary>Reply shown when a valid Zerodha token is already cached.</summary>
+        public const string ZerodhaSessionActive =
+            "✅ Zerodha session is active. (Portfolio engine coming soon).";
     }
 
     /// <summary>Fallback messages returned to users when a subsystem fails.</summary>
