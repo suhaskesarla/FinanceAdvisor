@@ -10,6 +10,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Serilog;
 using System.Globalization;
+using System.Text.Json;
 
 internal static class DependencyInjection
 {
