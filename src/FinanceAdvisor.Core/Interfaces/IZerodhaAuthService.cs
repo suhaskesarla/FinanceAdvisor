@@ -17,4 +17,14 @@ public interface IZerodhaAuthService
     /// Thrown when the Kite session exchange fails.
     /// </exception>
     Task ExchangeRequestTokenAsync(string requestToken, CancellationToken ct = default);
+
+    /// <summary>
+    /// Returns the current valid Zerodha access token from cache.
+    /// </summary>
+    /// <param name="ct">Cancellation token.</param>
+    /// <returns>The cached Zerodha access token string.</returns>
+    /// <exception cref="FinanceAdvisor.Core.Exceptions.ZerodhaAuthException">
+    /// Thrown when no valid session token exists in cache.
+    /// </exception>
+    Task<string> GetAccessTokenAsync(CancellationToken ct = default);
 }

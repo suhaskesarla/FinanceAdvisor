@@ -67,6 +67,21 @@ internal sealed partial class ZerodhaAuthService : IZerodhaAuthService
         return Task.CompletedTask;
     }
 
+    /// <inheritdoc/>
+    public Task<string> GetAccessTokenAsync(CancellationToken ct = default)
+    {
+        ct.ThrowIfCancellationRequested();
+
+        if (_cache.TryGetValue(AppConstants.CacheKeys.ZerodhaAccessToken, out string? token) && token is not null)
+        {
+            LogTokenCacheHit(_logger);
+            return Task.FromResult(token);
+        }
+
+        LogTokenCacheMiss(_logger);
+        throw new ZerodhaAuthException("No active Zerodha session. Send /login to authenticate.");
+    }
+
     [LoggerMessage(
         Level = LogLevel.Information,
         Message = "Zerodha access token stored in cache successfully.")]
@@ -76,4 +91,14 @@ internal sealed partial class ZerodhaAuthService : IZerodhaAuthService
         Level = LogLevel.Error,
         Message = "Zerodha token exchange failed.")]
     private static partial void LogTokenExchangeFailed(ILogger logger, Exception ex);
+
+    [LoggerMessage(
+        Level = LogLevel.Information,
+        Message = "Zerodha access token cache hit.")]
+    private static partial void LogTokenCacheHit(ILogger logger);
+
+    [LoggerMessage(
+        Level = LogLevel.Warning,
+        Message = "Zerodha access token not found in cache — no active session.")]
+    private static partial void LogTokenCacheMiss(ILogger logger);
 }

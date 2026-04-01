@@ -4,6 +4,7 @@ using FinanceAdvisor.Core.Constants;
 using FinanceAdvisor.Core.Interfaces;
 using FinanceAdvisor.Core.Models.Configuration;
 using FinanceAdvisor.Services;
+using FinanceAdvisor.Services.DataEngines;
 using KiteConnect;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http.Timeouts;
@@ -69,6 +70,7 @@ internal static class DependencyInjection
             return new Kite(zerodha.ApiKey);
         });
         services.AddScoped<IZerodhaAuthService, ZerodhaAuthService>();
+        services.AddScoped<IPortfolioEngine, ZerodhaPortfolioEngine>();
 
         return services;
     }
