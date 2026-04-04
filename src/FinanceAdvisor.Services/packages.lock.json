@@ -26,6 +26,18 @@
           "Microsoft.Extensions.Options": "8.0.0"
         }
       },
+      "Newtonsoft.Json": {
+        "type": "Direct",
+        "requested": "[13.0.3, )",
+        "resolved": "13.0.3",
+        "contentHash": "HrC5BXdl00IP9zeV+0Z848QWPAoCr9P3bDEZguI+gkLcBKAOxix/tLEAAHC+UvDNPv4a2d18lOReHMOagPa+zQ=="
+      },
+      "System.ServiceModel.Syndication": {
+        "type": "Direct",
+        "requested": "[8.0.0, )",
+        "resolved": "8.0.0",
+        "contentHash": "CJxIUwpBkMCPmIx46tFVOt0zpRrYurUHLW6tJBcmyj+MyWpKc6MMcS69B7IdlV/bgtgys073wMIHZX9QOQ1OFA=="
+      },
       "Tech.Zerodha.KiteConnect": {
         "type": "Direct",
         "requested": "[5.0.0, )",
@@ -44,10 +56,40 @@
           "Microsoft.Extensions.Options.ConfigurationExtensions": "8.0.0"
         }
       },
+      "YahooFinanceApi": {
+        "type": "Direct",
+        "requested": "[2.3.0, )",
+        "resolved": "2.3.0",
+        "contentHash": "pZLTFsJqPh1PbFybIT+dhmauEPYNI4a9SftrKL0BpJsm4kLz6+bYnmju73sz1dpcSIQWvtpdrWLo/sbt89kCxw==",
+        "dependencies": {
+          "CsvHelper": "30.0.1",
+          "Flurl": "3.0.7",
+          "Flurl.Http": "3.2.4"
+        }
+      },
+      "CsvHelper": {
+        "type": "Transitive",
+        "resolved": "30.0.1",
+        "contentHash": "rcZtgbWR+As4G3Vpgx0AMNmShGuQLFjkHAPIIflzrfkJCx8/AOd4m96ZRmiU1Wi39qS5UVjV0P8qdgqOo5Cwyg=="
+      },
       "CsvTextFieldParser": {
         "type": "Transitive",
         "resolved": "1.2.2",
         "contentHash": "hTa2L7IOiTuNFONKormYjKZshm4UiEh74CUO7dc5/3cxuVGzfpmRtuKtpEpVmgvhFu0M4niZ9WxVpIM5CdELNQ=="
+      },
+      "Flurl": {
+        "type": "Transitive",
+        "resolved": "3.0.7",
+        "contentHash": "W3zHc8m6/yqOAedHwpFQv5VT8t0W/jkS3AVlv1Tj520KDNjUa31at0zMc3XYJy8f9qdOmUcvSUarf6G2nK1ZIg=="
+      },
+      "Flurl.Http": {
+        "type": "Transitive",
+        "resolved": "3.2.4",
+        "contentHash": "Me9Vm4Lm21vt/pbR0G2Dww/ZOjJgh6mB2FiH28aiUYStJD10ZecDp8jxg2zKxcy6lnkvLm99pjG4yC/k7a/d8w==",
+        "dependencies": {
+          "Flurl": "3.0.6",
+          "Newtonsoft.Json": "12.0.2"
+        }
       },
       "Microsoft.Extensions.Caching.Abstractions": {
         "type": "Transitive",

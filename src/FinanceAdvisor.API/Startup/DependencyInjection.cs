@@ -5,6 +5,7 @@ using FinanceAdvisor.Core.Interfaces;
 using FinanceAdvisor.Core.Models.Configuration;
 using FinanceAdvisor.Services;
 using FinanceAdvisor.Services.DataEngines;
+using Microsoft.Extensions.Http.Resilience;
 using KiteConnect;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http.Timeouts;
@@ -71,6 +72,24 @@ internal static class DependencyInjection
         });
         services.AddScoped<IZerodhaAuthService, ZerodhaAuthService>();
         services.AddScoped<IPortfolioEngine, ZerodhaPortfolioEngine>();
+
+        services.AddScoped<IMarketDataProvider, YahooMarketDataProvider>();
+        services.AddScoped<INewsEngine, RssNewsEngine>();
+
+        services.AddHttpClient("NewsRss", client =>
+        {
+            client.Timeout =
+                TimeSpan.FromSeconds(AppConstants.Timeouts.ExternalApiSeconds);
+            client.DefaultRequestHeaders.UserAgent.ParseAdd(
+                "Mozilla/5.0 FinanceAdvisor/1.0");
+        })
+        .AddStandardResilienceHandler(options =>
+        {
+            options.Retry.MaxRetryAttempts = 2;
+            options.Retry.Delay = TimeSpan.FromMilliseconds(200);
+            options.TotalRequestTimeout.Timeout =
+                TimeSpan.FromSeconds(AppConstants.Timeouts.ExternalApiSeconds);
+        });
 
         return services;
     }
