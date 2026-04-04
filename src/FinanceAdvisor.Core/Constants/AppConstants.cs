@@ -50,6 +50,12 @@ public static class AppConstants
     {
         /// <summary>Cache key for the Zerodha Kite Connect access token.</summary>
         public const string ZerodhaAccessToken = "zerodha:access_token";
+
+        /// <summary>Cache key for market index data.</summary>
+        public const string MarketData = "market:data:{0}"; // format with ticker symbol
+
+        /// <summary>Cache key for top news headlines.</summary>
+        public const string NewsHeadlines = "news:headlines";
     }
 
     /// <summary>Known external endpoint base URLs.</summary>
@@ -95,5 +101,13 @@ public static class AppConstants
         /// <summary>Returned when all subsystems fail and no partial response is possible.</summary>
         public const string TotalFailure =
             "Something went wrong on our end. Please try again shortly.";
+
+        /// <summary>Returned when market data is unavailable.</summary>
+        public const string MarketUnavailable =
+            "Market data is temporarily unavailable.";
+
+        /// <summary>Returned when news headlines are unavailable.</summary>
+        public const string NewsUnavailable =
+            "News headlines are temporarily unavailable.";
     }
 }

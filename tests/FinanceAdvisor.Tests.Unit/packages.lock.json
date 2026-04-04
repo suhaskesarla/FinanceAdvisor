@@ -61,10 +61,29 @@
           "System.Diagnostics.EventLog": "6.0.0"
         }
       },
+      "CsvHelper": {
+        "type": "Transitive",
+        "resolved": "30.0.1",
+        "contentHash": "rcZtgbWR+As4G3Vpgx0AMNmShGuQLFjkHAPIIflzrfkJCx8/AOd4m96ZRmiU1Wi39qS5UVjV0P8qdgqOo5Cwyg=="
+      },
       "CsvTextFieldParser": {
         "type": "Transitive",
         "resolved": "1.2.2",
         "contentHash": "hTa2L7IOiTuNFONKormYjKZshm4UiEh74CUO7dc5/3cxuVGzfpmRtuKtpEpVmgvhFu0M4niZ9WxVpIM5CdELNQ=="
+      },
+      "Flurl": {
+        "type": "Transitive",
+        "resolved": "3.0.7",
+        "contentHash": "W3zHc8m6/yqOAedHwpFQv5VT8t0W/jkS3AVlv1Tj520KDNjUa31at0zMc3XYJy8f9qdOmUcvSUarf6G2nK1ZIg=="
+      },
+      "Flurl.Http": {
+        "type": "Transitive",
+        "resolved": "3.2.4",
+        "contentHash": "Me9Vm4Lm21vt/pbR0G2Dww/ZOjJgh6mB2FiH28aiUYStJD10ZecDp8jxg2zKxcy6lnkvLm99pjG4yC/k7a/d8w==",
+        "dependencies": {
+          "Flurl": "3.0.6",
+          "Newtonsoft.Json": "12.0.2"
+        }
       },
       "Microsoft.CodeCoverage": {
         "type": "Transitive",
@@ -156,11 +175,6 @@
           "Newtonsoft.Json": "13.0.1"
         }
       },
-      "Newtonsoft.Json": {
-        "type": "Transitive",
-        "resolved": "13.0.1",
-        "contentHash": "ppPFpBcvxdsfUonNcvITKqLl3bqxWbDCZIzDWHzjpdAHRFfZe0Dw9HmA0+za13IdyrgJwpkDTDA9fHaxOrt20A=="
-      },
       "System.Configuration.ConfigurationManager": {
         "type": "Transitive",
         "resolved": "4.4.0",
@@ -228,8 +242,11 @@
           "FinanceAdvisor.Core": "[1.0.0, )",
           "Microsoft.Extensions.Caching.Memory": "[10.0.5, )",
           "Microsoft.Extensions.Logging": "[8.0.0, )",
+          "Newtonsoft.Json": "[13.0.3, )",
+          "System.ServiceModel.Syndication": "[8.0.0, )",
           "Tech.Zerodha.KiteConnect": "[5.0.0, )",
-          "Telegram.Bot": "[22.0.0, )"
+          "Telegram.Bot": "[22.0.0, )",
+          "YahooFinanceApi": "[2.3.0, )"
         }
       },
       "Microsoft.Extensions.Caching.Memory": {
@@ -256,6 +273,18 @@
           "Microsoft.Extensions.Options": "8.0.0"
         }
       },
+      "Newtonsoft.Json": {
+        "type": "CentralTransitive",
+        "requested": "[13.0.3, )",
+        "resolved": "13.0.3",
+        "contentHash": "HrC5BXdl00IP9zeV+0Z848QWPAoCr9P3bDEZguI+gkLcBKAOxix/tLEAAHC+UvDNPv4a2d18lOReHMOagPa+zQ=="
+      },
+      "System.ServiceModel.Syndication": {
+        "type": "CentralTransitive",
+        "requested": "[8.0.0, )",
+        "resolved": "8.0.0",
+        "contentHash": "CJxIUwpBkMCPmIx46tFVOt0zpRrYurUHLW6tJBcmyj+MyWpKc6MMcS69B7IdlV/bgtgys073wMIHZX9QOQ1OFA=="
+      },
       "Tech.Zerodha.KiteConnect": {
         "type": "CentralTransitive",
         "requested": "[5.0.0, )",
@@ -272,6 +301,17 @@
         "contentHash": "S6AmptLXByejOwG5xWzqY7DaV22BQoB6RP3zLfXuJ7i/OKVnCh+6mHFiCtq4DNYGjiU0YAmpT1KWnWc8nR/YDw==",
         "dependencies": {
           "Microsoft.Extensions.Options.ConfigurationExtensions": "8.0.0"
+        }
+      },
+      "YahooFinanceApi": {
+        "type": "CentralTransitive",
+        "requested": "[2.3.0, )",
+        "resolved": "2.3.0",
+        "contentHash": "pZLTFsJqPh1PbFybIT+dhmauEPYNI4a9SftrKL0BpJsm4kLz6+bYnmju73sz1dpcSIQWvtpdrWLo/sbt89kCxw==",
+        "dependencies": {
+          "CsvHelper": "30.0.1",
+          "Flurl": "3.0.7",
+          "Flurl.Http": "3.2.4"
         }
       }
     }
