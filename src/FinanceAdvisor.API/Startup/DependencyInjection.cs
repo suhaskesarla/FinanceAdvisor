@@ -87,6 +87,8 @@ internal static class DependencyInjection
         {
             options.Retry.MaxRetryAttempts = 2;
             options.Retry.Delay = TimeSpan.FromMilliseconds(200);
+            options.AttemptTimeout.Timeout =
+                TimeSpan.FromSeconds(AppConstants.Timeouts.ExternalApiAttemptSeconds);
             options.TotalRequestTimeout.Timeout =
                 TimeSpan.FromSeconds(AppConstants.Timeouts.ExternalApiSeconds);
         });

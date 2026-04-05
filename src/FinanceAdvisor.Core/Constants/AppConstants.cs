@@ -30,6 +30,9 @@ public static class AppConstants
 
         /// <summary>Maximum time to wait for an external API response (seconds).</summary>
         public const int ExternalApiSeconds = 3;
+
+        /// <summary>Per-attempt timeout for resilience handlers — must be less than ExternalApiSeconds.</summary>
+        public const int ExternalApiAttemptSeconds = 2;
     }
 
     /// <summary>Gemini API rate and token limits.</summary>
