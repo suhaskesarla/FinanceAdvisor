@@ -85,7 +85,7 @@ internal static class DependencyInjection
         })
         .AddStandardResilienceHandler(options =>
         {
-            options.Retry.MaxRetryAttempts = 2;
+            options.Retry.MaxRetryAttempts = 1;
             options.Retry.Delay = TimeSpan.FromMilliseconds(200);
             options.AttemptTimeout.Timeout =
                 TimeSpan.FromSeconds(AppConstants.Timeouts.ExternalApiAttemptSeconds);
