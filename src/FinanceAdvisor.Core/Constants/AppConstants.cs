@@ -91,6 +91,19 @@ public static class AppConstants
         /// <summary>Reply shown when a valid Zerodha token is already cached.</summary>
         public const string ZerodhaSessionActive =
             "✅ Zerodha session is active. (Portfolio engine coming soon).";
+
+        /// <summary>Temporary reply for deep-path queries before AI is wired.</summary>
+        public const string AiComingSoon =
+            "🤖 AI analysis is coming soon. Try /portfolio or /brief for now.";
+
+        /// <summary>Help text listing available commands.</summary>
+        public const string HelpText =
+            "📖 *Available commands:*\n" +
+            "• /portfolio or /balance — view your Zerodha holdings\n" +
+            "• /brief — morning briefing (market + portfolio + news)\n" +
+            "• /login — connect your Zerodha account\n" +
+            "• /help — show this message\n\n" +
+            "_Natural language also works: try 'show my portfolio' or 'market update'_";
     }
 
     /// <summary>Fallback messages returned to users when a subsystem fails.</summary>

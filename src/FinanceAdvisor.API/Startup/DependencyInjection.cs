@@ -65,6 +65,7 @@ internal static class DependencyInjection
             return new TelegramBotClient(telegram.BotToken);
         });
 
+        services.AddSingleton<IQueryRouter, QueryRouter>();
         services.AddScoped<ITelegramWebhookService, TelegramWebhookService>();
 
         services.AddTransient(sp =>
