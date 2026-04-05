@@ -1,15 +1,17 @@
 namespace FinanceAdvisor.Services.DataEngines;
 
+using System.Diagnostics;
 using System.Globalization;
+using System.Net;
 using System.Text;
+using System.Text.Json;
 using FinanceAdvisor.Core.Constants;
 using FinanceAdvisor.Core.DTOs;
 using FinanceAdvisor.Core.Interfaces;
 using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.Logging;
-using YahooFinanceApi;
 
-/// <summary>Fetches and caches market index snapshots via the YahooFinanceApi library.</summary>
+/// <summary>Fetches and caches market index snapshots via the Yahoo Finance v8 chart API.</summary>
 internal sealed partial class YahooMarketDataProvider : IMarketDataProvider
 {
     private static readonly CompositeFormat _cacheKeyFormat =
@@ -17,14 +19,20 @@ internal sealed partial class YahooMarketDataProvider : IMarketDataProvider
 
     private readonly IMemoryCache _cache;
     private readonly ILogger<YahooMarketDataProvider> _logger;
+    private readonly HttpClient _httpClient;
 
     /// <summary>Initializes a new instance of <see cref="YahooMarketDataProvider"/>.</summary>
     /// <param name="cache">Memory cache for market snapshot data.</param>
     /// <param name="logger">Logger instance.</param>
-    public YahooMarketDataProvider(IMemoryCache cache, ILogger<YahooMarketDataProvider> logger)
+    /// <param name="httpClientFactory">Factory used to create the named Yahoo Finance HTTP client.</param>
+    public YahooMarketDataProvider(
+        IMemoryCache cache,
+        ILogger<YahooMarketDataProvider> logger,
+        IHttpClientFactory httpClientFactory)
     {
         _cache = cache;
         _logger = logger;
+        _httpClient = httpClientFactory.CreateClient("YahooFinance");
     }
 
     /// <inheritdoc/>
@@ -42,21 +50,66 @@ internal sealed partial class YahooMarketDataProvider : IMarketDataProvider
 
             LogCacheMiss(_logger, ticker);
 
-            var securities = await Yahoo.Symbols(ticker).Fields(
-                Field.RegularMarketPrice,
-                Field.RegularMarketPreviousClose,
-                Field.LongName,
-                Field.RegularMarketChangePercent).QueryAsync(ct);
+            var stopwatch = Stopwatch.StartNew();
+            string url = $"v8/finance/chart/{Uri.EscapeDataString(ticker)}?interval=1d&range=1d&includePrePost=false";
+            using var response = await _httpClient.GetAsync(url, ct);
 
-            if (securities is null || !securities.ContainsKey(ticker))
+            if (!response.IsSuccessStatusCode)
+            {
+                if (response.StatusCode == HttpStatusCode.TooManyRequests)
+                {
+                    double? retryAfterSeconds = response.Headers.RetryAfter?.Delta?.TotalSeconds;
+                    LogRateLimited(_logger, ticker, retryAfterSeconds);
+                }
+                else
+                {
+                    LogHttpError(_logger, ticker, (int)response.StatusCode);
+                }
+
+                response.EnsureSuccessStatusCode();
+            }
+
+            using var stream = await response.Content.ReadAsStreamAsync(ct);
+            using var doc = await JsonDocument.ParseAsync(stream, default, ct);
+
+            var meta = ParseMeta(doc, ticker);
+            if (meta is null)
             {
                 return null;
             }
 
-            var security = securities[ticker];
-            decimal current = (decimal)security[Field.RegularMarketPrice];
-            decimal previous = (decimal)security[Field.RegularMarketPreviousClose];
-            string name = security[Field.LongName]?.ToString() ?? ticker;
+            if (!meta.Value.TryGetProperty("regularMarketPrice", out var priceEl) ||
+                priceEl.ValueKind != JsonValueKind.Number)
+            {
+                LogMalformedResponse(_logger, ticker, "missing or non-numeric regularMarketPrice");
+                return null;
+            }
+
+            decimal current = priceEl.GetDecimal();
+
+            decimal previous = 0;
+            if (meta.Value.TryGetProperty("chartPreviousClose", out var chartPrevEl) &&
+                chartPrevEl.ValueKind == JsonValueKind.Number)
+            {
+                previous = chartPrevEl.GetDecimal();
+            }
+            else if (meta.Value.TryGetProperty("previousClose", out var prevEl) &&
+                     prevEl.ValueKind == JsonValueKind.Number)
+            {
+                previous = prevEl.GetDecimal();
+            }
+
+            string name = ticker;
+            if (meta.Value.TryGetProperty("longName", out var longNameEl) &&
+                longNameEl.GetString() is { Length: > 0 } longName)
+            {
+                name = longName;
+            }
+            else if (meta.Value.TryGetProperty("shortName", out var shortNameEl) &&
+                     shortNameEl.GetString() is { Length: > 0 } shortName)
+            {
+                name = shortName;
+            }
 
             decimal changeAbsolute = current - previous;
             decimal changePercent = previous == 0
@@ -76,7 +129,9 @@ internal sealed partial class YahooMarketDataProvider : IMarketDataProvider
                 AsOf = DateTime.UtcNow,
             };
 
+            stopwatch.Stop();
             _cache.Set(cacheKey, dto, TimeSpan.FromSeconds(AppConstants.CacheTtl.MarketSeconds));
+            LogRequestCompleted(_logger, ticker, stopwatch.Elapsed.TotalMilliseconds);
 
             return dto;
         }
@@ -87,6 +142,35 @@ internal sealed partial class YahooMarketDataProvider : IMarketDataProvider
         }
     }
 
+    /// <summary>
+    /// Navigates to chart.result[0].meta with explicit presence and bounds checks.
+    /// Returns null and logs a warning if the shape is unexpected.
+    /// </summary>
+    private JsonElement? ParseMeta(JsonDocument doc, string ticker)
+    {
+        if (!doc.RootElement.TryGetProperty("chart", out var chart))
+        {
+            LogMalformedResponse(_logger, ticker, "missing chart element");
+            return null;
+        }
+
+        if (!chart.TryGetProperty("result", out var resultArray) ||
+            resultArray.ValueKind != JsonValueKind.Array ||
+            resultArray.GetArrayLength() == 0)
+        {
+            LogMalformedResponse(_logger, ticker, "missing or empty chart.result array");
+            return null;
+        }
+
+        if (!resultArray[0].TryGetProperty("meta", out var meta))
+        {
+            LogMalformedResponse(_logger, ticker, "missing meta element in chart.result[0]");
+            return null;
+        }
+
+        return meta;
+    }
+
     [LoggerMessage(
         Level = LogLevel.Information,
         Message = "Market cache hit for {Ticker}.")]
@@ -94,11 +178,31 @@ internal sealed partial class YahooMarketDataProvider : IMarketDataProvider
 
     [LoggerMessage(
         Level = LogLevel.Information,
-        Message = "Market cache miss for {Ticker}.")]
+        Message = "Market cache miss for {Ticker} — fetching from Yahoo Finance.")]
     private static partial void LogCacheMiss(ILogger logger, string ticker);
 
     [LoggerMessage(
+        Level = LogLevel.Information,
+        Message = "Market data fetched for {Ticker}. LatencyMs={LatencyMs:F0}.")]
+    private static partial void LogRequestCompleted(ILogger logger, string ticker, double latencyMs);
+
+    [LoggerMessage(
         Level = LogLevel.Warning,
+        Message = "Yahoo Finance rate-limited for {Ticker}. RetryAfterSeconds={RetryAfterSeconds}.")]
+    private static partial void LogRateLimited(ILogger logger, string ticker, double? retryAfterSeconds);
+
+    [LoggerMessage(
+        Level = LogLevel.Warning,
+        Message = "Yahoo Finance returned HTTP {StatusCode} for {Ticker}.")]
+    private static partial void LogHttpError(ILogger logger, string ticker, int statusCode);
+
+    [LoggerMessage(
+        Level = LogLevel.Warning,
+        Message = "Yahoo Finance response malformed for {Ticker}. Reason={Reason}.")]
+    private static partial void LogMalformedResponse(ILogger logger, string ticker, string reason);
+
+    [LoggerMessage(
+        Level = LogLevel.Error,
         Message = "Market data fetch failed for {Ticker}.")]
     private static partial void LogFetchFailed(ILogger logger, string ticker, Exception ex);
 }

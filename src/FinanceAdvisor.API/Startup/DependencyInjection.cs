@@ -12,10 +12,12 @@ using Microsoft.AspNetCore.Http.Timeouts;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
+using Polly;
 using Serilog;
-using Telegram.Bot;
 using System.Globalization;
+using System.Net;
 using System.Text.Json;
+using Telegram.Bot;
 
 internal static class DependencyInjection
 {
@@ -75,6 +77,50 @@ internal static class DependencyInjection
 
         services.AddScoped<IMarketDataProvider, YahooMarketDataProvider>();
         services.AddScoped<INewsEngine, RssNewsEngine>();
+
+        services.AddHttpClient("YahooFinance", client =>
+        {
+            client.BaseAddress = new Uri("https://query1.finance.yahoo.com/");
+            client.DefaultRequestHeaders.UserAgent.ParseAdd(
+                "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36");
+            client.DefaultRequestHeaders.Accept.ParseAdd("application/json");
+        })
+        .AddStandardResilienceHandler(options =>
+        {
+            options.Retry.MaxRetryAttempts = 2;
+            options.Retry.BackoffType = DelayBackoffType.Exponential;
+            options.Retry.UseJitter = true;
+            options.Retry.Delay = TimeSpan.FromMilliseconds(AppConstants.Timeouts.RetryBaseDelayMs);
+
+            // Retry on network errors, 429 Too Many Requests, and 5xx server errors.
+            options.Retry.ShouldHandle = args => ValueTask.FromResult(
+                args.Outcome.Exception is HttpRequestException ||
+                (args.Outcome.Result is HttpResponseMessage r &&
+                 (r.StatusCode == HttpStatusCode.TooManyRequests ||
+                  (int)r.StatusCode >= 500)));
+
+            // Honour the Retry-After header when Yahoo signals a rate-limit window.
+            // Returning null falls back to the configured exponential delay.
+            options.Retry.DelayGenerator = args =>
+            {
+                if (args.Outcome.Result is HttpResponseMessage { Headers.RetryAfter: { } ra })
+                {
+                    TimeSpan? serverDelay = ra.Delta
+                        ?? (ra.Date.HasValue ? ra.Date.Value - DateTimeOffset.UtcNow : null);
+                    if (serverDelay > TimeSpan.Zero)
+                    {
+                        return new ValueTask<TimeSpan?>(serverDelay);
+                    }
+                }
+
+                return new ValueTask<TimeSpan?>(result: null);
+            };
+
+            options.AttemptTimeout.Timeout =
+                TimeSpan.FromSeconds(AppConstants.Timeouts.ExternalApiAttemptSeconds);
+            options.TotalRequestTimeout.Timeout =
+                TimeSpan.FromSeconds(AppConstants.Timeouts.ExternalApiSeconds);
+        });
 
         services.AddHttpClient("NewsRss", client =>
         {

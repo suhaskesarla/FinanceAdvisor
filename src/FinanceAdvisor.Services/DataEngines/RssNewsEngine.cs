@@ -47,7 +47,8 @@ internal sealed partial class RssNewsEngine : INewsEngine
             LogCacheMiss(_logger);
 
             using var stream = await _httpClient.GetStreamAsync(_feedUrl, ct);
-            using var xmlReader = XmlReader.Create(stream);
+            var xmlSettings = new XmlReaderSettings { DtdProcessing = DtdProcessing.Parse };
+            using var xmlReader = XmlReader.Create(stream, xmlSettings);
             var feed = SyndicationFeed.Load(xmlReader);
 
             NewsArticleDto[] articles = [.. feed.Items.Take(5).Select(item =>
