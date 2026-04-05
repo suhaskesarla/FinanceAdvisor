@@ -33,6 +33,9 @@ public static class AppConstants
 
         /// <summary>Per-attempt timeout for resilience handlers — must be strictly less than ExternalApiSeconds.</summary>
         public const int ExternalApiAttemptSeconds = 7;
+
+        /// <summary>Base delay for exponential back-off on retry (milliseconds). Jitter is applied on top by the resilience handler.</summary>
+        public const int RetryBaseDelayMs = 500;
     }
 
     /// <summary>Gemini API rate and token limits.</summary>
