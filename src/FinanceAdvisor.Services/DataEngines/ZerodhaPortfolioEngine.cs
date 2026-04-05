@@ -88,6 +88,14 @@ internal sealed partial class ZerodhaPortfolioEngine : IPortfolioEngine
             LogFetched(_logger, holdings.Length);
             return holdings;
         }
+        catch (TokenException ex)
+        {
+            // Zerodha tokens expire at 6 AM IST — evict the stale entry so the next
+            // cache check in TelegramWebhookService correctly triggers the login invite.
+            _cache.Remove(AppConstants.CacheKeys.ZerodhaAccessToken);
+            LogSessionExpired(_logger);
+            throw new ZerodhaAuthException("Zerodha session has expired. Please re-authenticate.", ex);
+        }
         catch (Exception ex) when (ex is not ZerodhaAuthException and not OperationCanceledException)
         {
             LogFetchFailed(_logger, ex);
@@ -109,6 +117,11 @@ internal sealed partial class ZerodhaPortfolioEngine : IPortfolioEngine
         Level = LogLevel.Information,
         Message = "Portfolio fetched. Count={Count}")]
     private static partial void LogFetched(ILogger logger, int count);
+
+    [LoggerMessage(
+        Level = LogLevel.Warning,
+        Message = "Zerodha session token has expired — stale cache entry evicted.")]
+    private static partial void LogSessionExpired(ILogger logger);
 
     [LoggerMessage(
         Level = LogLevel.Error,
