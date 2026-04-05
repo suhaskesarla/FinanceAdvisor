@@ -29,6 +29,9 @@ jobs:
             --output ./publish \
             --no-restore
 
+      - name: Zip publish output
+        run: zip -r publish.zip ./publish
+
       - name: Azure login
         uses: azure/login@v2
         with:
@@ -38,7 +41,8 @@ jobs:
         uses: azure/webapps-deploy@v3
         with:
           app-name: ${{ secrets.AZURE_APP_NAME }}
-          package: ./publish
+          package: publish.zip
+          restart-app: true
 
       - name: Verify deployment health
         run: |
