@@ -22,17 +22,17 @@ public static class AppConstants
     /// <summary>Timeout thresholds in seconds.</summary>
     public static class Timeouts
     {
-        /// <summary>Maximum processing time allowed for a single webhook request (seconds).</summary>
-        public const int WebhookSeconds = 10;
+        /// <summary>Maximum processing time allowed for a single webhook request (seconds). Telegram supports up to 60 s.</summary>
+        public const int WebhookSeconds = 25;
 
         /// <summary>Maximum time to wait for an LLM response (seconds).</summary>
         public const int LlmSeconds = 5;
 
-        /// <summary>Maximum time to wait for an external API response (seconds).</summary>
-        public const int ExternalApiSeconds = 3;
+        /// <summary>Total pipeline timeout (all attempts + delays) for a single external API call (seconds).</summary>
+        public const int ExternalApiSeconds = 10;
 
-        /// <summary>Per-attempt timeout for resilience handlers — must be less than ExternalApiSeconds.</summary>
-        public const int ExternalApiAttemptSeconds = 2;
+        /// <summary>Per-attempt timeout for resilience handlers — must be strictly less than ExternalApiSeconds.</summary>
+        public const int ExternalApiAttemptSeconds = 7;
     }
 
     /// <summary>Gemini API rate and token limits.</summary>
