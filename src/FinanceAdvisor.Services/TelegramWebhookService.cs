@@ -177,6 +177,10 @@ internal sealed partial class TelegramWebhookService : ITelegramWebhookService
                 parseMode: ParseMode.Markdown,
                 cancellationToken: ct);
         }
+        catch (ZerodhaAuthException)
+        {
+            await SendZerodhaInviteAsync(chatId, ct);
+        }
         catch (ExternalApiTimeoutException)
         {
             await _botClient.SendMessage(
