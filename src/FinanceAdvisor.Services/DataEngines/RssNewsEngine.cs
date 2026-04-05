@@ -13,7 +13,7 @@ using Microsoft.Extensions.Logging;
 internal sealed partial class RssNewsEngine : INewsEngine
 {
     private const string _feedUrl =
-        "https://economictimes.indiatimes.com/markets/rss.cms";
+        "https://economictimes.indiatimes.com/markets/stocks/rssfeeds/2146842.cms";
 
     private readonly IMemoryCache _cache;
     private readonly ILogger<RssNewsEngine> _logger;
@@ -47,7 +47,7 @@ internal sealed partial class RssNewsEngine : INewsEngine
             LogCacheMiss(_logger);
 
             using var stream = await _httpClient.GetStreamAsync(_feedUrl, ct);
-            var xmlSettings = new XmlReaderSettings { DtdProcessing = DtdProcessing.Parse };
+            var xmlSettings = new XmlReaderSettings { DtdProcessing = DtdProcessing.Ignore };
             using var xmlReader = XmlReader.Create(stream, xmlSettings);
             var feed = SyndicationFeed.Load(xmlReader);
 
