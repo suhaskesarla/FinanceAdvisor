@@ -4,6 +4,7 @@ using System.Globalization;
 using System.Text;
 using FinanceAdvisor.Core.Constants;
 using FinanceAdvisor.Core.DTOs;
+using FinanceAdvisor.Core.Enums;
 using FinanceAdvisor.Core.Exceptions;
 using FinanceAdvisor.Core.Interfaces;
 using Microsoft.Extensions.Caching.Memory;
@@ -20,6 +21,7 @@ internal sealed partial class TelegramWebhookService : ITelegramWebhookService
     private readonly IPortfolioEngine _portfolioEngine;
     private readonly IMarketDataProvider _marketProvider;
     private readonly INewsEngine _newsEngine;
+    private readonly IQueryRouter _router;
     private readonly ILogger<TelegramWebhookService> _logger;
 
     /// <summary>Initializes a new instance of <see cref="TelegramWebhookService"/>.</summary>
@@ -28,6 +30,7 @@ internal sealed partial class TelegramWebhookService : ITelegramWebhookService
     /// <param name="portfolioEngine">Engine that retrieves and caches Zerodha holdings.</param>
     /// <param name="marketProvider">Provider that fetches real-time market index snapshots.</param>
     /// <param name="newsEngine">Engine that fetches top financial news headlines.</param>
+    /// <param name="router">Routes incoming messages to the correct processing path.</param>
     /// <param name="logger">Logger instance.</param>
     public TelegramWebhookService(
         ITelegramBotClient botClient,
@@ -35,6 +38,7 @@ internal sealed partial class TelegramWebhookService : ITelegramWebhookService
         IPortfolioEngine portfolioEngine,
         IMarketDataProvider marketProvider,
         INewsEngine newsEngine,
+        IQueryRouter router,
         ILogger<TelegramWebhookService> logger)
     {
         _botClient = botClient;
@@ -42,6 +46,7 @@ internal sealed partial class TelegramWebhookService : ITelegramWebhookService
         _portfolioEngine = portfolioEngine;
         _marketProvider = marketProvider;
         _newsEngine = newsEngine;
+        _router = router;
         _logger = logger;
     }
 
@@ -52,82 +57,79 @@ internal sealed partial class TelegramWebhookService : ITelegramWebhookService
 
         LogMessageReceived(_logger, message.CorrelationId, message.FromFirstName, message.Text);
 
-        bool isPortfolio =
-            message.Text.Contains("portfolio", StringComparison.OrdinalIgnoreCase) ||
-            message.Text.Contains("/login", StringComparison.OrdinalIgnoreCase);
+        QueryRoute route = _router.Route(message.Text);
 
-        bool isBriefing =
-            message.Text.Contains("brief", StringComparison.OrdinalIgnoreCase) ||
-            message.Text.Contains("/start", StringComparison.OrdinalIgnoreCase);
-
-        if (!isPortfolio && !isBriefing)
+        switch (route)
         {
-            return;
-        }
+            case QueryRoute.Portfolio:
+                if (!_cache.TryGetValue(AppConstants.CacheKeys.ZerodhaAccessToken, out _))
+                {
+                    LogInviteSent(_logger, message.CorrelationId);
+                    await SendZerodhaInviteAsync(message.ChatId, ct);
+                    return;
+                }
 
-        if (!_cache.TryGetValue(AppConstants.CacheKeys.ZerodhaAccessToken, out _))
-        {
-            LogInviteSent(_logger, message.CorrelationId);
+                LogPortfolioRequest(_logger, message.CorrelationId);
 
-            InlineKeyboardMarkup inviteKeyboard = new(
-                [[
-                    InlineKeyboardButton.WithUrl(
-                        AppConstants.BotMessages.ZerodhaInviteButtonText,
-                        AppConstants.AppEndpoints.ZerodhaLoginInvite)
-                ]]);
+                try
+                {
+                    HoldingDto[] holdings = await _portfolioEngine.GetHoldingsAsync(ct);
 
-            await _botClient.SendMessage(
-                message.ChatId,
-                AppConstants.BotMessages.ZerodhaInvite,
-                replyMarkup: inviteKeyboard,
-                cancellationToken: ct);
+                    StringBuilder sb = new();
+                    sb.AppendLine(CultureInfo.InvariantCulture, $"📊 Portfolio ({holdings.Length} holdings)");
+                    foreach (HoldingDto h in holdings)
+                    {
+                        sb.AppendLine(CultureInfo.InvariantCulture, $"• {h.Ticker}: {h.Quantity} @ ₹{h.LastPrice:F2} | P&L: ₹{h.PnL:F2} ({h.PnLPercentage:F1}%)");
+                    }
 
-            return;
-        }
+                    await _botClient.SendMessage(message.ChatId, sb.ToString(), cancellationToken: ct);
+                }
+                catch (ZerodhaAuthException)
+                {
+                    await SendZerodhaInviteAsync(message.ChatId, ct);
+                }
+                catch (ExternalApiTimeoutException)
+                {
+                    await _botClient.SendMessage(
+                        message.ChatId,
+                        AppConstants.FallbackMessages.ZerodhaUnavailable,
+                        cancellationToken: ct);
+                }
 
-        if (isBriefing)
-        {
-            LogBriefingRequest(_logger, message.CorrelationId);
-            await HandleBriefingAsync(message.ChatId, ct);
-            return;
-        }
+                break;
 
-        LogPortfolioRequest(_logger, message.CorrelationId);
+            case QueryRoute.Briefing:
+                LogBriefingRequest(_logger, message.CorrelationId);
+                await HandleBriefingAsync(message.ChatId, ct);
+                break;
 
-        try
-        {
-            HoldingDto[] holdings = await _portfolioEngine.GetHoldingsAsync(ct);
+            case QueryRoute.ZerodhaLogin:
+                LogInviteSent(_logger, message.CorrelationId);
+                await SendZerodhaInviteAsync(message.ChatId, ct);
+                break;
 
-            StringBuilder sb = new();
-            sb.AppendLine(CultureInfo.InvariantCulture, $"📊 Portfolio ({holdings.Length} holdings)");
-            foreach (HoldingDto h in holdings)
-            {
-                sb.AppendLine(CultureInfo.InvariantCulture, $"• {h.Ticker}: {h.Quantity} @ ₹{h.LastPrice:F2} | P&L: ₹{h.PnL:F2} ({h.PnLPercentage:F1}%)");
-            }
+            case QueryRoute.Help:
+                await _botClient.SendMessage(
+                    message.ChatId,
+                    AppConstants.BotMessages.HelpText,
+                    parseMode: ParseMode.Markdown,
+                    cancellationToken: ct);
+                break;
 
-            await _botClient.SendMessage(message.ChatId, sb.ToString(), cancellationToken: ct);
-        }
-        catch (ZerodhaAuthException)
-        {
-            InlineKeyboardMarkup keyboard = new(
-                [[
-                    InlineKeyboardButton.WithUrl(
-                        AppConstants.BotMessages.ZerodhaInviteButtonText,
-                        AppConstants.AppEndpoints.ZerodhaLoginInvite)
-                ]]);
+            case QueryRoute.DeepPath:
+                LogDeepPath(_logger, message.CorrelationId);
+                await _botClient.SendMessage(
+                    message.ChatId,
+                    AppConstants.BotMessages.AiComingSoon,
+                    cancellationToken: ct);
+                break;
 
-            await _botClient.SendMessage(
-                message.ChatId,
-                AppConstants.BotMessages.ZerodhaInvite,
-                replyMarkup: keyboard,
-                cancellationToken: ct);
-        }
-        catch (ExternalApiTimeoutException)
-        {
-            await _botClient.SendMessage(
-                message.ChatId,
-                AppConstants.FallbackMessages.ZerodhaUnavailable,
-                cancellationToken: ct);
+            default:
+                await _botClient.SendMessage(
+                    message.ChatId,
+                    AppConstants.FallbackMessages.TotalFailure,
+                    cancellationToken: ct);
+                break;
         }
     }
 
@@ -184,6 +186,22 @@ internal sealed partial class TelegramWebhookService : ITelegramWebhookService
         }
     }
 
+    private async Task SendZerodhaInviteAsync(long chatId, CancellationToken ct)
+    {
+        InlineKeyboardMarkup keyboard = new(
+            [[
+                InlineKeyboardButton.WithUrl(
+                    AppConstants.BotMessages.ZerodhaInviteButtonText,
+                    AppConstants.AppEndpoints.ZerodhaLoginInvite)
+            ]]);
+
+        await _botClient.SendMessage(
+            chatId,
+            AppConstants.BotMessages.ZerodhaInvite,
+            replyMarkup: keyboard,
+            cancellationToken: ct);
+    }
+
     [LoggerMessage(
         Level = LogLevel.Information,
         Message = "Processing message. CorrelationId={CorrelationId} From={FirstName} Text={Text}")]
@@ -204,4 +222,9 @@ internal sealed partial class TelegramWebhookService : ITelegramWebhookService
         Level = LogLevel.Information,
         Message = "Processing portfolio request. CorrelationId={CorrelationId}")]
     private static partial void LogPortfolioRequest(ILogger logger, string correlationId);
+
+    [LoggerMessage(
+        Level = LogLevel.Information,
+        Message = "Deep path — AI not yet implemented. CorrelationId={CorrelationId}")]
+    private static partial void LogDeepPath(ILogger logger, string correlationId);
 }
