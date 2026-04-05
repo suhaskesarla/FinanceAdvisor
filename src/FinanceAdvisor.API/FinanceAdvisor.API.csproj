@@ -4,6 +4,7 @@
     <TargetFramework>net10.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <RuntimeIdentifiers>linux-x64</RuntimeIdentifiers>
     <UserSecretsId>88a6da18-c17c-4407-a837-725d1b671678</UserSecretsId>
   </PropertyGroup>
 
