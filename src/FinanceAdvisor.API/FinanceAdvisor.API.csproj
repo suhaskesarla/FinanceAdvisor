@@ -16,6 +16,8 @@
     <PackageReference Include="Tech.Zerodha.KiteConnect" />
     <PackageReference Include="Serilog.AspNetCore" />
     <PackageReference Include="Telegram.Bot" />
+    <PackageReference Include="Microsoft.SemanticKernel" />
+    <PackageReference Include="Microsoft.SemanticKernel.Connectors.Google" />
   </ItemGroup>
 
   <ItemGroup>

@@ -23,9 +23,10 @@ public sealed class TelegramWebhookServiceTests : IDisposable
     private readonly IMarketDataProvider _marketProvider = Substitute.For<IMarketDataProvider>();
     private readonly INewsEngine _newsEngine = Substitute.For<INewsEngine>();
     private readonly IQueryRouter _router = Substitute.For<IQueryRouter>();
+    private readonly IAIOrchestrator _orchestrator = Substitute.For<IAIOrchestrator>();
     private readonly TelegramWebhookService _sut;
 
-    private static readonly IncomingMessageDto BriefingMessage = new()
+    private static readonly IncomingMessageDto _briefingMessage = new()
     {
         ChatId = 42L,
         Text = "/brief",
@@ -33,7 +34,7 @@ public sealed class TelegramWebhookServiceTests : IDisposable
         CorrelationId = "corr-1",
     };
 
-    private static readonly MarketSnapshotDto SampleMarket = new()
+    private static readonly MarketSnapshotDto _sampleMarket = new()
     {
         Ticker = "^NSEI",
         Name = "NIFTY 50",
@@ -44,7 +45,7 @@ public sealed class TelegramWebhookServiceTests : IDisposable
         AsOf = DateTime.UtcNow,
     };
 
-    private static readonly NewsArticleDto SampleArticle = new()
+    private static readonly NewsArticleDto _sampleArticle = new()
     {
         Title = "Markets rally",
         Link = "https://example.com",
@@ -61,15 +62,16 @@ public sealed class TelegramWebhookServiceTests : IDisposable
             _marketProvider,
             _newsEngine,
             _router,
+            _orchestrator,
             NullLogger<TelegramWebhookService>.Instance);
     }
 
     public void Dispose() => _cache.Dispose();
 
     [Fact]
-    public async Task GivenBriefingRoute_WhenZerodhaAuthExceptionThrown_ThenSendsZerodhaInvite()
+    public async Task GivenBriefingRoute_WhenZerodhaAuthExceptionThrown_ThenSendsZerodhaInviteAsync()
     {
-        _router.Route(BriefingMessage.Text).Returns(QueryRoute.Briefing);
+        _router.Route(_briefingMessage.Text).Returns(QueryRoute.Briefing);
         _marketProvider
             .GetMarketSnapshotAsync(Arg.Any<string>(), Arg.Any<CancellationToken>())
             .Returns((MarketSnapshotDto?)null);
@@ -78,39 +80,39 @@ public sealed class TelegramWebhookServiceTests : IDisposable
             .ThrowsAsync(new ZerodhaAuthException("session expired"));
         _newsEngine.GetTopHeadlinesAsync(Arg.Any<CancellationToken>()).Returns([]);
 
-        await _sut.HandleUpdateAsync(BriefingMessage);
+        await _sut.HandleUpdateAsync(_briefingMessage);
 
         await _botClient.Received(1).SendRequest(
             Arg.Is<SendMessageRequest>(r =>
-                r.ChatId == BriefingMessage.ChatId &&
+                r.ChatId == _briefingMessage.ChatId &&
                 r.Text == AppConstants.BotMessages.ZerodhaInvite &&
                 r.ReplyMarkup is InlineKeyboardMarkup),
             Arg.Any<CancellationToken>());
     }
 
     [Fact]
-    public async Task GivenBriefingRoute_WhenAllEnginesSucceed_ThenSendsBriefingMessage()
+    public async Task GivenBriefingRoute_WhenAllEnginesSucceed_ThenSendsBriefingMessageAsync()
     {
-        _router.Route(BriefingMessage.Text).Returns(QueryRoute.Briefing);
+        _router.Route(_briefingMessage.Text).Returns(QueryRoute.Briefing);
         _portfolioEngine
             .GetHoldingsAsync(Arg.Any<CancellationToken>())
             .Returns([new HoldingDto { Ticker = "INFY", Quantity = 10, LastPrice = 1500m, PnL = 200m }]);
         _marketProvider
             .GetMarketSnapshotAsync(Arg.Any<string>(), Arg.Any<CancellationToken>())
-            .Returns(SampleMarket);
-        _newsEngine.GetTopHeadlinesAsync(Arg.Any<CancellationToken>()).Returns([SampleArticle]);
+            .Returns(_sampleMarket);
+        _newsEngine.GetTopHeadlinesAsync(Arg.Any<CancellationToken>()).Returns([_sampleArticle]);
 
-        await _sut.HandleUpdateAsync(BriefingMessage);
+        await _sut.HandleUpdateAsync(_briefingMessage);
 
         await _botClient.Received(1).SendRequest(
-            Arg.Is<SendMessageRequest>(r => r.ChatId == BriefingMessage.ChatId),
+            Arg.Is<SendMessageRequest>(r => r.ChatId == _briefingMessage.ChatId),
             Arg.Any<CancellationToken>());
     }
 
     [Fact]
-    public async Task GivenBriefingRoute_WhenExternalApiTimeoutThrown_ThenSendsFallbackMessage()
+    public async Task GivenBriefingRoute_WhenExternalApiTimeoutThrown_ThenSendsFallbackMessageAsync()
     {
-        _router.Route(BriefingMessage.Text).Returns(QueryRoute.Briefing);
+        _router.Route(_briefingMessage.Text).Returns(QueryRoute.Briefing);
         _portfolioEngine
             .GetHoldingsAsync(Arg.Any<CancellationToken>())
             .ThrowsAsync(new ExternalApiTimeoutException("timeout"));
@@ -119,11 +121,11 @@ public sealed class TelegramWebhookServiceTests : IDisposable
             .Returns((MarketSnapshotDto?)null);
         _newsEngine.GetTopHeadlinesAsync(Arg.Any<CancellationToken>()).Returns([]);
 
-        await _sut.HandleUpdateAsync(BriefingMessage);
+        await _sut.HandleUpdateAsync(_briefingMessage);
 
         await _botClient.Received(1).SendRequest(
             Arg.Is<SendMessageRequest>(r =>
-                r.ChatId == BriefingMessage.ChatId &&
+                r.ChatId == _briefingMessage.ChatId &&
                 r.Text == AppConstants.FallbackMessages.ZerodhaUnavailable),
             Arg.Any<CancellationToken>());
     }

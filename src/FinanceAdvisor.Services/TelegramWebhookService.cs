@@ -22,6 +22,7 @@ internal sealed partial class TelegramWebhookService : ITelegramWebhookService
     private readonly IMarketDataProvider _marketProvider;
     private readonly INewsEngine _newsEngine;
     private readonly IQueryRouter _router;
+    private readonly IAIOrchestrator _orchestrator;
     private readonly ILogger<TelegramWebhookService> _logger;
 
     /// <summary>Initializes a new instance of <see cref="TelegramWebhookService"/>.</summary>
@@ -31,6 +32,7 @@ internal sealed partial class TelegramWebhookService : ITelegramWebhookService
     /// <param name="marketProvider">Provider that fetches real-time market index snapshots.</param>
     /// <param name="newsEngine">Engine that fetches top financial news headlines.</param>
     /// <param name="router">Routes incoming messages to the correct processing path.</param>
+    /// <param name="orchestrator">AI orchestrator for deep-path queries.</param>
     /// <param name="logger">Logger instance.</param>
     public TelegramWebhookService(
         ITelegramBotClient botClient,
@@ -39,6 +41,7 @@ internal sealed partial class TelegramWebhookService : ITelegramWebhookService
         IMarketDataProvider marketProvider,
         INewsEngine newsEngine,
         IQueryRouter router,
+        IAIOrchestrator orchestrator,
         ILogger<TelegramWebhookService> logger)
     {
         _botClient = botClient;
@@ -47,6 +50,7 @@ internal sealed partial class TelegramWebhookService : ITelegramWebhookService
         _marketProvider = marketProvider;
         _newsEngine = newsEngine;
         _router = router;
+        _orchestrator = orchestrator;
         _logger = logger;
     }
 
@@ -118,9 +122,10 @@ internal sealed partial class TelegramWebhookService : ITelegramWebhookService
 
             case QueryRoute.DeepPath:
                 LogDeepPath(_logger, message.CorrelationId);
+                string aiResponse = await _orchestrator.ProcessQueryAsync(message.Text, ct);
                 await _botClient.SendMessage(
                     message.ChatId,
-                    AppConstants.BotMessages.AiComingSoon,
+                    aiResponse,
                     cancellationToken: ct);
                 break;
 

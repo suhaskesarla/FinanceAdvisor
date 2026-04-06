@@ -5,7 +5,10 @@ using FinanceAdvisor.Core.Interfaces;
 using FinanceAdvisor.Core.Models.Configuration;
 using FinanceAdvisor.Services;
 using FinanceAdvisor.Services.DataEngines;
+using FinanceAdvisor.Services.Orchestration;
 using Microsoft.Extensions.Http.Resilience;
+using Microsoft.SemanticKernel;
+using Microsoft.SemanticKernel.Connectors.Google;
 using KiteConnect;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http.Timeouts;
@@ -78,6 +81,16 @@ internal static class DependencyInjection
 
         services.AddScoped<IMarketDataProvider, YahooMarketDataProvider>();
         services.AddScoped<INewsEngine, RssNewsEngine>();
+
+        services.AddScoped<IAIOrchestrator, GeminiOrchestrator>();
+
+        IKernelBuilder kernelBuilder = services.AddKernel();
+        kernelBuilder.AddGoogleAIGeminiChatCompletion(
+            modelId: "gemini-2.0-flash",
+            apiKey: configuration["Gemini:ApiKey"]
+                ?? throw new InvalidOperationException(
+                    "Gemini:ApiKey is not configured."),
+            serviceId: "gemini");
 
         services.AddHttpClient("YahooFinance", client =>
         {

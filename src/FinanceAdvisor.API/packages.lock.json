@@ -34,11 +34,33 @@
           "Microsoft.Extensions.Resilience": "8.0.0"
         }
       },
+      "Microsoft.SemanticKernel": {
+        "type": "Direct",
+        "requested": "[1.74.0, )",
+        "resolved": "1.74.0",
+        "contentHash": "V1N0mR8VHLEY11w2w8ls3Bk60fOjp6TaHOduBXMwfaR5ZF2bho6rCQdonU+6zwAKyD1JB+yT0wJ2xt1hcm60+w==",
+        "dependencies": {
+          "Microsoft.SemanticKernel.Connectors.AzureOpenAI": "1.74.0",
+          "Microsoft.SemanticKernel.Core": "1.74.0"
+        }
+      },
+      "Microsoft.SemanticKernel.Connectors.Google": {
+        "type": "Direct",
+        "requested": "[1.72.0-alpha, )",
+        "resolved": "1.72.0-alpha",
+        "contentHash": "9k9tMuwKvuUhD3bExGa+I1HlzgPyB8XDIGNqYuXXcSeOx92rHzIQVkzbu37m7kz/+81JNJdqdH7REtuGcwhaJw==",
+        "dependencies": {
+          "Google.Apis.Auth": "1.73.0",
+          "Google.GenAI": "0.11.0",
+          "Microsoft.SemanticKernel.Abstractions": "1.72.0",
+          "Microsoft.SemanticKernel.Core": "1.72.0"
+        }
+      },
       "Newtonsoft.Json": {
         "type": "Direct",
-        "requested": "[13.0.3, )",
-        "resolved": "13.0.3",
-        "contentHash": "HrC5BXdl00IP9zeV+0Z848QWPAoCr9P3bDEZguI+gkLcBKAOxix/tLEAAHC+UvDNPv4a2d18lOReHMOagPa+zQ=="
+        "requested": "[13.0.4, )",
+        "resolved": "13.0.4",
+        "contentHash": "pdgNNMai3zv51W5aq268sujXUyx7SNdE2bj1wZcWjAQrKMFZV260lbqYop1d2GM67JI1huLRwxo9ZqnfF/lC6A=="
       },
       "Serilog.AspNetCore": {
         "type": "Direct",
@@ -70,6 +92,15 @@
         "requested": "[22.0.0, )",
         "resolved": "22.0.0",
         "contentHash": "S6AmptLXByejOwG5xWzqY7DaV22BQoB6RP3zLfXuJ7i/OKVnCh+6mHFiCtq4DNYGjiU0YAmpT1KWnWc8nR/YDw=="
+      },
+      "Azure.AI.OpenAI": {
+        "type": "Transitive",
+        "resolved": "2.9.0-beta.1",
+        "contentHash": "CgIYDuCSOFx+yPuCdK7iz71OW2envfVeIE/YoNYK+mhr6bxgIJV6jfBF+mV9aHDQ6KVQjeSL6OZ7x90XrvsoRg==",
+        "dependencies": {
+          "Azure.Core": "1.51.1",
+          "OpenAI": "2.9.1"
+        }
       },
       "Azure.Core": {
         "type": "Transitive",
@@ -113,15 +144,79 @@
           "Newtonsoft.Json": "12.0.2"
         }
       },
+      "Google.Apis": {
+        "type": "Transitive",
+        "resolved": "1.73.0",
+        "contentHash": "TnCjEyV2aCLQ6Zl40OCbEJULDuEkEWc6C/g81KYw5l1PqGo+G7pFZrV+YH8XgUL0JRUanz+IrUp8SsKF4dzkqg==",
+        "dependencies": {
+          "Google.Apis.Core": "1.73.0"
+        }
+      },
+      "Google.Apis.Auth": {
+        "type": "Transitive",
+        "resolved": "1.73.0",
+        "contentHash": "wEu12uhnRv3zrPBSqv4E2vPH6lYLtc1RPAnU9MJRCMFlBVwZ7Lnq3NfbYXi6VG7EurkYInTaMpeBZkbM/HrAog==",
+        "dependencies": {
+          "Google.Apis": "1.73.0",
+          "Google.Apis.Core": "1.73.0",
+          "System.Management": "7.0.2"
+        }
+      },
+      "Google.Apis.Core": {
+        "type": "Transitive",
+        "resolved": "1.73.0",
+        "contentHash": "vSc7CY4KCP7HE4QTElDx/ExnGLbg9kXb89MS6cdvI+0D4sxvTYb16vGtXmF2jSDMV3iDmykSXdIUPTz8TDS6gg==",
+        "dependencies": {
+          "Newtonsoft.Json": "13.0.4"
+        }
+      },
+      "Google.GenAI": {
+        "type": "Transitive",
+        "resolved": "0.11.0",
+        "contentHash": "W9fFYcRha8BoJCSZl5subs2k8xMxLtD0+4JCHQkDZKk5hvv+vS6rJ3qSH/Wkl9LPNBsX0EsLUdf3sBPG6n+6RA==",
+        "dependencies": {
+          "Google.Apis.Auth": "1.69.0",
+          "Microsoft.Extensions.AI.Abstractions": "10.1.1",
+          "MimeTypes": "2.5.2"
+        }
+      },
       "Microsoft.Bcl.AsyncInterfaces": {
         "type": "Transitive",
         "resolved": "10.0.2",
         "contentHash": "qE5JhRoeJbAipLqpUCZyNfNwnpAvUttXgIQDnTiJ15d8ji+/bPgoPkB3xLzK5cQTobN2D2ditUesUlDHb7p3Pg=="
       },
+      "Microsoft.Bcl.HashCode": {
+        "type": "Transitive",
+        "resolved": "1.1.1",
+        "contentHash": "MalY0Y/uM/LjXtHfX/26l2VtN4LDNZ2OE3aumNOHDLsT4fNYy2hiHXI4CXCqKpNUNm7iJ2brrc4J89UdaL56FA=="
+      },
       "Microsoft.Bcl.TimeProvider": {
         "type": "Transitive",
         "resolved": "8.0.0",
         "contentHash": "f5Kr5JepAbiGo7uDmhgvMqhntwxqXNn6/IpTBSSI4cuHhgnJGrLxFRhMjVpRkLPp6zJXO0/G0l3j9p9zSJxa+w=="
+      },
+      "Microsoft.Extensions.AI": {
+        "type": "Transitive",
+        "resolved": "10.4.0",
+        "contentHash": "7kKIuaUMFWikveZUjSrs53XfMVV7IDGSDaGp6/y/hV0HXsA7N2oIODZWxtEkEj8Q4cd/Oc/VlsVlg8efof7gFA==",
+        "dependencies": {
+          "Microsoft.Extensions.AI.Abstractions": "10.4.0",
+          "System.Numerics.Tensors": "10.0.4"
+        }
+      },
+      "Microsoft.Extensions.AI.Abstractions": {
+        "type": "Transitive",
+        "resolved": "10.4.0",
+        "contentHash": "t3S2H4do4YeNheIfE3GEl3MnKIrnxpbLu7a88spfApYR3in9ddhIq/GMtxgMaFjn/PUMTCFv5YH7Y6Q91dsDXQ=="
+      },
+      "Microsoft.Extensions.AI.OpenAI": {
+        "type": "Transitive",
+        "resolved": "10.4.0",
+        "contentHash": "7R1fyxwF8KtQi8k2ih3Y6dHZiUfnnmZIgXY7hQ+dFlPkVZoefgKAzdnnrFZzYOjXPeJxh3gqAQ4psXnp59wwqw==",
+        "dependencies": {
+          "Microsoft.Extensions.AI.Abstractions": "10.4.0",
+          "OpenAI": "2.9.1"
+        }
       },
       "Microsoft.Extensions.AmbientMetadata.Application": {
         "type": "Transitive",
@@ -196,6 +291,14 @@
           "Microsoft.Extensions.Compliance.Abstractions": "8.0.0"
         }
       },
+      "Microsoft.Extensions.VectorData.Abstractions": {
+        "type": "Transitive",
+        "resolved": "10.1.0",
+        "contentHash": "I2XfmqEOWOq0Esbo0eWQ6WE5MAJkGyIs057F8ncmPCLJFw9b1IB7Jj5WiFlH6C5YXCAG9Z91QMBD/SkcMLhE7w==",
+        "dependencies": {
+          "Microsoft.Extensions.AI.Abstractions": "10.4.0"
+        }
+      },
       "Microsoft.Identity.Client": {
         "type": "Transitive",
         "resolved": "4.78.0",
@@ -222,6 +325,58 @@
         "type": "Transitive",
         "resolved": "2.3.2",
         "contentHash": "Oh1qXXFdJFcHozvb4H6XYLf2W0meZFuG0A+TfapFPj9z5fd4vxiARGEhAaLj/6XWQaMYIv4SH/9Q6H78Hw0E2Q=="
+      },
+      "Microsoft.SemanticKernel.Abstractions": {
+        "type": "Transitive",
+        "resolved": "1.74.0",
+        "contentHash": "e9sPaCiyvi3FzQWbBTjyvLpq4LDaqekz4/xt+Zi30C9cOZRMw6srULEy/jOo9nDXJQ2bsai6JT5TLxuxGwuFWg==",
+        "dependencies": {
+          "Microsoft.Bcl.HashCode": "1.1.1",
+          "Microsoft.Extensions.AI": "10.4.0",
+          "Microsoft.Extensions.VectorData.Abstractions": "10.1.0"
+        }
+      },
+      "Microsoft.SemanticKernel.Connectors.AzureOpenAI": {
+        "type": "Transitive",
+        "resolved": "1.74.0",
+        "contentHash": "RZm+Bu4Y42ozRcAEJO9ruaBkyTPnLY/3v9hSWBhma6lj6O5Rva8EOLLZkaZM+Dn7d0dgBXOF4U+tedWtFXrjPg==",
+        "dependencies": {
+          "Azure.AI.OpenAI": "2.9.0-beta.1",
+          "Microsoft.SemanticKernel.Connectors.OpenAI": "1.74.0",
+          "Microsoft.SemanticKernel.Core": "1.74.0"
+        }
+      },
+      "Microsoft.SemanticKernel.Connectors.OpenAI": {
+        "type": "Transitive",
+        "resolved": "1.74.0",
+        "contentHash": "xojSsxe0MoJNIQLNGsYiH4jSMDeLnD/yniMEumSz1lt3ybnPHu3Xw1M/C+jfFcqdEXJe64j06b6DRwUs4IjqdQ==",
+        "dependencies": {
+          "Microsoft.Extensions.AI.OpenAI": "10.4.0",
+          "Microsoft.SemanticKernel.Core": "1.74.0",
+          "OpenAI": "2.9.1"
+        }
+      },
+      "Microsoft.SemanticKernel.Core": {
+        "type": "Transitive",
+        "resolved": "1.74.0",
+        "contentHash": "SfV2U3jvIy06BCrOkx3Am6c2lurJued7YEGX36wvk8WeSzgwwnkycqSOQTkbV0GLAzYeBKTA7+5mpPypjc7cPw==",
+        "dependencies": {
+          "Microsoft.SemanticKernel.Abstractions": "1.74.0",
+          "System.Numerics.Tensors": "10.0.4"
+        }
+      },
+      "MimeTypes": {
+        "type": "Transitive",
+        "resolved": "2.5.2",
+        "contentHash": "vm4xrNt+i6OVRQ8vhfCcmDIUg3qvjyCTkSTNVTDFohsG6CXEpMaVFkidECL6yRYpHDnz4TqXhDoEQAcnHCu/tw=="
+      },
+      "OpenAI": {
+        "type": "Transitive",
+        "resolved": "2.9.1",
+        "contentHash": "KPTFYEt1EhrPeIZXGBE+DlutFEpMo/RspqSdUJ3p6pMqsw3NeGJcIja/K0He1j9KyRq8ASfzBgp2biWbNUGnFA==",
+        "dependencies": {
+          "System.ClientModel": "1.9.0"
+        }
       },
       "Polly.Core": {
         "type": "Transitive",
@@ -315,10 +470,28 @@
           "System.Memory.Data": "10.0.1"
         }
       },
+      "System.CodeDom": {
+        "type": "Transitive",
+        "resolved": "7.0.0",
+        "contentHash": "GLltyqEsE5/3IE+zYRP5sNa1l44qKl9v+bfdMcwg+M9qnQf47wK3H0SUR/T+3N4JEQXF3vV4CSuuo0rsg+nq2A=="
+      },
+      "System.Management": {
+        "type": "Transitive",
+        "resolved": "7.0.2",
+        "contentHash": "/qEUN91mP/MUQmJnM5y5BdT7ZoPuVrtxnFlbJ8a3kBJGhe2wCzBfnPFtK2wTtEEcf3DMGR9J00GZZfg6HRI6yA==",
+        "dependencies": {
+          "System.CodeDom": "7.0.0"
+        }
+      },
       "System.Memory.Data": {
         "type": "Transitive",
         "resolved": "10.0.1",
         "contentHash": "BZC4mhdL569AXV56ep9YO6ShjhxFXGP7SwVX0Bc/e0dJPWnS6aBEXZJXqh64RVx8HquqWHkJUINBydLRQ1yq0g=="
+      },
+      "System.Numerics.Tensors": {
+        "type": "Transitive",
+        "resolved": "10.0.4",
+        "contentHash": "EK8wJVxnVfeCzchnEqVjIfZDpVIcmjfjUs9x1nzI41X2naPGT57QjoHlQJma2vDQUxEtPQiGv/v90mwcflx6mQ=="
       },
       "System.Security.Cryptography.ProtectedData": {
         "type": "Transitive",
@@ -332,7 +505,9 @@
         "type": "Project",
         "dependencies": {
           "FinanceAdvisor.Core": "[1.0.0, )",
-          "Newtonsoft.Json": "[13.0.3, )",
+          "Microsoft.SemanticKernel": "[1.74.0, )",
+          "Microsoft.SemanticKernel.Connectors.Google": "[1.72.0-alpha, )",
+          "Newtonsoft.Json": "[13.0.4, )",
           "System.ServiceModel.Syndication": "[8.0.0, )",
           "Tech.Zerodha.KiteConnect": "[5.0.0, )",
           "Telegram.Bot": "[22.0.0, )",
@@ -358,6 +533,14 @@
       }
     },
     "net10.0/linux-x64": {
+      "System.Management": {
+        "type": "Transitive",
+        "resolved": "7.0.2",
+        "contentHash": "/qEUN91mP/MUQmJnM5y5BdT7ZoPuVrtxnFlbJ8a3kBJGhe2wCzBfnPFtK2wTtEEcf3DMGR9J00GZZfg6HRI6yA==",
+        "dependencies": {
+          "System.CodeDom": "7.0.0"
+        }
+      },
       "System.Security.Cryptography.ProtectedData": {
         "type": "Transitive",
         "resolved": "4.5.0",
