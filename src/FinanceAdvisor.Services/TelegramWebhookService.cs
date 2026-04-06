@@ -234,6 +234,6 @@ internal sealed partial class TelegramWebhookService : ITelegramWebhookService
 
     [LoggerMessage(
         Level = LogLevel.Information,
-        Message = "Deep path — AI not yet implemented. CorrelationId={CorrelationId}")]
+        Message = "Routing to AI orchestrator. CorrelationId={CorrelationId}")]
     private static partial void LogDeepPath(ILogger logger, string correlationId);
 }
