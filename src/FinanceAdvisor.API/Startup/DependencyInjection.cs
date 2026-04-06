@@ -89,8 +89,7 @@ internal static class DependencyInjection
             modelId: "gemini-2.0-flash",
             apiKey: configuration["Gemini:ApiKey"]
                 ?? throw new InvalidOperationException(
-                    "Gemini:ApiKey is not configured."),
-            serviceId: "gemini");
+                    "Gemini:ApiKey is not configured."));
 
         services.AddHttpClient("YahooFinance", client =>
         {
