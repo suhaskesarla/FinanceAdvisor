@@ -32,7 +32,7 @@ jobs:
             --no-restore
 
       - name: Zip publish output
-        run: zip -r publish.zip ./publish
+        run: cd publish && zip -r ../publish.zip .
 
       - name: Azure login
         uses: azure/login@v2
@@ -40,11 +40,14 @@ jobs:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
 
       - name: Deploy to Azure App Service
-        uses: azure/webapps-deploy@v3
-        with:
-          app-name: ${{ secrets.AZURE_APP_NAME }}
-          package: publish.zip
-          restart-app: true
+        run: |
+          az webapp deploy \
+            --name ${{ secrets.AZURE_APP_NAME }} \
+            --resource-group ${{ secrets.AZURE_RESOURCE_GROUP }} \
+            --src-path publish.zip \
+            --type zip \
+            --clean true \
+            --restart true
 
       - name: Verify deployment health
         run: |
