@@ -1,6 +1,7 @@
 namespace FinanceAdvisor.Services.Orchestration;
 
 using System.Diagnostics;
+using System.Net;
 using FinanceAdvisor.Core.Constants;
 using FinanceAdvisor.Core.Interfaces;
 using Microsoft.Extensions.Logging;
@@ -51,6 +52,11 @@ internal sealed partial class GeminiOrchestrator : IAIOrchestrator
             LogLlmTimeout(_logger);
             return AppConstants.FallbackMessages.LlmTimeout;
         }
+        catch (HttpOperationException ex) when (ex.StatusCode == HttpStatusCode.TooManyRequests)
+        {
+            LogLlmRateLimited(_logger);
+            return AppConstants.FallbackMessages.RateLimitExceeded;
+        }
         catch (Exception ex)
         {
             LogLlmFailed(_logger, ex);
@@ -62,6 +68,11 @@ internal sealed partial class GeminiOrchestrator : IAIOrchestrator
         Level = LogLevel.Warning,
         Message = "Gemini call timed out after LLM timeout window.")]
     private static partial void LogLlmTimeout(ILogger logger);
+
+    [LoggerMessage(
+        Level = LogLevel.Warning,
+        Message = "Gemini rate limit exceeded (HTTP 429). Returning fallback to user.")]
+    private static partial void LogLlmRateLimited(ILogger logger);
 
     [LoggerMessage(
         Level = LogLevel.Error,

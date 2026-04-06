@@ -121,6 +121,10 @@ public static class AppConstants
         public const string TotalFailure =
             "Something went wrong on our end. Please try again shortly.";
 
+        /// <summary>Returned when the Gemini API rate limit is exceeded (HTTP 429).</summary>
+        public const string RateLimitExceeded =
+            "I'm receiving too many requests right now — please try again in a minute.";
+
         /// <summary>Returned when market data is unavailable.</summary>
         public const string MarketUnavailable =
             "Market data is temporarily unavailable.";
