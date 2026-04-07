@@ -4,19 +4,26 @@ using System.Diagnostics;
 using System.Net;
 using FinanceAdvisor.Core.Constants;
 using FinanceAdvisor.Core.Interfaces;
+using FinanceAdvisor.Core.Models.Configuration;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
 using Microsoft.SemanticKernel;
 using Microsoft.SemanticKernel.ChatCompletion;
 
-internal sealed partial class GeminiOrchestrator : IAIOrchestrator
+internal sealed partial class SemanticKernelOrchestrator : IAIOrchestrator
 {
     private readonly Kernel _kernel;
-    private readonly ILogger<GeminiOrchestrator> _logger;
+    private readonly ILogger<SemanticKernelOrchestrator> _logger;
+    private readonly string _providerName;
 
-    public GeminiOrchestrator(Kernel kernel, ILogger<GeminiOrchestrator> logger)
+    public SemanticKernelOrchestrator(
+        Kernel kernel,
+        ILogger<SemanticKernelOrchestrator> logger,
+        IOptions<AiProviderSettings> aiOptions)
     {
         _kernel = kernel;
         _logger = logger;
+        _providerName = aiOptions.Value.Provider;
     }
 
     /// <inheritdoc/>
@@ -43,45 +50,45 @@ internal sealed partial class GeminiOrchestrator : IAIOrchestrator
                 cancellationToken: llmCts.Token);
 
             sw.Stop();
-            LogLlmCompleted(_logger, string.Empty, sw.ElapsedMilliseconds);
+            LogLlmCompleted(_logger, _providerName, string.Empty, sw.ElapsedMilliseconds);
 
             return result.Content ?? AppConstants.FallbackMessages.TotalFailure;
         }
         catch (OperationCanceledException)
         {
-            LogLlmTimeout(_logger);
+            LogLlmTimeout(_logger, _providerName);
             return AppConstants.FallbackMessages.LlmTimeout;
         }
         catch (HttpOperationException ex) when (ex.StatusCode == HttpStatusCode.TooManyRequests)
         {
-            LogLlmRateLimited(_logger);
+            LogLlmRateLimited(_logger, _providerName);
             return AppConstants.FallbackMessages.RateLimitExceeded;
         }
         catch (Exception ex)
         {
-            LogLlmFailed(_logger, ex);
+            LogLlmFailed(_logger, _providerName, ex);
             return AppConstants.FallbackMessages.TotalFailure;
         }
     }
 
     [LoggerMessage(
         Level = LogLevel.Warning,
-        Message = "Gemini call timed out after LLM timeout window.")]
-    private static partial void LogLlmTimeout(ILogger logger);
+        Message = "{Provider} call timed out after LLM timeout window.")]
+    private static partial void LogLlmTimeout(ILogger logger, string provider);
 
     [LoggerMessage(
         Level = LogLevel.Warning,
-        Message = "Gemini rate limit exceeded (HTTP 429). Returning fallback to user.")]
-    private static partial void LogLlmRateLimited(ILogger logger);
+        Message = "{Provider} rate limit exceeded (HTTP 429). Returning fallback to user.")]
+    private static partial void LogLlmRateLimited(ILogger logger, string provider);
 
     [LoggerMessage(
         Level = LogLevel.Error,
-        Message = "Gemini call failed with unexpected exception.")]
-    private static partial void LogLlmFailed(ILogger logger, Exception ex);
+        Message = "{Provider} call failed with unexpected exception.")]
+    private static partial void LogLlmFailed(ILogger logger, string provider, Exception ex);
 
     [LoggerMessage(
         Level = LogLevel.Information,
-        Message = "Gemini response received. CorrelationId={CorrelationId} LatencyMs={LatencyMs}")]
+        Message = "{Provider} response received. CorrelationId={CorrelationId} LatencyMs={LatencyMs}")]
     private static partial void LogLlmCompleted(
-        ILogger logger, string correlationId, long latencyMs);
+        ILogger logger, string provider, string correlationId, long latencyMs);
 }

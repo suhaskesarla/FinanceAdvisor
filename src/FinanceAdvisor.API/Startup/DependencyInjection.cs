@@ -84,7 +84,7 @@ internal static class DependencyInjection
         services.AddScoped<IMarketDataProvider, YahooMarketDataProvider>();
         services.AddScoped<INewsEngine, RssNewsEngine>();
 
-        services.AddScoped<IAIOrchestrator, GeminiOrchestrator>();
+        services.AddScoped<IAIOrchestrator, SemanticKernelOrchestrator>();
 
         IKernelBuilder kernelBuilder = services.AddKernel();
         string aiProvider = configuration["AI:Provider"] ?? AppConstants.AiProvider.Gemini;
