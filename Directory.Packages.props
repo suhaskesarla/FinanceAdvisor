@@ -18,6 +18,7 @@
 
     <PackageVersion Include="Microsoft.SemanticKernel" Version="1.74.0" />
     <PackageVersion Include="Microsoft.SemanticKernel.Connectors.Google" Version="1.72.0-alpha" />
+    <PackageVersion Include="Microsoft.SemanticKernel.Connectors.OpenAI" Version="1.74.0" />
 
     <PackageVersion Include="Microsoft.Extensions.Caching.Memory" Version="10.0.5" />
 

@@ -38,6 +38,22 @@ public static class AppConstants
         public const int RetryBaseDelayMs = 500;
     }
 
+    /// <summary>AI provider identifiers and default model IDs.</summary>
+    public static class AiProvider
+    {
+        /// <summary>Google Gemini provider name. Matches the AI:Provider config value.</summary>
+        public const string Gemini = "Gemini";
+
+        /// <summary>OpenAI provider name. Matches the AI:Provider config value.</summary>
+        public const string OpenAI = "OpenAI";
+
+        /// <summary>Default Gemini model used when Gemini:ModelId is not set.</summary>
+        public const string DefaultGeminiModelId = "gemini-2.0-flash";
+
+        /// <summary>Default OpenAI model used when OpenAI:ModelId is not set.</summary>
+        public const string DefaultOpenAiModelId = "gpt-4o-mini";
+    }
+
     /// <summary>Gemini API rate and token limits.</summary>
     public static class GeminiLimits
     {
