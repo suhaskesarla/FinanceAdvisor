@@ -25,8 +25,8 @@ public static class AppConstants
         /// <summary>Maximum processing time allowed for a single webhook request (seconds). Telegram supports up to 60 s.</summary>
         public const int WebhookSeconds = 25;
 
-        /// <summary>Maximum time to wait for an LLM response (seconds).</summary>
-        public const int LlmSeconds = 5;
+        /// <summary>Maximum time to wait for an LLM response (seconds). Raised to 15 to accommodate higher latency on Azure B1 (Australia region) to OpenAI.</summary>
+        public const int LlmSeconds = 15;
 
         /// <summary>Total pipeline timeout (all attempts + delays) for a single external API call (seconds).</summary>
         public const int ExternalApiSeconds = 10;
@@ -127,7 +127,7 @@ public static class AppConstants
     {
         /// <summary>Returned when the LLM call exceeds the configured timeout.</summary>
         public const string LlmTimeout =
-            "Analysis is taking too long — please try again in a moment.";
+            "I'm taking a bit longer than usual to think. Please try again in a moment.";
 
         /// <summary>Returned when the Zerodha portfolio API is unavailable.</summary>
         public const string ZerodhaUnavailable =
