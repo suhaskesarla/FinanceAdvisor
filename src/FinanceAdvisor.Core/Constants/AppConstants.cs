@@ -122,6 +122,43 @@ public static class AppConstants
             "_Natural language also works: try 'show my portfolio' or 'market update'_";
     }
 
+    /// <summary>Query routing thresholds. All tuning belongs here — never in QueryRouter.</summary>
+    /// <summary>Query routing thresholds. All tuning belongs here — never in QueryRouter.</summary>
+    public static class QueryRouting
+    {
+        /// <summary>Maximum word count for a short input eligible for shallow keyword routing.</summary>
+        public const int ShallowMaxWordCount = 4;
+
+        /// <summary>Inputs with at least this many words are forwarded to AI even without a question marker.</summary>
+        public const int AiWorthyMinWordCount = 5;
+
+        /// <summary>Inputs longer than this character count are forwarded to AI even without a question marker.</summary>
+        public const int AiWorthyMinLength = 100;
+    }
+
+    /// <summary>.NET Metrics instrument names. Reference these when configuring dashboards or alerts.</summary>
+    public static class Metrics
+    {
+        /// <summary>Meter that owns all QueryRouter instruments. Register with AddMetrics() in DI.</summary>
+        public const string QueryRouterMeterName = "FinanceAdvisor.QueryRouter";
+
+        /// <summary>Counter incremented on every routing decision. Tags: route, reason, confidence.</summary>
+        public const string RouteDecisionsCounter = "query_router.decisions";
+
+        /// <summary>Confidence levels emitted as the 'confidence' tag on the route decisions counter.</summary>
+        public static class Confidence
+        {
+            /// <summary>Unambiguous signal — exact command, clear question, explicit small-talk word.</summary>
+            public const string High = "high";
+
+            /// <summary>Heuristic signal — phrase pattern, word-count threshold, length threshold.</summary>
+            public const string Medium = "medium";
+
+            /// <summary>No clear signal — generic fallback applied.</summary>
+            public const string Low = "low";
+        }
+    }
+
     /// <summary>Fallback messages returned to users when a subsystem fails.</summary>
     public static class FallbackMessages
     {

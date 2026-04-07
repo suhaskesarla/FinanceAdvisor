@@ -48,6 +48,7 @@ internal static class DependencyInjection
         options.JsonSerializerOptions.PropertyNameCaseInsensitive = true;
     });
         services.AddMemoryCache();
+        services.AddMetrics();
         services.AddHealthChecks();
 
         services.AddRequestTimeouts(options =>
