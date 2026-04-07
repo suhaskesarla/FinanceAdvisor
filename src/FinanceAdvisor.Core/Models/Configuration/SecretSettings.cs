@@ -31,4 +31,24 @@ public sealed record GeminiSettings
 {
     /// <summary>The Gemini API key.</summary>
     public string ApiKey { get; init; } = string.Empty;
+
+    /// <summary>The Gemini model ID. Defaults to gemini-2.0-flash when not set.</summary>
+    public string ModelId { get; init; } = string.Empty;
+}
+
+/// <summary>OpenAI API credentials.</summary>
+public sealed record OpenAiSettings
+{
+    /// <summary>The OpenAI API key.</summary>
+    public string ApiKey { get; init; } = string.Empty;
+
+    /// <summary>The OpenAI model ID. Defaults to gpt-4o-mini when not set.</summary>
+    public string ModelId { get; init; } = string.Empty;
+}
+
+/// <summary>AI provider selection configuration.</summary>
+public sealed record AiProviderSettings
+{
+    /// <summary>Active provider name — either "Gemini" or "OpenAI".</summary>
+    public string Provider { get; init; } = string.Empty;
 }

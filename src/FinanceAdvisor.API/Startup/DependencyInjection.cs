@@ -61,6 +61,8 @@ internal static class DependencyInjection
         services.Configure<TelegramSettings>(configuration.GetSection("Telegram"));
         services.Configure<ZerodhaSettings>(configuration.GetSection("Zerodha"));
         services.Configure<GeminiSettings>(configuration.GetSection("Gemini"));
+        services.Configure<OpenAiSettings>(configuration.GetSection("OpenAI"));
+        services.Configure<AiProviderSettings>(configuration.GetSection("AI"));
 
         services.AddSingleton<ITelegramBotClient>(sp =>
         {
@@ -85,11 +87,22 @@ internal static class DependencyInjection
         services.AddScoped<IAIOrchestrator, GeminiOrchestrator>();
 
         IKernelBuilder kernelBuilder = services.AddKernel();
-        kernelBuilder.AddGoogleAIGeminiChatCompletion(
-            modelId: "gemini-2.0-flash",
-            apiKey: configuration["Gemini:ApiKey"]
-                ?? throw new InvalidOperationException(
-                    "Gemini:ApiKey is not configured."));
+        string aiProvider = configuration["AI:Provider"] ?? AppConstants.AiProvider.Gemini;
+
+        if (aiProvider.Equals(AppConstants.AiProvider.OpenAI, StringComparison.OrdinalIgnoreCase))
+        {
+            string openAiKey = configuration["OpenAI:ApiKey"]
+                ?? throw new InvalidOperationException("OpenAI:ApiKey is not configured.");
+            string openAiModel = configuration["OpenAI:ModelId"] ?? AppConstants.AiProvider.DefaultOpenAiModelId;
+            kernelBuilder.AddOpenAIChatCompletion(modelId: openAiModel, apiKey: openAiKey);
+        }
+        else
+        {
+            string geminiKey = configuration["Gemini:ApiKey"]
+                ?? throw new InvalidOperationException("Gemini:ApiKey is not configured.");
+            string geminiModel = configuration["Gemini:ModelId"] ?? AppConstants.AiProvider.DefaultGeminiModelId;
+            kernelBuilder.AddGoogleAIGeminiChatCompletion(modelId: geminiModel, apiKey: geminiKey);
+        }
 
         services.AddHttpClient("YahooFinance", client =>
         {

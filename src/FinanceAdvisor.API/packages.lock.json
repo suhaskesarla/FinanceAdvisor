@@ -56,6 +56,17 @@
           "Microsoft.SemanticKernel.Core": "1.72.0"
         }
       },
+      "Microsoft.SemanticKernel.Connectors.OpenAI": {
+        "type": "Direct",
+        "requested": "[1.74.0, )",
+        "resolved": "1.74.0",
+        "contentHash": "xojSsxe0MoJNIQLNGsYiH4jSMDeLnD/yniMEumSz1lt3ybnPHu3Xw1M/C+jfFcqdEXJe64j06b6DRwUs4IjqdQ==",
+        "dependencies": {
+          "Microsoft.Extensions.AI.OpenAI": "10.4.0",
+          "Microsoft.SemanticKernel.Core": "1.74.0",
+          "OpenAI": "2.9.1"
+        }
+      },
       "Newtonsoft.Json": {
         "type": "Direct",
         "requested": "[13.0.4, )",
@@ -344,16 +355,6 @@
           "Azure.AI.OpenAI": "2.9.0-beta.1",
           "Microsoft.SemanticKernel.Connectors.OpenAI": "1.74.0",
           "Microsoft.SemanticKernel.Core": "1.74.0"
-        }
-      },
-      "Microsoft.SemanticKernel.Connectors.OpenAI": {
-        "type": "Transitive",
-        "resolved": "1.74.0",
-        "contentHash": "xojSsxe0MoJNIQLNGsYiH4jSMDeLnD/yniMEumSz1lt3ybnPHu3Xw1M/C+jfFcqdEXJe64j06b6DRwUs4IjqdQ==",
-        "dependencies": {
-          "Microsoft.Extensions.AI.OpenAI": "10.4.0",
-          "Microsoft.SemanticKernel.Core": "1.74.0",
-          "OpenAI": "2.9.1"
         }
       },
       "Microsoft.SemanticKernel.Core": {
