@@ -167,7 +167,7 @@ internal static class DependencyInjection
             };
 
             options.AttemptTimeout.Timeout =
-                TimeSpan.FromSeconds(AppConstants.Timeouts.ExternalApiAttemptSeconds);
+                TimeSpan.FromSeconds(AppConstants.Timeouts.YahooFinanceAttemptSeconds);
             options.TotalRequestTimeout.Timeout =
                 TimeSpan.FromSeconds(AppConstants.Timeouts.ExternalApiSeconds);
         });

@@ -18,7 +18,14 @@ internal sealed class MarketPlugin
     [KernelFunction("get_market_snapshot")]
     public async Task<string> GetMarketSnapshotAsync(CancellationToken ct = default)
     {
-        var snapshot = await _marketDataProvider.GetMarketSnapshotAsync("^NSEI", ct);
-        return JsonSerializer.Serialize(snapshot);
+        try
+        {
+            var snapshot = await _marketDataProvider.GetMarketSnapshotAsync("^NSEI", ct);
+            return JsonSerializer.Serialize(snapshot);
+        }
+        catch (Exception ex)
+        {
+            return $"Error: MarketData is unavailable (Reason: {ex.Message}).";
+        }
     }
 }

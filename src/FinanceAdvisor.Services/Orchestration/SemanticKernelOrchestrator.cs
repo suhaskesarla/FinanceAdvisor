@@ -81,6 +81,8 @@ internal sealed partial class SemanticKernelOrchestrator : IAIOrchestrator
                 Arguments = new KernelArguments(new PromptExecutionSettings
                 {
                     ServiceId = _gathererServiceId,
+                    // Auto allows the LLM to request multiple tools in a single response;
+                    // SK handles all invocations before returning to the caller.
                     FunctionChoiceBehavior = FunctionChoiceBehavior.Auto()
                 })
             };
@@ -110,7 +112,8 @@ internal sealed partial class SemanticKernelOrchestrator : IAIOrchestrator
                     "RULE 2: Never hallucinate figures. " +
                     "RULE 3: Keep under 3 paragraphs. " +
                     "RULE 4: Format in Telegram MarkdownV2. " +
-                    "RULE 5: You MUST escape reserved characters (e.g. '.', '-', '!') with a backslash to comply with MarkdownV2.",
+                    "RULE 5: You MUST escape reserved characters (e.g. '.', '-', '!') with a backslash to comply with MarkdownV2. " +
+                    "RULE 6: If the data contains 'USER_ACTION_REQUIRED', stop the analysis and immediately ask the user to perform that specific action (e.g., /login).",
                 Kernel = _analystKernel,
                 Arguments = new KernelArguments(new PromptExecutionSettings
                 {
