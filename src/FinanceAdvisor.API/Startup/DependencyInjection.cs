@@ -64,6 +64,7 @@ internal static class DependencyInjection
         services.Configure<ZerodhaSettings>(configuration.GetSection("Zerodha"));
         services.Configure<GeminiSettings>(configuration.GetSection("Gemini"));
         services.Configure<OpenAiSettings>(configuration.GetSection("OpenAI"));
+        services.Configure<AnthropicSettings>(configuration.GetSection("Anthropic"));
         services.Configure<AiProviderSettings>(configuration.GetSection("AI"));
 
         services.AddSingleton<ITelegramBotClient>(sp =>
@@ -93,21 +94,38 @@ internal static class DependencyInjection
         services.AddScoped<IAIOrchestrator, SemanticKernelOrchestrator>();
 
         IKernelBuilder kernelBuilder = services.AddKernel();
-        string aiProvider = configuration["AI:Provider"] ?? AppConstants.AiProvider.Gemini;
 
-        if (aiProvider.Equals(AppConstants.AiProvider.OpenAI, StringComparison.OrdinalIgnoreCase))
+        string? openAiKey = configuration["OpenAI:ApiKey"];
+        if (!string.IsNullOrWhiteSpace(openAiKey))
         {
-            string openAiKey = configuration["OpenAI:ApiKey"]
-                ?? throw new InvalidOperationException("OpenAI:ApiKey is not configured.");
             string openAiModel = configuration["OpenAI:ModelId"] ?? AppConstants.AiProvider.DefaultOpenAiModelId;
-            kernelBuilder.AddOpenAIChatCompletion(modelId: openAiModel, apiKey: openAiKey);
+            kernelBuilder.AddOpenAIChatCompletion(
+                modelId: openAiModel,
+                apiKey: openAiKey,
+                serviceId: AppConstants.AiProvider.OpenAI);
         }
-        else
+
+        string? geminiKey = configuration["Gemini:ApiKey"];
+        if (!string.IsNullOrWhiteSpace(geminiKey))
         {
-            string geminiKey = configuration["Gemini:ApiKey"]
-                ?? throw new InvalidOperationException("Gemini:ApiKey is not configured.");
             string geminiModel = configuration["Gemini:ModelId"] ?? AppConstants.AiProvider.DefaultGeminiModelId;
-            kernelBuilder.AddGoogleAIGeminiChatCompletion(modelId: geminiModel, apiKey: geminiKey);
+            kernelBuilder.AddGoogleAIGeminiChatCompletion(
+                modelId: geminiModel,
+                apiKey: geminiKey,
+                serviceId: AppConstants.AiProvider.Gemini);
+        }
+
+        string? anthropicKey = configuration["Anthropic:ApiKey"];
+        if (!string.IsNullOrWhiteSpace(anthropicKey))
+        {
+            // Claude is registered via SK's OpenAI connector against Anthropic's OpenAI-compatible API.
+            // Anthropic supports the OpenAI chat-completions wire format at /v1/chat/completions.
+            string claudeModel = configuration["Anthropic:ModelId"] ?? AppConstants.AiProvider.DefaultClaudeModelId;
+            kernelBuilder.AddOpenAIChatCompletion(
+                modelId: claudeModel,
+                endpoint: new Uri(AppConstants.AiProvider.AnthropicOpenAiCompatibleEndpoint),
+                apiKey: anthropicKey,
+                serviceId: AppConstants.AiProvider.Claude);
         }
 
         services.AddHttpClient("YahooFinance", client =>

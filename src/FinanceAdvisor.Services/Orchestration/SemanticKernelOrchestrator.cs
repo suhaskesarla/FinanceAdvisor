@@ -4,9 +4,11 @@ using System.Diagnostics;
 using System.Net;
 using System.Text;
 using FinanceAdvisor.Core.Constants;
+using FinanceAdvisor.Core.Exceptions;
 using FinanceAdvisor.Core.Interfaces;
 using FinanceAdvisor.Core.Models.Configuration;
 using FinanceAdvisor.Services.Plugins;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Microsoft.SemanticKernel;
@@ -18,7 +20,8 @@ internal sealed partial class SemanticKernelOrchestrator : IAIOrchestrator
     private readonly Kernel _gathererKernel;
     private readonly Kernel _analystKernel;
     private readonly ILogger<SemanticKernelOrchestrator> _logger;
-    private readonly string _providerName;
+    private readonly string _gathererServiceId;
+    private readonly string _analystServiceId;
 
     public SemanticKernelOrchestrator(
         Kernel kernel,
@@ -28,6 +31,11 @@ internal sealed partial class SemanticKernelOrchestrator : IAIOrchestrator
         MarketPlugin marketPlugin,
         NewsPlugin newsPlugin)
     {
+        AiProviderSettings settings = aiOptions.Value;
+
+        ValidateServiceId(kernel, settings.GathererServiceId);
+        ValidateServiceId(kernel, settings.AnalystServiceId);
+
         _gathererKernel = kernel.Clone();
         _gathererKernel.Plugins.AddFromObject(portfolioPlugin);
         _gathererKernel.Plugins.AddFromObject(marketPlugin);
@@ -36,7 +44,19 @@ internal sealed partial class SemanticKernelOrchestrator : IAIOrchestrator
         _analystKernel = new Kernel(kernel.Services);
 
         _logger = logger;
-        _providerName = aiOptions.Value.Provider;
+        _gathererServiceId = settings.GathererServiceId;
+        _analystServiceId = settings.AnalystServiceId;
+    }
+
+    private static void ValidateServiceId(Kernel kernel, string serviceId)
+    {
+        if (string.IsNullOrWhiteSpace(serviceId))
+        {
+            throw new InvalidProviderConfigurationException(serviceId ?? string.Empty);
+        }
+
+        _ = kernel.Services.GetKeyedService<IChatCompletionService>(serviceId)
+            ?? throw new InvalidProviderConfigurationException(serviceId);
     }
 
     /// <inheritdoc/>
@@ -60,6 +80,7 @@ internal sealed partial class SemanticKernelOrchestrator : IAIOrchestrator
                 Kernel = _gathererKernel,
                 Arguments = new KernelArguments(new PromptExecutionSettings
                 {
+                    ServiceId = _gathererServiceId,
                     FunctionChoiceBehavior = FunctionChoiceBehavior.Auto()
                 })
             };
@@ -77,7 +98,7 @@ internal sealed partial class SemanticKernelOrchestrator : IAIOrchestrator
             }
 
             sw.Stop();
-            LogGathererCompleted(_logger, _providerName, sw.ElapsedMilliseconds);
+            LogGathererCompleted(_logger, _gathererServiceId, sw.ElapsedMilliseconds);
             sw.Restart();
 
             var analystAgent = new ChatCompletionAgent
@@ -90,7 +111,11 @@ internal sealed partial class SemanticKernelOrchestrator : IAIOrchestrator
                     "RULE 3: Keep under 3 paragraphs. " +
                     "RULE 4: Format in Telegram MarkdownV2. " +
                     "RULE 5: You MUST escape reserved characters (e.g. '.', '-', '!') with a backslash to comply with MarkdownV2.",
-                Kernel = _analystKernel
+                Kernel = _analystKernel,
+                Arguments = new KernelArguments(new PromptExecutionSettings
+                {
+                    ServiceId = _analystServiceId
+                })
             };
 
             var analystHistory = new ChatHistory();
@@ -107,24 +132,24 @@ internal sealed partial class SemanticKernelOrchestrator : IAIOrchestrator
             }
 
             sw.Stop();
-            LogLlmCompleted(_logger, _providerName, string.Empty, sw.ElapsedMilliseconds);
+            LogLlmCompleted(_logger, _analystServiceId, string.Empty, sw.ElapsedMilliseconds);
 
             string result = analystResponse.ToString();
             return result.Length > 0 ? result : AppConstants.FallbackMessages.TotalFailure;
         }
         catch (OperationCanceledException)
         {
-            LogLlmTimeout(_logger, _providerName);
+            LogLlmTimeout(_logger, _gathererServiceId, _analystServiceId);
             return AppConstants.FallbackMessages.LlmTimeout;
         }
         catch (HttpOperationException ex) when (ex.StatusCode == HttpStatusCode.TooManyRequests)
         {
-            LogLlmRateLimited(_logger, _providerName);
+            LogLlmRateLimited(_logger, _gathererServiceId, _analystServiceId);
             return AppConstants.FallbackMessages.RateLimitExceeded;
         }
         catch (Exception ex)
         {
-            LogLlmFailed(_logger, _providerName, ex);
+            LogLlmFailed(_logger, _gathererServiceId, _analystServiceId, ex);
             return AppConstants.FallbackMessages.TotalFailure;
         }
     }
@@ -136,18 +161,18 @@ internal sealed partial class SemanticKernelOrchestrator : IAIOrchestrator
 
     [LoggerMessage(
         Level = LogLevel.Warning,
-        Message = "{Provider} call timed out after LLM timeout window.")]
-    private static partial void LogLlmTimeout(ILogger logger, string provider);
+        Message = "LLM call timed out. GathererServiceId={GathererServiceId} AnalystServiceId={AnalystServiceId}")]
+    private static partial void LogLlmTimeout(ILogger logger, string gathererServiceId, string analystServiceId);
 
     [LoggerMessage(
         Level = LogLevel.Warning,
-        Message = "{Provider} rate limit exceeded (HTTP 429). Returning fallback to user.")]
-    private static partial void LogLlmRateLimited(ILogger logger, string provider);
+        Message = "Rate limit exceeded (HTTP 429). GathererServiceId={GathererServiceId} AnalystServiceId={AnalystServiceId}")]
+    private static partial void LogLlmRateLimited(ILogger logger, string gathererServiceId, string analystServiceId);
 
     [LoggerMessage(
         Level = LogLevel.Error,
-        Message = "{Provider} call failed with unexpected exception.")]
-    private static partial void LogLlmFailed(ILogger logger, string provider, Exception ex);
+        Message = "LLM call failed. GathererServiceId={GathererServiceId} AnalystServiceId={AnalystServiceId}")]
+    private static partial void LogLlmFailed(ILogger logger, string gathererServiceId, string analystServiceId, Exception ex);
 
     [LoggerMessage(
         Level = LogLevel.Information,

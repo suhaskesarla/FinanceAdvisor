@@ -41,17 +41,29 @@ public static class AppConstants
     /// <summary>AI provider identifiers and default model IDs.</summary>
     public static class AiProvider
     {
-        /// <summary>Google Gemini provider name. Matches the AI:Provider config value.</summary>
+        /// <summary>Google Gemini provider serviceId. Matches the kernel registration key.</summary>
         public const string Gemini = "Gemini";
 
-        /// <summary>OpenAI provider name. Matches the AI:Provider config value.</summary>
+        /// <summary>OpenAI provider serviceId. Matches the kernel registration key.</summary>
         public const string OpenAI = "OpenAI";
+
+        /// <summary>Anthropic Claude provider serviceId. Matches the kernel registration key.</summary>
+        public const string Claude = "Claude";
 
         /// <summary>Default Gemini model used when Gemini:ModelId is not set.</summary>
         public const string DefaultGeminiModelId = "gemini-2.0-flash";
 
         /// <summary>Default OpenAI model used when OpenAI:ModelId is not set.</summary>
         public const string DefaultOpenAiModelId = "gpt-4o-mini";
+
+        /// <summary>Default Claude model used when Anthropic:ModelId is not set.</summary>
+        public const string DefaultClaudeModelId = "claude-3-5-haiku-20241022";
+
+        /// <summary>
+        /// Anthropic's OpenAI-compatible API base URL.
+        /// The OpenAI SK connector uses this as its endpoint, appending /chat/completions for inference.
+        /// </summary>
+        public const string AnthropicOpenAiCompatibleEndpoint = "https://api.anthropic.com/v1";
     }
 
     /// <summary>Gemini API rate and token limits.</summary>
