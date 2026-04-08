@@ -46,9 +46,31 @@ public sealed record OpenAiSettings
     public string ModelId { get; init; } = string.Empty;
 }
 
+/// <summary>Anthropic Claude API credentials.</summary>
+public sealed record AnthropicSettings
+{
+    /// <summary>The Anthropic API key.</summary>
+    public string ApiKey { get; init; } = string.Empty;
+
+    /// <summary>The Claude model ID. Defaults to claude-3-5-haiku-20241022 when not set.</summary>
+    public string ModelId { get; init; } = string.Empty;
+}
+
 /// <summary>AI provider selection configuration.</summary>
 public sealed record AiProviderSettings
 {
-    /// <summary>Active provider name — either "Gemini" or "OpenAI".</summary>
+    /// <summary>Active provider name — either "Gemini", "OpenAI", or "Claude".</summary>
     public string Provider { get; init; } = string.Empty;
+
+    /// <summary>
+    /// ServiceId of the chat completion service the DataGatherer agent should use.
+    /// Must match a registered serviceId: "OpenAI", "Gemini", or "Claude".
+    /// </summary>
+    public string GathererServiceId { get; init; } = string.Empty;
+
+    /// <summary>
+    /// ServiceId of the chat completion service the FinancialAnalyst agent should use.
+    /// Must match a registered serviceId: "OpenAI", "Gemini", or "Claude".
+    /// </summary>
+    public string AnalystServiceId { get; init; } = string.Empty;
 }
