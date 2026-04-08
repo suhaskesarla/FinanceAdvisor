@@ -25,14 +25,17 @@ public static class AppConstants
         /// <summary>Maximum processing time allowed for a single webhook request (seconds). Telegram supports up to 60 s.</summary>
         public const int WebhookSeconds = 25;
 
-        /// <summary>Maximum time to wait for an LLM response (seconds). Raised to 15 to accommodate higher latency on Azure B1 (Australia region) to OpenAI.</summary>
-        public const int LlmSeconds = 15;
+        /// <summary>Maximum time to wait for an LLM response (seconds). Raised to 30 to accommodate multi-agent flows (gatherer + analyst) on Azure B1.</summary>
+        public const int LlmSeconds = 30;
 
         /// <summary>Total pipeline timeout (all attempts + delays) for a single external API call (seconds).</summary>
         public const int ExternalApiSeconds = 10;
 
         /// <summary>Per-attempt timeout for resilience handlers — must be strictly less than ExternalApiSeconds.</summary>
         public const int ExternalApiAttemptSeconds = 7;
+
+        /// <summary>Per-attempt timeout for the Yahoo Finance resilience handler. Kept short so a slow quote fetch doesn't stall the full multi-agent pipeline.</summary>
+        public const int YahooFinanceAttemptSeconds = 3;
 
         /// <summary>Base delay for exponential back-off on retry (milliseconds). Jitter is applied on top by the resilience handler.</summary>
         public const int RetryBaseDelayMs = 500;

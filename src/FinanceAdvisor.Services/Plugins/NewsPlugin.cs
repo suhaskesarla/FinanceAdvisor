@@ -19,7 +19,14 @@ internal sealed class NewsPlugin
     [KernelFunction("get_top_headlines")]
     public async Task<string> GetTopHeadlinesAsync(CancellationToken ct = default)
     {
-        var headlines = await _newsEngine.GetTopHeadlinesAsync(ct);
-        return JsonSerializer.Serialize(headlines.Take(5));
+        try
+        {
+            var headlines = await _newsEngine.GetTopHeadlinesAsync(ct);
+            return JsonSerializer.Serialize(headlines.Take(5));
+        }
+        catch (Exception ex)
+        {
+            return $"Error: News is unavailable (Reason: {ex.Message}).";
+        }
     }
 }
