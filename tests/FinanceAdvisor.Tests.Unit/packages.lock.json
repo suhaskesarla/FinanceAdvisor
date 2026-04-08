@@ -140,6 +140,16 @@
           "MimeTypes": "2.5.2"
         }
       },
+      "Microsoft.Agents.AI.Abstractions": {
+        "type": "Transitive",
+        "resolved": "1.0.0-preview.251009.1",
+        "contentHash": "8Bfppenx9ETyhDsJ30Hixy/zf/t2t/vt03+jl7uLd5XgadZo+xQcEYa16ANHUAcJzBH7ou85sSRO8MohNiFgiw==",
+        "dependencies": {
+          "Microsoft.Extensions.AI.Abstractions": "9.9.1",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "9.0.9",
+          "Microsoft.Extensions.Logging.Abstractions": "9.0.9"
+        }
+      },
       "Microsoft.Bcl.AsyncInterfaces": {
         "type": "Transitive",
         "resolved": "10.0.2",
@@ -299,6 +309,15 @@
           "Microsoft.Extensions.VectorData.Abstractions": "10.1.0"
         }
       },
+      "Microsoft.SemanticKernel.Agents.Abstractions": {
+        "type": "Transitive",
+        "resolved": "1.74.0",
+        "contentHash": "MiFLvd06rJ4Xgk4oXj1VTLeIMhN5EHAgkl1aUb9rbIMP4rnm1Q65yfhIOZOvgNnSBop0Fuh+untCdm3J9K1UiQ==",
+        "dependencies": {
+          "Microsoft.Agents.AI.Abstractions": "1.0.0-preview.251009.1",
+          "Microsoft.SemanticKernel.Abstractions": "1.74.0"
+        }
+      },
       "Microsoft.SemanticKernel.Connectors.AzureOpenAI": {
         "type": "Transitive",
         "resolved": "1.74.0",
@@ -448,6 +467,7 @@
           "Microsoft.Extensions.Caching.Memory": "[10.0.5, )",
           "Microsoft.Extensions.Logging": "[8.0.0, )",
           "Microsoft.SemanticKernel": "[1.74.0, )",
+          "Microsoft.SemanticKernel.Agents.Core": "[1.74.0, )",
           "Microsoft.SemanticKernel.Connectors.Google": "[1.72.0-alpha, )",
           "Newtonsoft.Json": "[13.0.4, )",
           "System.ServiceModel.Syndication": "[8.0.0, )",
@@ -487,6 +507,16 @@
         "contentHash": "V1N0mR8VHLEY11w2w8ls3Bk60fOjp6TaHOduBXMwfaR5ZF2bho6rCQdonU+6zwAKyD1JB+yT0wJ2xt1hcm60+w==",
         "dependencies": {
           "Microsoft.SemanticKernel.Connectors.AzureOpenAI": "1.74.0",
+          "Microsoft.SemanticKernel.Core": "1.74.0"
+        }
+      },
+      "Microsoft.SemanticKernel.Agents.Core": {
+        "type": "CentralTransitive",
+        "requested": "[1.74.0, )",
+        "resolved": "1.74.0",
+        "contentHash": "9uwdf9iTGrKZQAoI+TqC/0DGqzGwnXhGyJFusd2D9p6kbtdBhmmi6KtxEmK2QgpiZL2UEcUhwUAMGBVC2tYHsA==",
+        "dependencies": {
+          "Microsoft.SemanticKernel.Agents.Abstractions": "1.74.0",
           "Microsoft.SemanticKernel.Core": "1.74.0"
         }
       },

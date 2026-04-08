@@ -6,6 +6,7 @@ using FinanceAdvisor.Core.Models.Configuration;
 using FinanceAdvisor.Services;
 using FinanceAdvisor.Services.DataEngines;
 using FinanceAdvisor.Services.Orchestration;
+using FinanceAdvisor.Services.Plugins;
 using Microsoft.Extensions.Http.Resilience;
 using Microsoft.SemanticKernel;
 using Microsoft.SemanticKernel.Connectors.Google;
@@ -84,6 +85,10 @@ internal static class DependencyInjection
 
         services.AddScoped<IMarketDataProvider, YahooMarketDataProvider>();
         services.AddScoped<INewsEngine, RssNewsEngine>();
+
+        services.AddScoped<PortfolioPlugin>();
+        services.AddScoped<MarketPlugin>();
+        services.AddScoped<NewsPlugin>();
 
         services.AddScoped<IAIOrchestrator, SemanticKernelOrchestrator>();
 
