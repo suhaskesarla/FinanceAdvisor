@@ -74,3 +74,6 @@ PublishProfiles/
 *.tfstate
 *.tfstate.backup
 .terraform/
+
+## Graphify
+graphify-out/cache/
