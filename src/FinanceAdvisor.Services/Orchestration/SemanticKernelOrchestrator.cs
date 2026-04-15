@@ -17,6 +17,22 @@ using Microsoft.SemanticKernel.ChatCompletion;
 
 internal sealed partial class SemanticKernelOrchestrator : IAIOrchestrator
 {
+    private const string _analystInstructions = """
+        You are a financial analyst assistant.
+        Your job is to interpret the provided data and respond
+        to the user in a clear, concise, and actionable way.
+
+        CRITICAL RULES:
+        1. Use ONLY the provided data. Never hallucinate values.
+        2. Maximum 2 short paragraphs or a brief bullet list.
+        3. If data contains USER_ACTION_REQUIRED, return only
+           that instruction — no analysis, no extra text.
+        4. If data contains ERROR, explain the issue in one line
+           and suggest next action.
+        5. Be direct and actionable.
+        6. Keep formatting minimal — plain text preferred.
+        """;
+
     private readonly Kernel _gathererKernel;
     private readonly Kernel _analystKernel;
     private readonly ILogger<SemanticKernelOrchestrator> _logger;
@@ -101,19 +117,22 @@ internal sealed partial class SemanticKernelOrchestrator : IAIOrchestrator
 
             sw.Stop();
             LogGathererCompleted(_logger, _gathererServiceId, sw.ElapsedMilliseconds);
+
+            string gatheredPayloadStr = gatheredPayload.ToString();
+            if (gatheredPayloadStr.Contains("USER_ACTION_REQUIRED", StringComparison.OrdinalIgnoreCase))
+            {
+                LogShortCircuitTriggered(_logger, _gathererServiceId);
+                return gatheredPayloadStr
+                    .Replace("USER_ACTION_REQUIRED:", string.Empty, StringComparison.OrdinalIgnoreCase)
+                    .Trim();
+            }
+
             sw.Restart();
 
             var analystAgent = new ChatCompletionAgent
             {
                 Name = "FinancialAnalyst",
-                Instructions =
-                    "You are a concise, data-driven financial advisor. " +
-                    "RULE 1: Base response ONLY on provided JSON. " +
-                    "RULE 2: Never hallucinate figures. " +
-                    "RULE 3: Keep under 3 paragraphs. " +
-                    "RULE 4: Format in Telegram MarkdownV2. " +
-                    "RULE 5: You MUST escape reserved characters (e.g. '.', '-', '!') with a backslash to comply with MarkdownV2. " +
-                    "RULE 6: If the data contains 'USER_ACTION_REQUIRED', stop the analysis and immediately ask the user to perform that specific action (e.g., /login).",
+                Instructions = _analystInstructions,
                 Kernel = _analystKernel,
                 Arguments = new KernelArguments(new PromptExecutionSettings
                 {
@@ -123,7 +142,7 @@ internal sealed partial class SemanticKernelOrchestrator : IAIOrchestrator
 
             var analystHistory = new ChatHistory();
             analystHistory.AddUserMessage(
-                $"User asked: {userMessage}\n\nData gathered:\n{gatheredPayload}");
+                $"User asked: {userMessage}\n\nData gathered:\n{gatheredPayloadStr}");
 
             var analystResponse = new StringBuilder();
             await foreach (var message in analystAgent.InvokeAsync(analystHistory, cancellationToken: llmCts.Token))
@@ -137,8 +156,10 @@ internal sealed partial class SemanticKernelOrchestrator : IAIOrchestrator
             sw.Stop();
             LogLlmCompleted(_logger, _analystServiceId, string.Empty, sw.ElapsedMilliseconds);
 
-            string result = analystResponse.ToString();
-            return result.Length > 0 ? result : AppConstants.FallbackMessages.TotalFailure;
+            string finalResponse = analystResponse.ToString().Trim();
+            return string.IsNullOrEmpty(finalResponse)
+                ? AppConstants.FallbackMessages.TotalFailure
+                : finalResponse;
         }
         catch (OperationCanceledException)
         {
@@ -161,6 +182,11 @@ internal sealed partial class SemanticKernelOrchestrator : IAIOrchestrator
         Level = LogLevel.Information,
         Message = "{Provider} gatherer agent completed. LatencyMs={LatencyMs}")]
     private static partial void LogGathererCompleted(ILogger logger, string provider, long latencyMs);
+
+    [LoggerMessage(
+        Level = LogLevel.Information,
+        Message = "{Provider} short-circuit triggered — returning user action message directly.")]
+    private static partial void LogShortCircuitTriggered(ILogger logger, string provider);
 
     [LoggerMessage(
         Level = LogLevel.Warning,

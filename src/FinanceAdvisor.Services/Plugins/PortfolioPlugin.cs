@@ -26,7 +26,12 @@ internal sealed class PortfolioPlugin
         }
         catch (ZerodhaAuthException)
         {
-            return "USER_ACTION_REQUIRED: Zerodha session expired. Tell the user to run /login.";
+            return "USER_ACTION_REQUIRED: Your Zerodha session has expired. " +
+                   "Please tap /login to re-authenticate.";
+        }
+        catch (ExternalApiTimeoutException)
+        {
+            return "ERROR: Portfolio data temporarily unavailable.";
         }
         catch (Exception ex)
         {
