@@ -23,10 +23,10 @@ public static class AppConstants
     public static class Timeouts
     {
         /// <summary>Maximum processing time allowed for a single webhook request (seconds). Telegram supports up to 60 s.</summary>
-        public const int WebhookSeconds = 25;
+        public const int WebhookSeconds = 45;
 
-        /// <summary>Maximum time to wait for an LLM response (seconds). Raised to 30 to accommodate multi-agent flows (gatherer + analyst) on Azure B1.</summary>
-        public const int LlmSeconds = 30;
+        /// <summary>Maximum time to wait for an LLM response (seconds). Raised to 35 to accommodate two sequential LLM calls (gatherer + analyst) within Telegram's 60 s limit.</summary>
+        public const int LlmSeconds = 35;
 
         /// <summary>Total pipeline timeout (all attempts + delays) for a single external API call (seconds).</summary>
         public const int ExternalApiSeconds = 10;
