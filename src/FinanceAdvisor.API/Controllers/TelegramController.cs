@@ -15,32 +15,32 @@ using Telegram.Bot.Types;
 public sealed partial class TelegramController : ControllerBase
 {
     private readonly ILogger<TelegramController> _logger;
-    private readonly ITelegramWebhookService _webhookService;
+    private readonly IUpdateChannel _updateChannel;
     private readonly TelegramSettings _settings;
 
     /// <summary>Initializes a new instance of <see cref="TelegramController"/>.</summary>
     /// <param name="logger">Logger instance.</param>
-    /// <param name="webhookService">Webhook processing service.</param>
+    /// <param name="updateChannel">Channel for queuing updates for background processing.</param>
     /// <param name="settings">Telegram configuration options.</param>
     public TelegramController(
         ILogger<TelegramController> logger,
-        ITelegramWebhookService webhookService,
+        IUpdateChannel updateChannel,
         IOptions<TelegramSettings> settings)
     {
         ArgumentNullException.ThrowIfNull(settings);
 
         _logger = logger;
-        _webhookService = webhookService;
+        _updateChannel = updateChannel;
         _settings = settings.Value;
     }
 
-    /// <summary>Receives a Telegram update and dispatches it for processing.</summary>
+    /// <summary>
+    /// Validates the incoming Telegram update, enqueues it for background processing,
+    /// and returns 200 OK immediately — decoupling HTTP response time from orchestration latency.
+    /// </summary>
     /// <param name="update">The Telegram update payload.</param>
-    /// <param name="ct">Cancellation token provided by the request timeout middleware.</param>
     [HttpPost("webhook")]
-    public async Task<IActionResult> WebhookAsync(
-        [FromBody] Update update,
-        CancellationToken ct = default)
+    public IActionResult Webhook([FromBody] Update update)
     {
         if (!Request.Headers.TryGetValue("X-Telegram-Bot-Api-Secret-Token", out StringValues headerValue)
             || headerValue != _settings.WebhookSecret)
@@ -58,22 +58,16 @@ public sealed partial class TelegramController : ControllerBase
         string correlationId = HttpContext.Items["CorrelationId"] as string ?? "none";
         string firstName = update?.Message?.From?.FirstName ?? string.Empty;
 
-        try
+        IncomingMessageDto message = new()
         {
-            IncomingMessageDto message = new()
-            {
-                Text = text,
-                FromFirstName = firstName,
-                ChatId = update?.Message?.Chat.Id ?? 0,
-                CorrelationId = correlationId,
-            };
-            await _webhookService.HandleUpdateAsync(message, ct);
-            LogWebhookProcessed(_logger, correlationId, firstName, text);
-        }
-        catch (OperationCanceledException)
-        {
-            LogWebhookTimeout(_logger, correlationId);
-        }
+            Text = text,
+            FromFirstName = firstName,
+            ChatId = update?.Message?.Chat.Id ?? 0,
+            CorrelationId = correlationId,
+        };
+
+        _updateChannel.TryEnqueue(message);
+        LogUpdateEnqueued(_logger, correlationId, firstName);
 
         return Ok();
     }
@@ -85,12 +79,6 @@ public sealed partial class TelegramController : ControllerBase
 
     [LoggerMessage(
         Level = LogLevel.Information,
-        Message = "Webhook processed. CorrelationId={CorrelationId} From={FirstName} Text={Text}")]
-    private static partial void LogWebhookProcessed(
-        ILogger logger, string correlationId, string firstName, string text);
-
-    [LoggerMessage(
-        Level = LogLevel.Warning,
-        Message = "Webhook processing timed out. CorrelationId={CorrelationId}")]
-    private static partial void LogWebhookTimeout(ILogger logger, string correlationId);
+        Message = "Update enqueued for background processing. CorrelationId={CorrelationId} From={FirstName}")]
+    private static partial void LogUpdateEnqueued(ILogger logger, string correlationId, string firstName);
 }

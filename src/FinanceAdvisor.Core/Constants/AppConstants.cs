@@ -226,6 +226,13 @@ public static class AppConstants
         public const int BlendedFallbackRecencyCount = 2;
     }
 
+    /// <summary>In-process update channel configuration.</summary>
+    public static class Channel
+    {
+        /// <summary>Maximum number of pending Telegram updates buffered before the oldest is dropped.</summary>
+        public const int UpdateCapacity = 100;
+    }
+
     /// <summary>Fallback messages returned to users when a subsystem fails.</summary>
     public static class FallbackMessages
     {
