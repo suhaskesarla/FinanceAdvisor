@@ -1,11 +1,11 @@
-# Graph Report - .  (2026-04-14)
+# Graph Report - .  (2026-04-16)
 
 ## Corpus Check
-- 53 files · ~12,624 words
+- 59 files · ~16,606 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 204 nodes · 203 edges · 50 communities detected
+- 241 nodes · 254 edges · 56 communities detected
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
@@ -60,18 +60,24 @@
 - [[_COMMUNITY_Community 47|Community 47]]
 - [[_COMMUNITY_Community 48|Community 48]]
 - [[_COMMUNITY_Community 49|Community 49]]
+- [[_COMMUNITY_Community 50|Community 50]]
+- [[_COMMUNITY_Community 51|Community 51]]
+- [[_COMMUNITY_Community 52|Community 52]]
+- [[_COMMUNITY_Community 53|Community 53]]
+- [[_COMMUNITY_Community 54|Community 54]]
+- [[_COMMUNITY_Community 55|Community 55]]
 
 ## God Nodes (most connected - your core abstractions)
 1. `QueryRouterTests` - 16 edges
-2. `YahooMarketDataProvider` - 11 edges
-3. `TelegramWebhookService` - 10 edges
-4. `ZerodhaAuthService` - 9 edges
-5. `QueryRouter` - 9 edges
-6. `SemanticKernelOrchestrator` - 9 edges
-7. `AuthController` - 8 edges
-8. `ZerodhaPortfolioEngine` - 8 edges
-9. `RssNewsEngine` - 7 edges
-10. `TelegramWebhookServiceTests` - 6 edges
+2. `NewsPlugin` - 16 edges
+3. `YahooMarketDataProvider` - 11 edges
+4. `TelegramWebhookService` - 10 edges
+5. `SemanticKernelOrchestrator` - 10 edges
+6. `ZerodhaAuthService` - 9 edges
+7. `QueryRouter` - 9 edges
+8. `AuthController` - 8 edges
+9. `TelegramUpdateWorker` - 8 edges
+10. `ZerodhaPortfolioEngine` - 8 edges
 
 ## Surprising Connections (you probably didn't know these)
 - None detected - all connections are within the same source files.
@@ -83,116 +89,116 @@ Cohesion: 0.1
 Nodes (3): IMeterFactory, NullMeterFactory, QueryRouterTests
 
 ### Community 1 - "Community 1"
-Cohesion: 0.2
-Nodes (3): AuthController, ControllerBase, TelegramController
+Cohesion: 0.23
+Nodes (1): NewsPlugin
 
 ### Community 2 - "Community 2"
-Cohesion: 0.14
-Nodes (13): AiProvider, AppConstants, AppEndpoints, BotMessages, CacheKeys, CacheTtl, Confidence, FallbackMessages (+5 more)
+Cohesion: 0.12
+Nodes (15): AiProvider, AppConstants, AppEndpoints, BotMessages, CacheKeys, CacheTtl, Channel, Confidence (+7 more)
 
 ### Community 3 - "Community 3"
+Cohesion: 0.21
+Nodes (3): AuthController, ControllerBase, TelegramController
+
+### Community 4 - "Community 4"
 Cohesion: 0.3
 Nodes (2): IMarketDataProvider, YahooMarketDataProvider
 
-### Community 4 - "Community 4"
+### Community 5 - "Community 5"
 Cohesion: 0.33
 Nodes (2): ITelegramWebhookService, TelegramWebhookService
 
-### Community 5 - "Community 5"
+### Community 6 - "Community 6"
+Cohesion: 0.29
+Nodes (2): IAIOrchestrator, SemanticKernelOrchestrator
+
+### Community 7 - "Community 7"
 Cohesion: 0.29
 Nodes (2): IZerodhaAuthService, ZerodhaAuthService
 
-### Community 6 - "Community 6"
+### Community 8 - "Community 8"
 Cohesion: 0.33
 Nodes (2): IQueryRouter, QueryRouter
 
-### Community 7 - "Community 7"
-Cohesion: 0.31
-Nodes (2): IAIOrchestrator, SemanticKernelOrchestrator
+### Community 9 - "Community 9"
+Cohesion: 0.36
+Nodes (2): BackgroundService, TelegramUpdateWorker
 
-### Community 8 - "Community 8"
+### Community 10 - "Community 10"
 Cohesion: 0.36
 Nodes (2): IPortfolioEngine, ZerodhaPortfolioEngine
 
-### Community 9 - "Community 9"
+### Community 11 - "Community 11"
 Cohesion: 0.39
 Nodes (2): INewsEngine, RssNewsEngine
 
-### Community 10 - "Community 10"
+### Community 12 - "Community 12"
 Cohesion: 0.29
 Nodes (2): IDisposable, TelegramWebhookServiceTests
 
-### Community 11 - "Community 11"
+### Community 13 - "Community 13"
 Cohesion: 0.29
 Nodes (4): Exception, ExternalApiTimeoutException, InvalidProviderConfigurationException, ZerodhaAuthException
 
-### Community 12 - "Community 12"
+### Community 14 - "Community 14"
+Cohesion: 0.4
+Nodes (2): IUpdateChannel, UpdateChannel
+
+### Community 15 - "Community 15"
 Cohesion: 0.4
 Nodes (1): IZerodhaAuthService
 
-### Community 13 - "Community 13"
+### Community 16 - "Community 16"
 Cohesion: 0.67
 Nodes (1): CorrelationIdMiddleware
 
-### Community 14 - "Community 14"
+### Community 17 - "Community 17"
 Cohesion: 0.5
 Nodes (1): DependencyInjection
 
-### Community 15 - "Community 15"
-Cohesion: 0.67
-Nodes (1): PipelineConfiguration
-
-### Community 16 - "Community 16"
-Cohesion: 0.67
-Nodes (1): KeyVaultConfiguration
-
-### Community 17 - "Community 17"
-Cohesion: 0.67
-Nodes (1): IAIOrchestrator
-
 ### Community 18 - "Community 18"
-Cohesion: 0.67
-Nodes (1): ITelegramWebhookService
+Cohesion: 0.5
+Nodes (1): IUpdateChannel
 
 ### Community 19 - "Community 19"
 Cohesion: 0.67
-Nodes (1): IQueryRouter
+Nodes (1): PipelineConfiguration
 
 ### Community 20 - "Community 20"
 Cohesion: 0.67
-Nodes (1): IMarketDataProvider
+Nodes (1): KeyVaultConfiguration
 
 ### Community 21 - "Community 21"
 Cohesion: 0.67
-Nodes (1): IPortfolioEngine
+Nodes (1): IAIOrchestrator
 
 ### Community 22 - "Community 22"
 Cohesion: 0.67
-Nodes (1): INewsEngine
+Nodes (1): ITelegramWebhookService
 
 ### Community 23 - "Community 23"
 Cohesion: 0.67
-Nodes (1): MarketPlugin
+Nodes (1): IQueryRouter
 
 ### Community 24 - "Community 24"
 Cohesion: 0.67
-Nodes (1): NewsPlugin
+Nodes (1): IMarketDataProvider
 
 ### Community 25 - "Community 25"
 Cohesion: 0.67
-Nodes (1): PortfolioPlugin
+Nodes (1): IPortfolioEngine
 
 ### Community 26 - "Community 26"
-Cohesion: 1.0
-Nodes (0): 
+Cohesion: 0.67
+Nodes (1): INewsEngine
 
 ### Community 27 - "Community 27"
-Cohesion: 1.0
-Nodes (0): 
+Cohesion: 0.67
+Nodes (1): MarketPlugin
 
 ### Community 28 - "Community 28"
-Cohesion: 1.0
-Nodes (0): 
+Cohesion: 0.67
+Nodes (1): PortfolioPlugin
 
 ### Community 29 - "Community 29"
 Cohesion: 1.0
@@ -278,64 +284,94 @@ Nodes (0):
 Cohesion: 1.0
 Nodes (0): 
 
+### Community 50 - "Community 50"
+Cohesion: 1.0
+Nodes (0): 
+
+### Community 51 - "Community 51"
+Cohesion: 1.0
+Nodes (0): 
+
+### Community 52 - "Community 52"
+Cohesion: 1.0
+Nodes (0): 
+
+### Community 53 - "Community 53"
+Cohesion: 1.0
+Nodes (0): 
+
+### Community 54 - "Community 54"
+Cohesion: 1.0
+Nodes (0): 
+
+### Community 55 - "Community 55"
+Cohesion: 1.0
+Nodes (0): 
+
 ## Knowledge Gaps
-- **13 isolated node(s):** `AppConstants`, `CacheTtl`, `Timeouts`, `AiProvider`, `GeminiLimits` (+8 more)
+- **15 isolated node(s):** `AppConstants`, `CacheTtl`, `Timeouts`, `AiProvider`, `GeminiLimits` (+10 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **Thin community `Community 26`** (1 nodes): `commitlint.config.js`
+- **Thin community `Community 29`** (1 nodes): `commitlint.config.js`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 27`** (1 nodes): `FinanceAdvisor.Tests.Unit.GlobalUsings.g.cs`
+- **Thin community `Community 30`** (1 nodes): `FinanceAdvisor.Tests.Unit.GlobalUsings.g.cs`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 28`** (1 nodes): `FinanceAdvisor.Tests.Unit.AssemblyInfo.cs`
+- **Thin community `Community 31`** (1 nodes): `FinanceAdvisor.Tests.Unit.AssemblyInfo.cs`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 29`** (1 nodes): `FinanceAdvisor.Tests.Unit.GlobalUsings.g.cs`
+- **Thin community `Community 32`** (1 nodes): `FinanceAdvisor.Tests.Unit.GlobalUsings.g.cs`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 30`** (1 nodes): `FinanceAdvisor.Tests.Unit.AssemblyInfo.cs`
+- **Thin community `Community 33`** (1 nodes): `FinanceAdvisor.Tests.Unit.AssemblyInfo.cs`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 31`** (1 nodes): `Program.cs`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 32`** (1 nodes): `FinanceAdvisor.API.AssemblyInfo.cs`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 33`** (1 nodes): `FinanceAdvisor.API.GlobalUsings.g.cs`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 34`** (1 nodes): `FinanceAdvisor.API.MvcApplicationPartsAssemblyInfo.cs`
+- **Thin community `Community 34`** (1 nodes): `Program.cs`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
 - **Thin community `Community 35`** (1 nodes): `FinanceAdvisor.API.AssemblyInfo.cs`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
 - **Thin community `Community 36`** (1 nodes): `FinanceAdvisor.API.GlobalUsings.g.cs`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 37`** (1 nodes): `HoldingDto.cs`
+- **Thin community `Community 37`** (1 nodes): `FinanceAdvisor.API.MvcApplicationPartsAssemblyInfo.cs`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 38`** (1 nodes): `NewsArticleDto.cs`
+- **Thin community `Community 38`** (1 nodes): `FinanceAdvisor.API.AssemblyInfo.cs`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 39`** (1 nodes): `IncomingMessageDto.cs`
+- **Thin community `Community 39`** (1 nodes): `FinanceAdvisor.API.GlobalUsings.g.cs`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 40`** (1 nodes): `MarketSnapshotDto.cs`
+- **Thin community `Community 40`** (1 nodes): `FinanceAdvisor.API.MvcApplicationPartsAssemblyInfo.cs`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 41`** (1 nodes): `QueryRoute.cs`
+- **Thin community `Community 41`** (1 nodes): `FinanceAdvisor.API.AssemblyInfo.cs`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 42`** (1 nodes): `FinanceAdvisor.Core.GlobalUsings.g.cs`
+- **Thin community `Community 42`** (1 nodes): `FinanceAdvisor.API.GlobalUsings.g.cs`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 43`** (1 nodes): `FinanceAdvisor.Core.AssemblyInfo.cs`
+- **Thin community `Community 43`** (1 nodes): `HoldingDto.cs`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 44`** (1 nodes): `FinanceAdvisor.Core.GlobalUsings.g.cs`
+- **Thin community `Community 44`** (1 nodes): `NewsArticleDto.cs`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 45`** (1 nodes): `FinanceAdvisor.Core.AssemblyInfo.cs`
+- **Thin community `Community 45`** (1 nodes): `IncomingMessageDto.cs`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 46`** (1 nodes): `FinanceAdvisor.Services.AssemblyInfo.cs`
+- **Thin community `Community 46`** (1 nodes): `MarketSnapshotDto.cs`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 47`** (1 nodes): `FinanceAdvisor.Services.GlobalUsings.g.cs`
+- **Thin community `Community 47`** (1 nodes): `QueryRoute.cs`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 48`** (1 nodes): `FinanceAdvisor.Services.AssemblyInfo.cs`
+- **Thin community `Community 48`** (1 nodes): `FinanceAdvisor.Core.GlobalUsings.g.cs`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 49`** (1 nodes): `FinanceAdvisor.Services.GlobalUsings.g.cs`
+- **Thin community `Community 49`** (1 nodes): `FinanceAdvisor.Core.AssemblyInfo.cs`
+  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
+- **Thin community `Community 50`** (1 nodes): `FinanceAdvisor.Core.GlobalUsings.g.cs`
+  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
+- **Thin community `Community 51`** (1 nodes): `FinanceAdvisor.Core.AssemblyInfo.cs`
+  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
+- **Thin community `Community 52`** (1 nodes): `FinanceAdvisor.Services.AssemblyInfo.cs`
+  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
+- **Thin community `Community 53`** (1 nodes): `FinanceAdvisor.Services.GlobalUsings.g.cs`
+  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
+- **Thin community `Community 54`** (1 nodes): `FinanceAdvisor.Services.AssemblyInfo.cs`
+  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
+- **Thin community `Community 55`** (1 nodes): `FinanceAdvisor.Services.GlobalUsings.g.cs`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
 - **What connects `AppConstants`, `CacheTtl`, `Timeouts` to the rest of the system?**
-  _13 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _15 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Community 0` be split into smaller, more focused modules?**
   _Cohesion score 0.1 - nodes in this community are weakly interconnected._
 - **Should `Community 2` be split into smaller, more focused modules?**
-  _Cohesion score 0.14 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.12 - nodes in this community are weakly interconnected._

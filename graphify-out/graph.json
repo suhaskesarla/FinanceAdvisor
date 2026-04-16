@@ -9,7 +9,7 @@
       "source_file": "commitlint.config.js",
       "source_location": "L1",
       "id": "commitlint_config_js",
-      "community": 26,
+      "community": 29,
       "norm_label": "commitlint.config.js"
     },
     {
@@ -18,7 +18,7 @@
       "source_file": "tests/FinanceAdvisor.Tests.Unit/Services/TelegramWebhookServiceTests.cs",
       "source_location": "L1",
       "id": "tests_financeadvisor_tests_unit_services_telegramwebhookservicetests_cs",
-      "community": 10,
+      "community": 12,
       "norm_label": "telegramwebhookservicetests.cs"
     },
     {
@@ -27,7 +27,7 @@
       "source_file": "tests/FinanceAdvisor.Tests.Unit/Services/TelegramWebhookServiceTests.cs",
       "source_location": "L18",
       "id": "telegramwebhookservicetests_telegramwebhookservicetests",
-      "community": 10,
+      "community": 12,
       "norm_label": "telegramwebhookservicetests"
     },
     {
@@ -36,7 +36,7 @@
       "source_file": "",
       "source_location": "",
       "id": "idisposable",
-      "community": 10,
+      "community": 12,
       "norm_label": "idisposable"
     },
     {
@@ -45,7 +45,7 @@
       "source_file": "tests/FinanceAdvisor.Tests.Unit/Services/TelegramWebhookServiceTests.cs",
       "source_location": "L69",
       "id": "telegramwebhookservicetests_telegramwebhookservicetests_dispose",
-      "community": 10,
+      "community": 12,
       "norm_label": ".dispose()"
     },
     {
@@ -54,7 +54,7 @@
       "source_file": "tests/FinanceAdvisor.Tests.Unit/Services/TelegramWebhookServiceTests.cs",
       "source_location": "L71",
       "id": "telegramwebhookservicetests_telegramwebhookservicetests_givenbriefingroute_whenzerodhaauthexceptionthrown_thensendszerodhainviteasync",
-      "community": 10,
+      "community": 12,
       "norm_label": ".givenbriefingroute_whenzerodhaauthexceptionthrown_thensendszerodhainviteasync()"
     },
     {
@@ -63,7 +63,7 @@
       "source_file": "tests/FinanceAdvisor.Tests.Unit/Services/TelegramWebhookServiceTests.cs",
       "source_location": "L93",
       "id": "telegramwebhookservicetests_telegramwebhookservicetests_givenbriefingroute_whenallenginessucceed_thensendsbriefingmessageasync",
-      "community": 10,
+      "community": 12,
       "norm_label": ".givenbriefingroute_whenallenginessucceed_thensendsbriefingmessageasync()"
     },
     {
@@ -72,7 +72,7 @@
       "source_file": "tests/FinanceAdvisor.Tests.Unit/Services/TelegramWebhookServiceTests.cs",
       "source_location": "L112",
       "id": "telegramwebhookservicetests_telegramwebhookservicetests_givenbriefingroute_whenexternalapitimeoutthrown_thensendsfallbackmessageasync",
-      "community": 10,
+      "community": 12,
       "norm_label": ".givenbriefingroute_whenexternalapitimeoutthrown_thensendsfallbackmessageasync()"
     },
     {
@@ -270,7 +270,7 @@
       "source_file": "tests/FinanceAdvisor.Tests.Unit/obj/Debug/net10.0/FinanceAdvisor.Tests.Unit.GlobalUsings.g.cs",
       "source_location": "L1",
       "id": "tests_financeadvisor_tests_unit_obj_debug_net10_0_financeadvisor_tests_unit_globalusings_g_cs",
-      "community": 27,
+      "community": 30,
       "norm_label": "financeadvisor.tests.unit.globalusings.g.cs"
     },
     {
@@ -279,7 +279,7 @@
       "source_file": "tests/FinanceAdvisor.Tests.Unit/obj/Debug/net10.0/FinanceAdvisor.Tests.Unit.AssemblyInfo.cs",
       "source_location": "L1",
       "id": "tests_financeadvisor_tests_unit_obj_debug_net10_0_financeadvisor_tests_unit_assemblyinfo_cs",
-      "community": 28,
+      "community": 31,
       "norm_label": "financeadvisor.tests.unit.assemblyinfo.cs"
     },
     {
@@ -288,7 +288,7 @@
       "source_file": "tests/FinanceAdvisor.Tests.Unit/obj/Release/net10.0/FinanceAdvisor.Tests.Unit.GlobalUsings.g.cs",
       "source_location": "L1",
       "id": "tests_financeadvisor_tests_unit_obj_release_net10_0_financeadvisor_tests_unit_globalusings_g_cs",
-      "community": 29,
+      "community": 32,
       "norm_label": "financeadvisor.tests.unit.globalusings.g.cs"
     },
     {
@@ -297,7 +297,7 @@
       "source_file": "tests/FinanceAdvisor.Tests.Unit/obj/Release/net10.0/FinanceAdvisor.Tests.Unit.AssemblyInfo.cs",
       "source_location": "L1",
       "id": "tests_financeadvisor_tests_unit_obj_release_net10_0_financeadvisor_tests_unit_assemblyinfo_cs",
-      "community": 30,
+      "community": 33,
       "norm_label": "financeadvisor.tests.unit.assemblyinfo.cs"
     },
     {
@@ -306,7 +306,7 @@
       "source_file": "src/FinanceAdvisor.API/Program.cs",
       "source_location": "L1",
       "id": "src_financeadvisor_api_program_cs",
-      "community": 31,
+      "community": 34,
       "norm_label": "program.cs"
     },
     {
@@ -315,7 +315,7 @@
       "source_file": "src/FinanceAdvisor.API/Middleware/CorrelationIdMiddleware.cs",
       "source_location": "L1",
       "id": "src_financeadvisor_api_middleware_correlationidmiddleware_cs",
-      "community": 13,
+      "community": 16,
       "norm_label": "correlationidmiddleware.cs"
     },
     {
@@ -324,7 +324,7 @@
       "source_file": "src/FinanceAdvisor.API/Middleware/CorrelationIdMiddleware.cs",
       "source_location": "L7",
       "id": "correlationidmiddleware_correlationidmiddleware",
-      "community": 13,
+      "community": 16,
       "norm_label": "correlationidmiddleware"
     },
     {
@@ -333,7 +333,7 @@
       "source_file": "src/FinanceAdvisor.API/Middleware/CorrelationIdMiddleware.cs",
       "source_location": "L20",
       "id": "correlationidmiddleware_correlationidmiddleware_invokeasync",
-      "community": 13,
+      "community": 16,
       "norm_label": ".invokeasync()"
     },
     {
@@ -342,7 +342,7 @@
       "source_file": "src/FinanceAdvisor.API/Middleware/CorrelationIdMiddleware.cs",
       "source_location": "L29",
       "id": "correlationidmiddleware_correlationidmiddleware_resolvecorrelationidasync",
-      "community": 13,
+      "community": 16,
       "norm_label": ".resolvecorrelationidasync()"
     },
     {
@@ -351,7 +351,7 @@
       "source_file": "src/FinanceAdvisor.API/Controllers/AuthController.cs",
       "source_location": "L1",
       "id": "src_financeadvisor_api_controllers_authcontroller_cs",
-      "community": 1,
+      "community": 3,
       "norm_label": "authcontroller.cs"
     },
     {
@@ -360,7 +360,7 @@
       "source_file": "src/FinanceAdvisor.API/Controllers/AuthController.cs",
       "source_location": "L9",
       "id": "authcontroller_authcontroller",
-      "community": 1,
+      "community": 3,
       "norm_label": "authcontroller"
     },
     {
@@ -369,7 +369,7 @@
       "source_file": "",
       "source_location": "",
       "id": "controllerbase",
-      "community": 1,
+      "community": 3,
       "norm_label": "controllerbase"
     },
     {
@@ -378,7 +378,7 @@
       "source_file": "src/FinanceAdvisor.API/Controllers/AuthController.cs",
       "source_location": "L26",
       "id": "authcontroller_authcontroller_login",
-      "community": 1,
+      "community": 3,
       "norm_label": ".login()"
     },
     {
@@ -387,7 +387,7 @@
       "source_file": "src/FinanceAdvisor.API/Controllers/AuthController.cs",
       "source_location": "L38",
       "id": "authcontroller_authcontroller_callbackasync",
-      "community": 1,
+      "community": 3,
       "norm_label": ".callbackasync()"
     },
     {
@@ -396,7 +396,7 @@
       "source_file": "src/FinanceAdvisor.API/Controllers/AuthController.cs",
       "source_location": "L65",
       "id": "authcontroller_authcontroller_logloginredirect",
-      "community": 1,
+      "community": 3,
       "norm_label": ".logloginredirect()"
     },
     {
@@ -405,7 +405,7 @@
       "source_file": "src/FinanceAdvisor.API/Controllers/AuthController.cs",
       "source_location": "L70",
       "id": "authcontroller_authcontroller_logcallbackfailed",
-      "community": 1,
+      "community": 3,
       "norm_label": ".logcallbackfailed()"
     },
     {
@@ -414,7 +414,7 @@
       "source_file": "src/FinanceAdvisor.API/Controllers/AuthController.cs",
       "source_location": "L75",
       "id": "authcontroller_authcontroller_logcallbacksuccess",
-      "community": 1,
+      "community": 3,
       "norm_label": ".logcallbacksuccess()"
     },
     {
@@ -423,7 +423,7 @@
       "source_file": "src/FinanceAdvisor.API/Controllers/AuthController.cs",
       "source_location": "L80",
       "id": "authcontroller_authcontroller_logcallbackerror",
-      "community": 1,
+      "community": 3,
       "norm_label": ".logcallbackerror()"
     },
     {
@@ -432,7 +432,7 @@
       "source_file": "src/FinanceAdvisor.API/Controllers/TelegramController.cs",
       "source_location": "L1",
       "id": "src_financeadvisor_api_controllers_telegramcontroller_cs",
-      "community": 1,
+      "community": 3,
       "norm_label": "telegramcontroller.cs"
     },
     {
@@ -441,44 +441,35 @@
       "source_file": "src/FinanceAdvisor.API/Controllers/TelegramController.cs",
       "source_location": "L13",
       "id": "telegramcontroller_telegramcontroller",
-      "community": 1,
+      "community": 3,
       "norm_label": "telegramcontroller"
     },
     {
-      "label": ".WebhookAsync()",
+      "label": ".Webhook()",
       "file_type": "code",
       "source_file": "src/FinanceAdvisor.API/Controllers/TelegramController.cs",
-      "source_location": "L40",
-      "id": "telegramcontroller_telegramcontroller_webhookasync",
-      "community": 1,
-      "norm_label": ".webhookasync()"
+      "source_location": "L42",
+      "id": "telegramcontroller_telegramcontroller_webhook",
+      "community": 3,
+      "norm_label": ".webhook()"
     },
     {
       "label": ".LogAuthDebug()",
       "file_type": "code",
       "source_file": "src/FinanceAdvisor.API/Controllers/TelegramController.cs",
-      "source_location": "L81",
+      "source_location": "L75",
       "id": "telegramcontroller_telegramcontroller_logauthdebug",
-      "community": 1,
+      "community": 3,
       "norm_label": ".logauthdebug()"
     },
     {
-      "label": ".LogWebhookProcessed()",
+      "label": ".LogUpdateEnqueued()",
       "file_type": "code",
       "source_file": "src/FinanceAdvisor.API/Controllers/TelegramController.cs",
-      "source_location": "L86",
-      "id": "telegramcontroller_telegramcontroller_logwebhookprocessed",
-      "community": 1,
-      "norm_label": ".logwebhookprocessed()"
-    },
-    {
-      "label": ".LogWebhookTimeout()",
-      "file_type": "code",
-      "source_file": "src/FinanceAdvisor.API/Controllers/TelegramController.cs",
-      "source_location": "L92",
-      "id": "telegramcontroller_telegramcontroller_logwebhooktimeout",
-      "community": 1,
-      "norm_label": ".logwebhooktimeout()"
+      "source_location": "L80",
+      "id": "telegramcontroller_telegramcontroller_logupdateenqueued",
+      "community": 3,
+      "norm_label": ".logupdateenqueued()"
     },
     {
       "label": "FinanceAdvisor.API.AssemblyInfo.cs",
@@ -486,7 +477,7 @@
       "source_file": "src/FinanceAdvisor.API/obj/Debug/net10.0/FinanceAdvisor.API.AssemblyInfo.cs",
       "source_location": "L1",
       "id": "src_financeadvisor_api_obj_debug_net10_0_financeadvisor_api_assemblyinfo_cs",
-      "community": 32,
+      "community": 35,
       "norm_label": "financeadvisor.api.assemblyinfo.cs"
     },
     {
@@ -495,7 +486,7 @@
       "source_file": "src/FinanceAdvisor.API/obj/Debug/net10.0/FinanceAdvisor.API.GlobalUsings.g.cs",
       "source_location": "L1",
       "id": "src_financeadvisor_api_obj_debug_net10_0_financeadvisor_api_globalusings_g_cs",
-      "community": 33,
+      "community": 36,
       "norm_label": "financeadvisor.api.globalusings.g.cs"
     },
     {
@@ -504,7 +495,7 @@
       "source_file": "src/FinanceAdvisor.API/obj/Release/net10.0/FinanceAdvisor.API.MvcApplicationPartsAssemblyInfo.cs",
       "source_location": "L1",
       "id": "src_financeadvisor_api_obj_release_net10_0_financeadvisor_api_mvcapplicationpartsassemblyinfo_cs",
-      "community": 34,
+      "community": 37,
       "norm_label": "financeadvisor.api.mvcapplicationpartsassemblyinfo.cs"
     },
     {
@@ -513,7 +504,7 @@
       "source_file": "src/FinanceAdvisor.API/obj/Release/net10.0/FinanceAdvisor.API.AssemblyInfo.cs",
       "source_location": "L1",
       "id": "src_financeadvisor_api_obj_release_net10_0_financeadvisor_api_assemblyinfo_cs",
-      "community": 35,
+      "community": 38,
       "norm_label": "financeadvisor.api.assemblyinfo.cs"
     },
     {
@@ -522,7 +513,34 @@
       "source_file": "src/FinanceAdvisor.API/obj/Release/net10.0/FinanceAdvisor.API.GlobalUsings.g.cs",
       "source_location": "L1",
       "id": "src_financeadvisor_api_obj_release_net10_0_financeadvisor_api_globalusings_g_cs",
-      "community": 36,
+      "community": 39,
+      "norm_label": "financeadvisor.api.globalusings.g.cs"
+    },
+    {
+      "label": "FinanceAdvisor.API.MvcApplicationPartsAssemblyInfo.cs",
+      "file_type": "code",
+      "source_file": "src/FinanceAdvisor.API/obj/Release/net10.0/linux-x64/FinanceAdvisor.API.MvcApplicationPartsAssemblyInfo.cs",
+      "source_location": "L1",
+      "id": "src_financeadvisor_api_obj_release_net10_0_linux_x64_financeadvisor_api_mvcapplicationpartsassemblyinfo_cs",
+      "community": 40,
+      "norm_label": "financeadvisor.api.mvcapplicationpartsassemblyinfo.cs"
+    },
+    {
+      "label": "FinanceAdvisor.API.AssemblyInfo.cs",
+      "file_type": "code",
+      "source_file": "src/FinanceAdvisor.API/obj/Release/net10.0/linux-x64/FinanceAdvisor.API.AssemblyInfo.cs",
+      "source_location": "L1",
+      "id": "src_financeadvisor_api_obj_release_net10_0_linux_x64_financeadvisor_api_assemblyinfo_cs",
+      "community": 41,
+      "norm_label": "financeadvisor.api.assemblyinfo.cs"
+    },
+    {
+      "label": "FinanceAdvisor.API.GlobalUsings.g.cs",
+      "file_type": "code",
+      "source_file": "src/FinanceAdvisor.API/obj/Release/net10.0/linux-x64/FinanceAdvisor.API.GlobalUsings.g.cs",
+      "source_location": "L1",
+      "id": "src_financeadvisor_api_obj_release_net10_0_linux_x64_financeadvisor_api_globalusings_g_cs",
+      "community": 42,
       "norm_label": "financeadvisor.api.globalusings.g.cs"
     },
     {
@@ -531,7 +549,7 @@
       "source_file": "src/FinanceAdvisor.API/Startup/PipelineConfiguration.cs",
       "source_location": "L1",
       "id": "src_financeadvisor_api_startup_pipelineconfiguration_cs",
-      "community": 15,
+      "community": 19,
       "norm_label": "pipelineconfiguration.cs"
     },
     {
@@ -540,7 +558,7 @@
       "source_file": "src/FinanceAdvisor.API/Startup/PipelineConfiguration.cs",
       "source_location": "L5",
       "id": "pipelineconfiguration_pipelineconfiguration",
-      "community": 15,
+      "community": 19,
       "norm_label": "pipelineconfiguration"
     },
     {
@@ -549,7 +567,7 @@
       "source_file": "src/FinanceAdvisor.API/Startup/PipelineConfiguration.cs",
       "source_location": "L7",
       "id": "pipelineconfiguration_pipelineconfiguration_usefinanceadvisorpipeline",
-      "community": 15,
+      "community": 19,
       "norm_label": ".usefinanceadvisorpipeline()"
     },
     {
@@ -558,34 +576,34 @@
       "source_file": "src/FinanceAdvisor.API/Startup/DependencyInjection.cs",
       "source_location": "L1",
       "id": "src_financeadvisor_api_startup_dependencyinjection_cs",
-      "community": 14,
+      "community": 17,
       "norm_label": "dependencyinjection.cs"
     },
     {
       "label": "DependencyInjection",
       "file_type": "code",
       "source_file": "src/FinanceAdvisor.API/Startup/DependencyInjection.cs",
-      "source_location": "L26",
+      "source_location": "L28",
       "id": "dependencyinjection_dependencyinjection",
-      "community": 14,
+      "community": 17,
       "norm_label": "dependencyinjection"
     },
     {
       "label": ".AddFinanceAdvisorLogging()",
       "file_type": "code",
       "source_file": "src/FinanceAdvisor.API/Startup/DependencyInjection.cs",
-      "source_location": "L28",
+      "source_location": "L30",
       "id": "dependencyinjection_dependencyinjection_addfinanceadvisorlogging",
-      "community": 14,
+      "community": 17,
       "norm_label": ".addfinanceadvisorlogging()"
     },
     {
       "label": ".AddFinanceAdvisorServices()",
       "file_type": "code",
       "source_file": "src/FinanceAdvisor.API/Startup/DependencyInjection.cs",
-      "source_location": "L38",
+      "source_location": "L40",
       "id": "dependencyinjection_dependencyinjection_addfinanceadvisorservices",
-      "community": 14,
+      "community": 17,
       "norm_label": ".addfinanceadvisorservices()"
     },
     {
@@ -594,7 +612,7 @@
       "source_file": "src/FinanceAdvisor.API/Startup/KeyVaultConfiguration.cs",
       "source_location": "L1",
       "id": "src_financeadvisor_api_startup_keyvaultconfiguration_cs",
-      "community": 16,
+      "community": 20,
       "norm_label": "keyvaultconfiguration.cs"
     },
     {
@@ -603,7 +621,7 @@
       "source_file": "src/FinanceAdvisor.API/Startup/KeyVaultConfiguration.cs",
       "source_location": "L8",
       "id": "keyvaultconfiguration_keyvaultconfiguration",
-      "community": 16,
+      "community": 20,
       "norm_label": "keyvaultconfiguration"
     },
     {
@@ -612,8 +630,134 @@
       "source_file": "src/FinanceAdvisor.API/Startup/KeyVaultConfiguration.cs",
       "source_location": "L12",
       "id": "keyvaultconfiguration_keyvaultconfiguration_addazurekeyvault",
-      "community": 16,
+      "community": 20,
       "norm_label": ".addazurekeyvault()"
+    },
+    {
+      "label": "UpdateChannel.cs",
+      "file_type": "code",
+      "source_file": "src/FinanceAdvisor.API/Infrastructure/UpdateChannel.cs",
+      "source_location": "L1",
+      "id": "src_financeadvisor_api_infrastructure_updatechannel_cs",
+      "community": 14,
+      "norm_label": "updatechannel.cs"
+    },
+    {
+      "label": "UpdateChannel",
+      "file_type": "code",
+      "source_file": "src/FinanceAdvisor.API/Infrastructure/UpdateChannel.cs",
+      "source_location": "L8",
+      "id": "updatechannel_updatechannel",
+      "community": 14,
+      "norm_label": "updatechannel"
+    },
+    {
+      "label": "IUpdateChannel",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "id": "iupdatechannel",
+      "community": 14,
+      "norm_label": "iupdatechannel"
+    },
+    {
+      "label": ".TryEnqueue()",
+      "file_type": "code",
+      "source_file": "src/FinanceAdvisor.API/Infrastructure/UpdateChannel.cs",
+      "source_location": "L20",
+      "id": "updatechannel_updatechannel_tryenqueue",
+      "community": 14,
+      "norm_label": ".tryenqueue()"
+    },
+    {
+      "label": ".ReadAllAsync()",
+      "file_type": "code",
+      "source_file": "src/FinanceAdvisor.API/Infrastructure/UpdateChannel.cs",
+      "source_location": "L22",
+      "id": "updatechannel_updatechannel_readallasync",
+      "community": 14,
+      "norm_label": ".readallasync()"
+    },
+    {
+      "label": "TelegramUpdateWorker.cs",
+      "file_type": "code",
+      "source_file": "src/FinanceAdvisor.API/Workers/TelegramUpdateWorker.cs",
+      "source_location": "L1",
+      "id": "src_financeadvisor_api_workers_telegramupdateworker_cs",
+      "community": 9,
+      "norm_label": "telegramupdateworker.cs"
+    },
+    {
+      "label": "TelegramUpdateWorker",
+      "file_type": "code",
+      "source_file": "src/FinanceAdvisor.API/Workers/TelegramUpdateWorker.cs",
+      "source_location": "L10",
+      "id": "telegramupdateworker_telegramupdateworker",
+      "community": 9,
+      "norm_label": "telegramupdateworker"
+    },
+    {
+      "label": "BackgroundService",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "id": "backgroundservice",
+      "community": 9,
+      "norm_label": "backgroundservice"
+    },
+    {
+      "label": ".ExecuteAsync()",
+      "file_type": "code",
+      "source_file": "src/FinanceAdvisor.API/Workers/TelegramUpdateWorker.cs",
+      "source_location": "L26",
+      "id": "telegramupdateworker_telegramupdateworker_executeasync",
+      "community": 9,
+      "norm_label": ".executeasync()"
+    },
+    {
+      "label": ".ProcessMessageAsync()",
+      "file_type": "code",
+      "source_file": "src/FinanceAdvisor.API/Workers/TelegramUpdateWorker.cs",
+      "source_location": "L35",
+      "id": "telegramupdateworker_telegramupdateworker_processmessageasync",
+      "community": 9,
+      "norm_label": ".processmessageasync()"
+    },
+    {
+      "label": ".LogDequeued()",
+      "file_type": "code",
+      "source_file": "src/FinanceAdvisor.API/Workers/TelegramUpdateWorker.cs",
+      "source_location": "L57",
+      "id": "telegramupdateworker_telegramupdateworker_logdequeued",
+      "community": 9,
+      "norm_label": ".logdequeued()"
+    },
+    {
+      "label": ".LogProcessingStarted()",
+      "file_type": "code",
+      "source_file": "src/FinanceAdvisor.API/Workers/TelegramUpdateWorker.cs",
+      "source_location": "L62",
+      "id": "telegramupdateworker_telegramupdateworker_logprocessingstarted",
+      "community": 9,
+      "norm_label": ".logprocessingstarted()"
+    },
+    {
+      "label": ".LogProcessingCompleted()",
+      "file_type": "code",
+      "source_file": "src/FinanceAdvisor.API/Workers/TelegramUpdateWorker.cs",
+      "source_location": "L67",
+      "id": "telegramupdateworker_telegramupdateworker_logprocessingcompleted",
+      "community": 9,
+      "norm_label": ".logprocessingcompleted()"
+    },
+    {
+      "label": ".LogProcessingFailed()",
+      "file_type": "code",
+      "source_file": "src/FinanceAdvisor.API/Workers/TelegramUpdateWorker.cs",
+      "source_location": "L72",
+      "id": "telegramupdateworker_telegramupdateworker_logprocessingfailed",
+      "community": 9,
+      "norm_label": ".logprocessingfailed()"
     },
     {
       "label": "AppConstants.cs",
@@ -733,10 +877,28 @@
       "norm_label": "confidence"
     },
     {
-      "label": "FallbackMessages",
+      "label": "NewsReranking",
       "file_type": "code",
       "source_file": "src/FinanceAdvisor.Core/Constants/AppConstants.cs",
       "source_location": "L178",
+      "id": "appconstants_newsreranking",
+      "community": 2,
+      "norm_label": "newsreranking"
+    },
+    {
+      "label": "Channel",
+      "file_type": "code",
+      "source_file": "src/FinanceAdvisor.Core/Constants/AppConstants.cs",
+      "source_location": "L230",
+      "id": "appconstants_channel",
+      "community": 2,
+      "norm_label": "channel"
+    },
+    {
+      "label": "FallbackMessages",
+      "file_type": "code",
+      "source_file": "src/FinanceAdvisor.Core/Constants/AppConstants.cs",
+      "source_location": "L237",
       "id": "appconstants_fallbackmessages",
       "community": 2,
       "norm_label": "fallbackmessages"
@@ -747,7 +909,7 @@
       "source_file": "src/FinanceAdvisor.Core/DTOs/HoldingDto.cs",
       "source_location": "L1",
       "id": "src_financeadvisor_core_dtos_holdingdto_cs",
-      "community": 37,
+      "community": 43,
       "norm_label": "holdingdto.cs"
     },
     {
@@ -756,7 +918,7 @@
       "source_file": "src/FinanceAdvisor.Core/DTOs/NewsArticleDto.cs",
       "source_location": "L1",
       "id": "src_financeadvisor_core_dtos_newsarticledto_cs",
-      "community": 38,
+      "community": 44,
       "norm_label": "newsarticledto.cs"
     },
     {
@@ -765,7 +927,7 @@
       "source_file": "src/FinanceAdvisor.Core/DTOs/IncomingMessageDto.cs",
       "source_location": "L1",
       "id": "src_financeadvisor_core_dtos_incomingmessagedto_cs",
-      "community": 39,
+      "community": 45,
       "norm_label": "incomingmessagedto.cs"
     },
     {
@@ -774,7 +936,7 @@
       "source_file": "src/FinanceAdvisor.Core/DTOs/MarketSnapshotDto.cs",
       "source_location": "L1",
       "id": "src_financeadvisor_core_dtos_marketsnapshotdto_cs",
-      "community": 40,
+      "community": 46,
       "norm_label": "marketsnapshotdto.cs"
     },
     {
@@ -783,7 +945,7 @@
       "source_file": "src/FinanceAdvisor.Core/Exceptions/ExternalApiTimeoutException.cs",
       "source_location": "L1",
       "id": "src_financeadvisor_core_exceptions_externalapitimeoutexception_cs",
-      "community": 11,
+      "community": 13,
       "norm_label": "externalapitimeoutexception.cs"
     },
     {
@@ -792,7 +954,7 @@
       "source_file": "src/FinanceAdvisor.Core/Exceptions/ExternalApiTimeoutException.cs",
       "source_location": "L4",
       "id": "externalapitimeoutexception_externalapitimeoutexception",
-      "community": 11,
+      "community": 13,
       "norm_label": "externalapitimeoutexception"
     },
     {
@@ -801,7 +963,7 @@
       "source_file": "",
       "source_location": "",
       "id": "exception",
-      "community": 11,
+      "community": 13,
       "norm_label": "exception"
     },
     {
@@ -810,7 +972,7 @@
       "source_file": "src/FinanceAdvisor.Core/Exceptions/InvalidProviderConfigurationException.cs",
       "source_location": "L1",
       "id": "src_financeadvisor_core_exceptions_invalidproviderconfigurationexception_cs",
-      "community": 11,
+      "community": 13,
       "norm_label": "invalidproviderconfigurationexception.cs"
     },
     {
@@ -819,7 +981,7 @@
       "source_file": "src/FinanceAdvisor.Core/Exceptions/InvalidProviderConfigurationException.cs",
       "source_location": "L7",
       "id": "invalidproviderconfigurationexception_invalidproviderconfigurationexception",
-      "community": 11,
+      "community": 13,
       "norm_label": "invalidproviderconfigurationexception"
     },
     {
@@ -828,7 +990,7 @@
       "source_file": "src/FinanceAdvisor.Core/Exceptions/ZerodhaAuthException.cs",
       "source_location": "L1",
       "id": "src_financeadvisor_core_exceptions_zerodhaauthexception_cs",
-      "community": 11,
+      "community": 13,
       "norm_label": "zerodhaauthexception.cs"
     },
     {
@@ -837,7 +999,7 @@
       "source_file": "src/FinanceAdvisor.Core/Exceptions/ZerodhaAuthException.cs",
       "source_location": "L4",
       "id": "zerodhaauthexception_zerodhaauthexception",
-      "community": 11,
+      "community": 13,
       "norm_label": "zerodhaauthexception"
     },
     {
@@ -846,7 +1008,7 @@
       "source_file": "src/FinanceAdvisor.Core/Enums/QueryRoute.cs",
       "source_location": "L1",
       "id": "src_financeadvisor_core_enums_queryroute_cs",
-      "community": 41,
+      "community": 47,
       "norm_label": "queryroute.cs"
     },
     {
@@ -855,7 +1017,7 @@
       "source_file": "src/FinanceAdvisor.Core/Interfaces/IAIOrchestrator.cs",
       "source_location": "L1",
       "id": "src_financeadvisor_core_interfaces_iaiorchestrator_cs",
-      "community": 17,
+      "community": 21,
       "norm_label": "iaiorchestrator.cs"
     },
     {
@@ -864,7 +1026,7 @@
       "source_file": "src/FinanceAdvisor.Core/Interfaces/IAIOrchestrator.cs",
       "source_location": "L4",
       "id": "iaiorchestrator_iaiorchestrator",
-      "community": 17,
+      "community": 21,
       "norm_label": "iaiorchestrator"
     },
     {
@@ -873,7 +1035,7 @@
       "source_file": "src/FinanceAdvisor.Core/Interfaces/IAIOrchestrator.cs",
       "source_location": "L13",
       "id": "iaiorchestrator_iaiorchestrator_processqueryasync",
-      "community": 17,
+      "community": 21,
       "norm_label": ".processqueryasync()"
     },
     {
@@ -882,7 +1044,7 @@
       "source_file": "src/FinanceAdvisor.Core/Interfaces/ITelegramWebhookService.cs",
       "source_location": "L1",
       "id": "src_financeadvisor_core_interfaces_itelegramwebhookservice_cs",
-      "community": 18,
+      "community": 22,
       "norm_label": "itelegramwebhookservice.cs"
     },
     {
@@ -891,7 +1053,7 @@
       "source_file": "src/FinanceAdvisor.Core/Interfaces/ITelegramWebhookService.cs",
       "source_location": "L6",
       "id": "itelegramwebhookservice_itelegramwebhookservice",
-      "community": 18,
+      "community": 22,
       "norm_label": "itelegramwebhookservice"
     },
     {
@@ -900,7 +1062,7 @@
       "source_file": "src/FinanceAdvisor.Core/Interfaces/ITelegramWebhookService.cs",
       "source_location": "L12",
       "id": "itelegramwebhookservice_itelegramwebhookservice_handleupdateasync",
-      "community": 18,
+      "community": 22,
       "norm_label": ".handleupdateasync()"
     },
     {
@@ -909,7 +1071,7 @@
       "source_file": "src/FinanceAdvisor.Core/Interfaces/IQueryRouter.cs",
       "source_location": "L1",
       "id": "src_financeadvisor_core_interfaces_iqueryrouter_cs",
-      "community": 19,
+      "community": 23,
       "norm_label": "iqueryrouter.cs"
     },
     {
@@ -918,7 +1080,7 @@
       "source_file": "src/FinanceAdvisor.Core/Interfaces/IQueryRouter.cs",
       "source_location": "L6",
       "id": "iqueryrouter_iqueryrouter",
-      "community": 19,
+      "community": 23,
       "norm_label": "iqueryrouter"
     },
     {
@@ -927,8 +1089,44 @@
       "source_file": "src/FinanceAdvisor.Core/Interfaces/IQueryRouter.cs",
       "source_location": "L13",
       "id": "iqueryrouter_iqueryrouter_route",
-      "community": 19,
+      "community": 23,
       "norm_label": ".route()"
+    },
+    {
+      "label": "IUpdateChannel.cs",
+      "file_type": "code",
+      "source_file": "src/FinanceAdvisor.Core/Interfaces/IUpdateChannel.cs",
+      "source_location": "L1",
+      "id": "src_financeadvisor_core_interfaces_iupdatechannel_cs",
+      "community": 18,
+      "norm_label": "iupdatechannel.cs"
+    },
+    {
+      "label": "IUpdateChannel",
+      "file_type": "code",
+      "source_file": "src/FinanceAdvisor.Core/Interfaces/IUpdateChannel.cs",
+      "source_location": "L6",
+      "id": "iupdatechannel_iupdatechannel",
+      "community": 18,
+      "norm_label": "iupdatechannel"
+    },
+    {
+      "label": ".TryEnqueue()",
+      "file_type": "code",
+      "source_file": "src/FinanceAdvisor.Core/Interfaces/IUpdateChannel.cs",
+      "source_location": "L14",
+      "id": "iupdatechannel_iupdatechannel_tryenqueue",
+      "community": 18,
+      "norm_label": ".tryenqueue()"
+    },
+    {
+      "label": ".ReadAllAsync()",
+      "file_type": "code",
+      "source_file": "src/FinanceAdvisor.Core/Interfaces/IUpdateChannel.cs",
+      "source_location": "L18",
+      "id": "iupdatechannel_iupdatechannel_readallasync",
+      "community": 18,
+      "norm_label": ".readallasync()"
     },
     {
       "label": "IZerodhaAuthService.cs",
@@ -936,7 +1134,7 @@
       "source_file": "src/FinanceAdvisor.Core/Interfaces/IZerodhaAuthService.cs",
       "source_location": "L1",
       "id": "src_financeadvisor_core_interfaces_izerodhaauthservice_cs",
-      "community": 12,
+      "community": 15,
       "norm_label": "izerodhaauthservice.cs"
     },
     {
@@ -945,7 +1143,7 @@
       "source_file": "src/FinanceAdvisor.Core/Interfaces/IZerodhaAuthService.cs",
       "source_location": "L4",
       "id": "izerodhaauthservice_izerodhaauthservice",
-      "community": 12,
+      "community": 15,
       "norm_label": "izerodhaauthservice"
     },
     {
@@ -954,7 +1152,7 @@
       "source_file": "src/FinanceAdvisor.Core/Interfaces/IZerodhaAuthService.cs",
       "source_location": "L8",
       "id": "izerodhaauthservice_izerodhaauthservice_getloginurl",
-      "community": 12,
+      "community": 15,
       "norm_label": ".getloginurl()"
     },
     {
@@ -963,7 +1161,7 @@
       "source_file": "src/FinanceAdvisor.Core/Interfaces/IZerodhaAuthService.cs",
       "source_location": "L19",
       "id": "izerodhaauthservice_izerodhaauthservice_exchangerequesttokenasync",
-      "community": 12,
+      "community": 15,
       "norm_label": ".exchangerequesttokenasync()"
     },
     {
@@ -972,7 +1170,7 @@
       "source_file": "src/FinanceAdvisor.Core/Interfaces/IZerodhaAuthService.cs",
       "source_location": "L29",
       "id": "izerodhaauthservice_izerodhaauthservice_getaccesstokenasync",
-      "community": 12,
+      "community": 15,
       "norm_label": ".getaccesstokenasync()"
     },
     {
@@ -981,7 +1179,7 @@
       "source_file": "src/FinanceAdvisor.Core/Interfaces/IMarketDataProvider.cs",
       "source_location": "L1",
       "id": "src_financeadvisor_core_interfaces_imarketdataprovider_cs",
-      "community": 20,
+      "community": 24,
       "norm_label": "imarketdataprovider.cs"
     },
     {
@@ -990,7 +1188,7 @@
       "source_file": "src/FinanceAdvisor.Core/Interfaces/IMarketDataProvider.cs",
       "source_location": "L6",
       "id": "imarketdataprovider_imarketdataprovider",
-      "community": 20,
+      "community": 24,
       "norm_label": "imarketdataprovider"
     },
     {
@@ -999,7 +1197,7 @@
       "source_file": "src/FinanceAdvisor.Core/Interfaces/IMarketDataProvider.cs",
       "source_location": "L12",
       "id": "imarketdataprovider_imarketdataprovider_getmarketsnapshotasync",
-      "community": 20,
+      "community": 24,
       "norm_label": ".getmarketsnapshotasync()"
     },
     {
@@ -1008,7 +1206,7 @@
       "source_file": "src/FinanceAdvisor.Core/Interfaces/IPortfolioEngine.cs",
       "source_location": "L1",
       "id": "src_financeadvisor_core_interfaces_iportfolioengine_cs",
-      "community": 21,
+      "community": 25,
       "norm_label": "iportfolioengine.cs"
     },
     {
@@ -1017,7 +1215,7 @@
       "source_file": "src/FinanceAdvisor.Core/Interfaces/IPortfolioEngine.cs",
       "source_location": "L6",
       "id": "iportfolioengine_iportfolioengine",
-      "community": 21,
+      "community": 25,
       "norm_label": "iportfolioengine"
     },
     {
@@ -1026,7 +1224,7 @@
       "source_file": "src/FinanceAdvisor.Core/Interfaces/IPortfolioEngine.cs",
       "source_location": "L19",
       "id": "iportfolioengine_iportfolioengine_getholdingsasync",
-      "community": 21,
+      "community": 25,
       "norm_label": ".getholdingsasync()"
     },
     {
@@ -1035,7 +1233,7 @@
       "source_file": "src/FinanceAdvisor.Core/Interfaces/INewsEngine.cs",
       "source_location": "L1",
       "id": "src_financeadvisor_core_interfaces_inewsengine_cs",
-      "community": 22,
+      "community": 26,
       "norm_label": "inewsengine.cs"
     },
     {
@@ -1044,7 +1242,7 @@
       "source_file": "src/FinanceAdvisor.Core/Interfaces/INewsEngine.cs",
       "source_location": "L6",
       "id": "inewsengine_inewsengine",
-      "community": 22,
+      "community": 26,
       "norm_label": "inewsengine"
     },
     {
@@ -1053,7 +1251,7 @@
       "source_file": "src/FinanceAdvisor.Core/Interfaces/INewsEngine.cs",
       "source_location": "L11",
       "id": "inewsengine_inewsengine_gettopheadlinesasync",
-      "community": 22,
+      "community": 26,
       "norm_label": ".gettopheadlinesasync()"
     },
     {
@@ -1062,7 +1260,7 @@
       "source_file": "src/FinanceAdvisor.Core/obj/Debug/net10.0/FinanceAdvisor.Core.GlobalUsings.g.cs",
       "source_location": "L1",
       "id": "src_financeadvisor_core_obj_debug_net10_0_financeadvisor_core_globalusings_g_cs",
-      "community": 42,
+      "community": 48,
       "norm_label": "financeadvisor.core.globalusings.g.cs"
     },
     {
@@ -1071,7 +1269,7 @@
       "source_file": "src/FinanceAdvisor.Core/obj/Debug/net10.0/FinanceAdvisor.Core.AssemblyInfo.cs",
       "source_location": "L1",
       "id": "src_financeadvisor_core_obj_debug_net10_0_financeadvisor_core_assemblyinfo_cs",
-      "community": 43,
+      "community": 49,
       "norm_label": "financeadvisor.core.assemblyinfo.cs"
     },
     {
@@ -1080,7 +1278,7 @@
       "source_file": "src/FinanceAdvisor.Core/obj/Release/net10.0/FinanceAdvisor.Core.GlobalUsings.g.cs",
       "source_location": "L1",
       "id": "src_financeadvisor_core_obj_release_net10_0_financeadvisor_core_globalusings_g_cs",
-      "community": 44,
+      "community": 50,
       "norm_label": "financeadvisor.core.globalusings.g.cs"
     },
     {
@@ -1089,7 +1287,7 @@
       "source_file": "src/FinanceAdvisor.Core/obj/Release/net10.0/FinanceAdvisor.Core.AssemblyInfo.cs",
       "source_location": "L1",
       "id": "src_financeadvisor_core_obj_release_net10_0_financeadvisor_core_assemblyinfo_cs",
-      "community": 45,
+      "community": 51,
       "norm_label": "financeadvisor.core.assemblyinfo.cs"
     },
     {
@@ -1098,7 +1296,7 @@
       "source_file": "src/FinanceAdvisor.Services/ZerodhaAuthService.cs",
       "source_location": "L1",
       "id": "src_financeadvisor_services_zerodhaauthservice_cs",
-      "community": 5,
+      "community": 7,
       "norm_label": "zerodhaauthservice.cs"
     },
     {
@@ -1107,7 +1305,7 @@
       "source_file": "src/FinanceAdvisor.Services/ZerodhaAuthService.cs",
       "source_location": "L13",
       "id": "zerodhaauthservice_zerodhaauthservice",
-      "community": 5,
+      "community": 7,
       "norm_label": "zerodhaauthservice"
     },
     {
@@ -1116,7 +1314,7 @@
       "source_file": "",
       "source_location": "",
       "id": "izerodhaauthservice",
-      "community": 5,
+      "community": 7,
       "norm_label": "izerodhaauthservice"
     },
     {
@@ -1125,7 +1323,7 @@
       "source_file": "src/FinanceAdvisor.Services/ZerodhaAuthService.cs",
       "source_location": "L40",
       "id": "zerodhaauthservice_zerodhaauthservice_getloginurl",
-      "community": 5,
+      "community": 7,
       "norm_label": ".getloginurl()"
     },
     {
@@ -1134,7 +1332,7 @@
       "source_file": "src/FinanceAdvisor.Services/ZerodhaAuthService.cs",
       "source_location": "L44",
       "id": "zerodhaauthservice_zerodhaauthservice_exchangerequesttokenasync",
-      "community": 5,
+      "community": 7,
       "norm_label": ".exchangerequesttokenasync()"
     },
     {
@@ -1143,7 +1341,7 @@
       "source_file": "src/FinanceAdvisor.Services/ZerodhaAuthService.cs",
       "source_location": "L71",
       "id": "zerodhaauthservice_zerodhaauthservice_getaccesstokenasync",
-      "community": 5,
+      "community": 7,
       "norm_label": ".getaccesstokenasync()"
     },
     {
@@ -1152,7 +1350,7 @@
       "source_file": "src/FinanceAdvisor.Services/ZerodhaAuthService.cs",
       "source_location": "L85",
       "id": "zerodhaauthservice_zerodhaauthservice_logtokenstored",
-      "community": 5,
+      "community": 7,
       "norm_label": ".logtokenstored()"
     },
     {
@@ -1161,7 +1359,7 @@
       "source_file": "src/FinanceAdvisor.Services/ZerodhaAuthService.cs",
       "source_location": "L90",
       "id": "zerodhaauthservice_zerodhaauthservice_logtokenexchangefailed",
-      "community": 5,
+      "community": 7,
       "norm_label": ".logtokenexchangefailed()"
     },
     {
@@ -1170,7 +1368,7 @@
       "source_file": "src/FinanceAdvisor.Services/ZerodhaAuthService.cs",
       "source_location": "L95",
       "id": "zerodhaauthservice_zerodhaauthservice_logtokencachehit",
-      "community": 5,
+      "community": 7,
       "norm_label": ".logtokencachehit()"
     },
     {
@@ -1179,7 +1377,7 @@
       "source_file": "src/FinanceAdvisor.Services/ZerodhaAuthService.cs",
       "source_location": "L100",
       "id": "zerodhaauthservice_zerodhaauthservice_logtokencachemiss",
-      "community": 5,
+      "community": 7,
       "norm_label": ".logtokencachemiss()"
     },
     {
@@ -1188,7 +1386,7 @@
       "source_file": "src/FinanceAdvisor.Services/QueryRouter.cs",
       "source_location": "L1",
       "id": "src_financeadvisor_services_queryrouter_cs",
-      "community": 6,
+      "community": 8,
       "norm_label": "queryrouter.cs"
     },
     {
@@ -1197,7 +1395,7 @@
       "source_file": "src/FinanceAdvisor.Services/QueryRouter.cs",
       "source_location": "L9",
       "id": "queryrouter_queryrouter",
-      "community": 6,
+      "community": 8,
       "norm_label": "queryrouter"
     },
     {
@@ -1206,7 +1404,7 @@
       "source_file": "",
       "source_location": "",
       "id": "iqueryrouter",
-      "community": 6,
+      "community": 8,
       "norm_label": "iqueryrouter"
     },
     {
@@ -1215,7 +1413,7 @@
       "source_file": "src/FinanceAdvisor.Services/QueryRouter.cs",
       "source_location": "L69",
       "id": "queryrouter_queryrouter_route",
-      "community": 6,
+      "community": 8,
       "norm_label": ".route()"
     },
     {
@@ -1224,7 +1422,7 @@
       "source_file": "src/FinanceAdvisor.Services/QueryRouter.cs",
       "source_location": "L133",
       "id": "queryrouter_queryrouter_isquestion",
-      "community": 6,
+      "community": 8,
       "norm_label": ".isquestion()"
     },
     {
@@ -1233,7 +1431,7 @@
       "source_file": "src/FinanceAdvisor.Services/QueryRouter.cs",
       "source_location": "L156",
       "id": "queryrouter_queryrouter_isphrasematch",
-      "community": 6,
+      "community": 8,
       "norm_label": ".isphrasematch()"
     },
     {
@@ -1242,7 +1440,7 @@
       "source_file": "src/FinanceAdvisor.Services/QueryRouter.cs",
       "source_location": "L194",
       "id": "queryrouter_queryrouter_isstrongkeywordmatch",
-      "community": 6,
+      "community": 8,
       "norm_label": ".isstrongkeywordmatch()"
     },
     {
@@ -1251,7 +1449,7 @@
       "source_file": "src/FinanceAdvisor.Services/QueryRouter.cs",
       "source_location": "L223",
       "id": "queryrouter_queryrouter_containswholeword",
-      "community": 6,
+      "community": 8,
       "norm_label": ".containswholeword()"
     },
     {
@@ -1260,7 +1458,7 @@
       "source_file": "src/FinanceAdvisor.Services/QueryRouter.cs",
       "source_location": "L231",
       "id": "queryrouter_queryrouter_record",
-      "community": 6,
+      "community": 8,
       "norm_label": ".record()"
     },
     {
@@ -1269,7 +1467,7 @@
       "source_file": "src/FinanceAdvisor.Services/QueryRouter.cs",
       "source_location": "L241",
       "id": "queryrouter_queryrouter_logrouting",
-      "community": 6,
+      "community": 8,
       "norm_label": ".logrouting()"
     },
     {
@@ -1278,7 +1476,7 @@
       "source_file": "src/FinanceAdvisor.Services/TelegramWebhookService.cs",
       "source_location": "L1",
       "id": "src_financeadvisor_services_telegramwebhookservice_cs",
-      "community": 4,
+      "community": 5,
       "norm_label": "telegramwebhookservice.cs"
     },
     {
@@ -1287,7 +1485,7 @@
       "source_file": "src/FinanceAdvisor.Services/TelegramWebhookService.cs",
       "source_location": "L17",
       "id": "telegramwebhookservice_telegramwebhookservice",
-      "community": 4,
+      "community": 5,
       "norm_label": "telegramwebhookservice"
     },
     {
@@ -1296,7 +1494,7 @@
       "source_file": "",
       "source_location": "",
       "id": "itelegramwebhookservice",
-      "community": 4,
+      "community": 5,
       "norm_label": "itelegramwebhookservice"
     },
     {
@@ -1305,7 +1503,7 @@
       "source_file": "src/FinanceAdvisor.Services/TelegramWebhookService.cs",
       "source_location": "L58",
       "id": "telegramwebhookservice_telegramwebhookservice_handleupdateasync",
-      "community": 4,
+      "community": 5,
       "norm_label": ".handleupdateasync()"
     },
     {
@@ -1314,7 +1512,7 @@
       "source_file": "src/FinanceAdvisor.Services/TelegramWebhookService.cs",
       "source_location": "L141",
       "id": "telegramwebhookservice_telegramwebhookservice_handlebriefingasync",
-      "community": 4,
+      "community": 5,
       "norm_label": ".handlebriefingasync()"
     },
     {
@@ -1323,7 +1521,7 @@
       "source_file": "src/FinanceAdvisor.Services/TelegramWebhookService.cs",
       "source_location": "L198",
       "id": "telegramwebhookservice_telegramwebhookservice_sendzerodhainviteasync",
-      "community": 4,
+      "community": 5,
       "norm_label": ".sendzerodhainviteasync()"
     },
     {
@@ -1332,7 +1530,7 @@
       "source_file": "src/FinanceAdvisor.Services/TelegramWebhookService.cs",
       "source_location": "L214",
       "id": "telegramwebhookservice_telegramwebhookservice_logmessagereceived",
-      "community": 4,
+      "community": 5,
       "norm_label": ".logmessagereceived()"
     },
     {
@@ -1341,7 +1539,7 @@
       "source_file": "src/FinanceAdvisor.Services/TelegramWebhookService.cs",
       "source_location": "L220",
       "id": "telegramwebhookservice_telegramwebhookservice_loginvitesent",
-      "community": 4,
+      "community": 5,
       "norm_label": ".loginvitesent()"
     },
     {
@@ -1350,7 +1548,7 @@
       "source_file": "src/FinanceAdvisor.Services/TelegramWebhookService.cs",
       "source_location": "L225",
       "id": "telegramwebhookservice_telegramwebhookservice_logbriefingrequest",
-      "community": 4,
+      "community": 5,
       "norm_label": ".logbriefingrequest()"
     },
     {
@@ -1359,7 +1557,7 @@
       "source_file": "src/FinanceAdvisor.Services/TelegramWebhookService.cs",
       "source_location": "L230",
       "id": "telegramwebhookservice_telegramwebhookservice_logportfoliorequest",
-      "community": 4,
+      "community": 5,
       "norm_label": ".logportfoliorequest()"
     },
     {
@@ -1368,7 +1566,7 @@
       "source_file": "src/FinanceAdvisor.Services/TelegramWebhookService.cs",
       "source_location": "L235",
       "id": "telegramwebhookservice_telegramwebhookservice_logdeeppath",
-      "community": 4,
+      "community": 5,
       "norm_label": ".logdeeppath()"
     },
     {
@@ -1377,7 +1575,7 @@
       "source_file": "src/FinanceAdvisor.Services/DataEngines/RssNewsEngine.cs",
       "source_location": "L1",
       "id": "src_financeadvisor_services_dataengines_rssnewsengine_cs",
-      "community": 9,
+      "community": 11,
       "norm_label": "rssnewsengine.cs"
     },
     {
@@ -1386,7 +1584,7 @@
       "source_file": "src/FinanceAdvisor.Services/DataEngines/RssNewsEngine.cs",
       "source_location": "L13",
       "id": "rssnewsengine_rssnewsengine",
-      "community": 9,
+      "community": 11,
       "norm_label": "rssnewsengine"
     },
     {
@@ -1395,7 +1593,7 @@
       "source_file": "",
       "source_location": "",
       "id": "inewsengine",
-      "community": 9,
+      "community": 11,
       "norm_label": "inewsengine"
     },
     {
@@ -1404,7 +1602,7 @@
       "source_file": "src/FinanceAdvisor.Services/DataEngines/RssNewsEngine.cs",
       "source_location": "L37",
       "id": "rssnewsengine_rssnewsengine_gettopheadlinesasync",
-      "community": 9,
+      "community": 11,
       "norm_label": ".gettopheadlinesasync()"
     },
     {
@@ -1413,7 +1611,7 @@
       "source_file": "src/FinanceAdvisor.Services/DataEngines/RssNewsEngine.cs",
       "source_location": "L81",
       "id": "rssnewsengine_rssnewsengine_striphtml",
-      "community": 9,
+      "community": 11,
       "norm_label": ".striphtml()"
     },
     {
@@ -1422,7 +1620,7 @@
       "source_file": "src/FinanceAdvisor.Services/DataEngines/RssNewsEngine.cs",
       "source_location": "L84",
       "id": "rssnewsengine_rssnewsengine_logcachehit",
-      "community": 9,
+      "community": 11,
       "norm_label": ".logcachehit()"
     },
     {
@@ -1431,7 +1629,7 @@
       "source_file": "src/FinanceAdvisor.Services/DataEngines/RssNewsEngine.cs",
       "source_location": "L89",
       "id": "rssnewsengine_rssnewsengine_logcachemiss",
-      "community": 9,
+      "community": 11,
       "norm_label": ".logcachemiss()"
     },
     {
@@ -1440,7 +1638,7 @@
       "source_file": "src/FinanceAdvisor.Services/DataEngines/RssNewsEngine.cs",
       "source_location": "L94",
       "id": "rssnewsengine_rssnewsengine_logfetchfailed",
-      "community": 9,
+      "community": 11,
       "norm_label": ".logfetchfailed()"
     },
     {
@@ -1449,7 +1647,7 @@
       "source_file": "src/FinanceAdvisor.Services/DataEngines/YahooMarketDataProvider.cs",
       "source_location": "L1",
       "id": "src_financeadvisor_services_dataengines_yahoomarketdataprovider_cs",
-      "community": 3,
+      "community": 4,
       "norm_label": "yahoomarketdataprovider.cs"
     },
     {
@@ -1458,7 +1656,7 @@
       "source_file": "src/FinanceAdvisor.Services/DataEngines/YahooMarketDataProvider.cs",
       "source_location": "L15",
       "id": "yahoomarketdataprovider_yahoomarketdataprovider",
-      "community": 3,
+      "community": 4,
       "norm_label": "yahoomarketdataprovider"
     },
     {
@@ -1467,7 +1665,7 @@
       "source_file": "",
       "source_location": "",
       "id": "imarketdataprovider",
-      "community": 3,
+      "community": 4,
       "norm_label": "imarketdataprovider"
     },
     {
@@ -1476,7 +1674,7 @@
       "source_file": "src/FinanceAdvisor.Services/DataEngines/YahooMarketDataProvider.cs",
       "source_location": "L39",
       "id": "yahoomarketdataprovider_yahoomarketdataprovider_getmarketsnapshotasync",
-      "community": 3,
+      "community": 4,
       "norm_label": ".getmarketsnapshotasync()"
     },
     {
@@ -1485,7 +1683,7 @@
       "source_file": "src/FinanceAdvisor.Services/DataEngines/YahooMarketDataProvider.cs",
       "source_location": "L149",
       "id": "yahoomarketdataprovider_yahoomarketdataprovider_parsemeta",
-      "community": 3,
+      "community": 4,
       "norm_label": ".parsemeta()"
     },
     {
@@ -1494,7 +1692,7 @@
       "source_file": "src/FinanceAdvisor.Services/DataEngines/YahooMarketDataProvider.cs",
       "source_location": "L174",
       "id": "yahoomarketdataprovider_yahoomarketdataprovider_logcachehit",
-      "community": 3,
+      "community": 4,
       "norm_label": ".logcachehit()"
     },
     {
@@ -1503,7 +1701,7 @@
       "source_file": "src/FinanceAdvisor.Services/DataEngines/YahooMarketDataProvider.cs",
       "source_location": "L179",
       "id": "yahoomarketdataprovider_yahoomarketdataprovider_logcachemiss",
-      "community": 3,
+      "community": 4,
       "norm_label": ".logcachemiss()"
     },
     {
@@ -1512,7 +1710,7 @@
       "source_file": "src/FinanceAdvisor.Services/DataEngines/YahooMarketDataProvider.cs",
       "source_location": "L184",
       "id": "yahoomarketdataprovider_yahoomarketdataprovider_logrequestcompleted",
-      "community": 3,
+      "community": 4,
       "norm_label": ".logrequestcompleted()"
     },
     {
@@ -1521,7 +1719,7 @@
       "source_file": "src/FinanceAdvisor.Services/DataEngines/YahooMarketDataProvider.cs",
       "source_location": "L189",
       "id": "yahoomarketdataprovider_yahoomarketdataprovider_logratelimited",
-      "community": 3,
+      "community": 4,
       "norm_label": ".logratelimited()"
     },
     {
@@ -1530,7 +1728,7 @@
       "source_file": "src/FinanceAdvisor.Services/DataEngines/YahooMarketDataProvider.cs",
       "source_location": "L194",
       "id": "yahoomarketdataprovider_yahoomarketdataprovider_loghttperror",
-      "community": 3,
+      "community": 4,
       "norm_label": ".loghttperror()"
     },
     {
@@ -1539,7 +1737,7 @@
       "source_file": "src/FinanceAdvisor.Services/DataEngines/YahooMarketDataProvider.cs",
       "source_location": "L199",
       "id": "yahoomarketdataprovider_yahoomarketdataprovider_logmalformedresponse",
-      "community": 3,
+      "community": 4,
       "norm_label": ".logmalformedresponse()"
     },
     {
@@ -1548,7 +1746,7 @@
       "source_file": "src/FinanceAdvisor.Services/DataEngines/YahooMarketDataProvider.cs",
       "source_location": "L204",
       "id": "yahoomarketdataprovider_yahoomarketdataprovider_logfetchfailed",
-      "community": 3,
+      "community": 4,
       "norm_label": ".logfetchfailed()"
     },
     {
@@ -1557,7 +1755,7 @@
       "source_file": "src/FinanceAdvisor.Services/DataEngines/ZerodhaPortfolioEngine.cs",
       "source_location": "L1",
       "id": "src_financeadvisor_services_dataengines_zerodhaportfolioengine_cs",
-      "community": 8,
+      "community": 10,
       "norm_label": "zerodhaportfolioengine.cs"
     },
     {
@@ -1566,7 +1764,7 @@
       "source_file": "src/FinanceAdvisor.Services/DataEngines/ZerodhaPortfolioEngine.cs",
       "source_location": "L14",
       "id": "zerodhaportfolioengine_zerodhaportfolioengine",
-      "community": 8,
+      "community": 10,
       "norm_label": "zerodhaportfolioengine"
     },
     {
@@ -1575,7 +1773,7 @@
       "source_file": "",
       "source_location": "",
       "id": "iportfolioengine",
-      "community": 8,
+      "community": 10,
       "norm_label": "iportfolioengine"
     },
     {
@@ -1584,7 +1782,7 @@
       "source_file": "src/FinanceAdvisor.Services/DataEngines/ZerodhaPortfolioEngine.cs",
       "source_location": "L47",
       "id": "zerodhaportfolioengine_zerodhaportfolioengine_getholdingsasync",
-      "community": 8,
+      "community": 10,
       "norm_label": ".getholdingsasync()"
     },
     {
@@ -1593,7 +1791,7 @@
       "source_file": "src/FinanceAdvisor.Services/DataEngines/ZerodhaPortfolioEngine.cs",
       "source_location": "L106",
       "id": "zerodhaportfolioengine_zerodhaportfolioengine_logcachehit",
-      "community": 8,
+      "community": 10,
       "norm_label": ".logcachehit()"
     },
     {
@@ -1602,7 +1800,7 @@
       "source_file": "src/FinanceAdvisor.Services/DataEngines/ZerodhaPortfolioEngine.cs",
       "source_location": "L111",
       "id": "zerodhaportfolioengine_zerodhaportfolioengine_logcachemiss",
-      "community": 8,
+      "community": 10,
       "norm_label": ".logcachemiss()"
     },
     {
@@ -1611,7 +1809,7 @@
       "source_file": "src/FinanceAdvisor.Services/DataEngines/ZerodhaPortfolioEngine.cs",
       "source_location": "L116",
       "id": "zerodhaportfolioengine_zerodhaportfolioengine_logfetched",
-      "community": 8,
+      "community": 10,
       "norm_label": ".logfetched()"
     },
     {
@@ -1620,7 +1818,7 @@
       "source_file": "src/FinanceAdvisor.Services/DataEngines/ZerodhaPortfolioEngine.cs",
       "source_location": "L121",
       "id": "zerodhaportfolioengine_zerodhaportfolioengine_logsessionexpired",
-      "community": 8,
+      "community": 10,
       "norm_label": ".logsessionexpired()"
     },
     {
@@ -1629,7 +1827,7 @@
       "source_file": "src/FinanceAdvisor.Services/DataEngines/ZerodhaPortfolioEngine.cs",
       "source_location": "L126",
       "id": "zerodhaportfolioengine_zerodhaportfolioengine_logfetchfailed",
-      "community": 8,
+      "community": 10,
       "norm_label": ".logfetchfailed()"
     },
     {
@@ -1638,7 +1836,7 @@
       "source_file": "src/FinanceAdvisor.Services/Orchestration/SemanticKernelOrchestrator.cs",
       "source_location": "L1",
       "id": "src_financeadvisor_services_orchestration_semantickernelorchestrator_cs",
-      "community": 7,
+      "community": 6,
       "norm_label": "semantickernelorchestrator.cs"
     },
     {
@@ -1647,7 +1845,7 @@
       "source_file": "src/FinanceAdvisor.Services/Orchestration/SemanticKernelOrchestrator.cs",
       "source_location": "L18",
       "id": "semantickernelorchestrator_semantickernelorchestrator",
-      "community": 7,
+      "community": 6,
       "norm_label": "semantickernelorchestrator"
     },
     {
@@ -1656,70 +1854,79 @@
       "source_file": "",
       "source_location": "",
       "id": "iaiorchestrator",
-      "community": 7,
+      "community": 6,
       "norm_label": "iaiorchestrator"
     },
     {
       "label": ".ValidateServiceId()",
       "file_type": "code",
       "source_file": "src/FinanceAdvisor.Services/Orchestration/SemanticKernelOrchestrator.cs",
-      "source_location": "L51",
+      "source_location": "L67",
       "id": "semantickernelorchestrator_semantickernelorchestrator_validateserviceid",
-      "community": 7,
+      "community": 6,
       "norm_label": ".validateserviceid()"
     },
     {
       "label": ".ProcessQueryAsync()",
       "file_type": "code",
       "source_file": "src/FinanceAdvisor.Services/Orchestration/SemanticKernelOrchestrator.cs",
-      "source_location": "L63",
+      "source_location": "L79",
       "id": "semantickernelorchestrator_semantickernelorchestrator_processqueryasync",
-      "community": 7,
+      "community": 6,
       "norm_label": ".processqueryasync()"
     },
     {
       "label": ".LogGathererCompleted()",
       "file_type": "code",
       "source_file": "src/FinanceAdvisor.Services/Orchestration/SemanticKernelOrchestrator.cs",
-      "source_location": "L160",
+      "source_location": "L179",
       "id": "semantickernelorchestrator_semantickernelorchestrator_loggatherercompleted",
-      "community": 7,
+      "community": 6,
       "norm_label": ".loggatherercompleted()"
+    },
+    {
+      "label": ".LogShortCircuitTriggered()",
+      "file_type": "code",
+      "source_file": "src/FinanceAdvisor.Services/Orchestration/SemanticKernelOrchestrator.cs",
+      "source_location": "L184",
+      "id": "semantickernelorchestrator_semantickernelorchestrator_logshortcircuittriggered",
+      "community": 6,
+      "norm_label": ".logshortcircuittriggered()"
     },
     {
       "label": ".LogLlmTimeout()",
       "file_type": "code",
       "source_file": "src/FinanceAdvisor.Services/Orchestration/SemanticKernelOrchestrator.cs",
-      "source_location": "L165",
+      "source_location": "L189",
       "id": "semantickernelorchestrator_semantickernelorchestrator_logllmtimeout",
-      "community": 7,
+      "community": 6,
       "norm_label": ".logllmtimeout()"
     },
     {
       "label": ".LogLlmRateLimited()",
       "file_type": "code",
       "source_file": "src/FinanceAdvisor.Services/Orchestration/SemanticKernelOrchestrator.cs",
-      "source_location": "L170",
+      "source_location": "L194",
       "id": "semantickernelorchestrator_semantickernelorchestrator_logllmratelimited",
-      "community": 7,
+      "community": 6,
       "norm_label": ".logllmratelimited()"
     },
     {
       "label": ".LogLlmFailed()",
       "file_type": "code",
       "source_file": "src/FinanceAdvisor.Services/Orchestration/SemanticKernelOrchestrator.cs",
-      "source_location": "L175",
+      "source_location": "L199",
       "id": "semantickernelorchestrator_semantickernelorchestrator_logllmfailed",
-      "community": 7,
+      "community": 6,
       "norm_label": ".logllmfailed()"
     },
     {
       "label": ".LogLlmCompleted()",
       "file_type": "code",
       "source_file": "src/FinanceAdvisor.Services/Orchestration/SemanticKernelOrchestrator.cs",
-      "source_location": "L180",
+      "source_location": "L204",
       "id": "semantickernelorchestrator_semantickernelorchestrator_logllmcompleted",
-      "community": 7,
+      "community": 6,
       "norm_label": ".logllmcompleted()"
     },
     {
@@ -1728,7 +1935,7 @@
       "source_file": "src/FinanceAdvisor.Services/Plugins/MarketPlugin.cs",
       "source_location": "L1",
       "id": "src_financeadvisor_services_plugins_marketplugin_cs",
-      "community": 23,
+      "community": 27,
       "norm_label": "marketplugin.cs"
     },
     {
@@ -1737,7 +1944,7 @@
       "source_file": "src/FinanceAdvisor.Services/Plugins/MarketPlugin.cs",
       "source_location": "L9",
       "id": "marketplugin_marketplugin",
-      "community": 23,
+      "community": 27,
       "norm_label": "marketplugin"
     },
     {
@@ -1746,7 +1953,7 @@
       "source_file": "src/FinanceAdvisor.Services/Plugins/MarketPlugin.cs",
       "source_location": "L18",
       "id": "marketplugin_marketplugin_getmarketsnapshotasync",
-      "community": 23,
+      "community": 27,
       "norm_label": ".getmarketsnapshotasync()"
     },
     {
@@ -1755,26 +1962,152 @@
       "source_file": "src/FinanceAdvisor.Services/Plugins/NewsPlugin.cs",
       "source_location": "L1",
       "id": "src_financeadvisor_services_plugins_newsplugin_cs",
-      "community": 24,
+      "community": 1,
       "norm_label": "newsplugin.cs"
     },
     {
       "label": "NewsPlugin",
       "file_type": "code",
       "source_file": "src/FinanceAdvisor.Services/Plugins/NewsPlugin.cs",
-      "source_location": "L10",
+      "source_location": "L17",
       "id": "newsplugin_newsplugin",
-      "community": 24,
+      "community": 1,
       "norm_label": "newsplugin"
     },
     {
       "label": ".GetTopHeadlinesAsync()",
       "file_type": "code",
       "source_file": "src/FinanceAdvisor.Services/Plugins/NewsPlugin.cs",
-      "source_location": "L19",
+      "source_location": "L109",
       "id": "newsplugin_newsplugin_gettopheadlinesasync",
-      "community": 24,
+      "community": 1,
       "norm_label": ".gettopheadlinesasync()"
+    },
+    {
+      "label": ".RerankAsync()",
+      "file_type": "code",
+      "source_file": "src/FinanceAdvisor.Services/Plugins/NewsPlugin.cs",
+      "source_location": "L135",
+      "id": "newsplugin_newsplugin_rerankasync",
+      "community": 1,
+      "norm_label": ".rerankasync()"
+    },
+    {
+      "label": ".ParseScores()",
+      "file_type": "code",
+      "source_file": "src/FinanceAdvisor.Services/Plugins/NewsPlugin.cs",
+      "source_location": "L210",
+      "id": "newsplugin_newsplugin_parsescores",
+      "community": 1,
+      "norm_label": ".parsescores()"
+    },
+    {
+      "label": ".BlendedFallback()",
+      "file_type": "code",
+      "source_file": "src/FinanceAdvisor.Services/Plugins/NewsPlugin.cs",
+      "source_location": "L224",
+      "id": "newsplugin_newsplugin_blendedfallback",
+      "community": 1,
+      "norm_label": ".blendedfallback()"
+    },
+    {
+      "label": ".ApplyDiversity()",
+      "file_type": "code",
+      "source_file": "src/FinanceAdvisor.Services/Plugins/NewsPlugin.cs",
+      "source_location": "L246",
+      "id": "newsplugin_newsplugin_applydiversity",
+      "community": 1,
+      "norm_label": ".applydiversity()"
+    },
+    {
+      "label": ".ApplyMacroGuarantee()",
+      "file_type": "code",
+      "source_file": "src/FinanceAdvisor.Services/Plugins/NewsPlugin.cs",
+      "source_location": "L295",
+      "id": "newsplugin_newsplugin_applymacroguarantee",
+      "community": 1,
+      "norm_label": ".applymacroguarantee()"
+    },
+    {
+      "label": ".ComputeFreshnessBoost()",
+      "file_type": "code",
+      "source_file": "src/FinanceAdvisor.Services/Plugins/NewsPlugin.cs",
+      "source_location": "L325",
+      "id": "newsplugin_newsplugin_computefreshnessboost",
+      "community": 1,
+      "norm_label": ".computefreshnessboost()"
+    },
+    {
+      "label": ".ClassifyArticle()",
+      "file_type": "code",
+      "source_file": "src/FinanceAdvisor.Services/Plugins/NewsPlugin.cs",
+      "source_location": "L342",
+      "id": "newsplugin_newsplugin_classifyarticle",
+      "community": 1,
+      "norm_label": ".classifyarticle()"
+    },
+    {
+      "label": ".IsMacroSignal()",
+      "file_type": "code",
+      "source_file": "src/FinanceAdvisor.Services/Plugins/NewsPlugin.cs",
+      "source_location": "L362",
+      "id": "newsplugin_newsplugin_ismacrosignal",
+      "community": 1,
+      "norm_label": ".ismacrosignal()"
+    },
+    {
+      "label": ".FallbackByRecency()",
+      "file_type": "code",
+      "source_file": "src/FinanceAdvisor.Services/Plugins/NewsPlugin.cs",
+      "source_location": "L368",
+      "id": "newsplugin_newsplugin_fallbackbyrecency",
+      "community": 1,
+      "norm_label": ".fallbackbyrecency()"
+    },
+    {
+      "label": ".LogPluginError()",
+      "file_type": "code",
+      "source_file": "src/FinanceAdvisor.Services/Plugins/NewsPlugin.cs",
+      "source_location": "L371",
+      "id": "newsplugin_newsplugin_logpluginerror",
+      "community": 1,
+      "norm_label": ".logpluginerror()"
+    },
+    {
+      "label": ".LogRerankerEmptyScores()",
+      "file_type": "code",
+      "source_file": "src/FinanceAdvisor.Services/Plugins/NewsPlugin.cs",
+      "source_location": "L374",
+      "id": "newsplugin_newsplugin_logrerankeremptyscores",
+      "community": 1,
+      "norm_label": ".logrerankeremptyscores()"
+    },
+    {
+      "label": ".LogRerankerLowConfidence()",
+      "file_type": "code",
+      "source_file": "src/FinanceAdvisor.Services/Plugins/NewsPlugin.cs",
+      "source_location": "L377",
+      "id": "newsplugin_newsplugin_logrerankerlowconfidence",
+      "community": 1,
+      "norm_label": ".logrerankerlowconfidence()"
+    },
+    {
+      "label": ".LogRerankerComplete()",
+      "file_type": "code",
+      "source_file": "src/FinanceAdvisor.Services/Plugins/NewsPlugin.cs",
+      "source_location": "L380",
+      "id": "newsplugin_newsplugin_logrerankercomplete",
+      "community": 1,
+      "norm_label": ".logrerankercomplete()"
+    },
+    {
+      "label": ".LogRerankerLlmFailed()",
+      "file_type": "code",
+      "source_file": "src/FinanceAdvisor.Services/Plugins/NewsPlugin.cs",
+      "source_location": "L383",
+      "id": "newsplugin_newsplugin_logrerankerllmfailed",
+      "community": 1,
+      "norm_label": ".logrerankerllmfailed()"
     },
     {
       "label": "PortfolioPlugin.cs",
@@ -1782,7 +2115,7 @@
       "source_file": "src/FinanceAdvisor.Services/Plugins/PortfolioPlugin.cs",
       "source_location": "L1",
       "id": "src_financeadvisor_services_plugins_portfolioplugin_cs",
-      "community": 25,
+      "community": 28,
       "norm_label": "portfolioplugin.cs"
     },
     {
@@ -1791,7 +2124,7 @@
       "source_file": "src/FinanceAdvisor.Services/Plugins/PortfolioPlugin.cs",
       "source_location": "L10",
       "id": "portfolioplugin_portfolioplugin",
-      "community": 25,
+      "community": 28,
       "norm_label": "portfolioplugin"
     },
     {
@@ -1800,7 +2133,7 @@
       "source_file": "src/FinanceAdvisor.Services/Plugins/PortfolioPlugin.cs",
       "source_location": "L19",
       "id": "portfolioplugin_portfolioplugin_getportfolioholdingsasync",
-      "community": 25,
+      "community": 28,
       "norm_label": ".getportfolioholdingsasync()"
     },
     {
@@ -1809,7 +2142,7 @@
       "source_file": "src/FinanceAdvisor.Services/obj/Debug/net10.0/FinanceAdvisor.Services.AssemblyInfo.cs",
       "source_location": "L1",
       "id": "src_financeadvisor_services_obj_debug_net10_0_financeadvisor_services_assemblyinfo_cs",
-      "community": 46,
+      "community": 52,
       "norm_label": "financeadvisor.services.assemblyinfo.cs"
     },
     {
@@ -1818,7 +2151,7 @@
       "source_file": "src/FinanceAdvisor.Services/obj/Debug/net10.0/FinanceAdvisor.Services.GlobalUsings.g.cs",
       "source_location": "L1",
       "id": "src_financeadvisor_services_obj_debug_net10_0_financeadvisor_services_globalusings_g_cs",
-      "community": 47,
+      "community": 53,
       "norm_label": "financeadvisor.services.globalusings.g.cs"
     },
     {
@@ -1827,7 +2160,7 @@
       "source_file": "src/FinanceAdvisor.Services/obj/Release/net10.0/FinanceAdvisor.Services.AssemblyInfo.cs",
       "source_location": "L1",
       "id": "src_financeadvisor_services_obj_release_net10_0_financeadvisor_services_assemblyinfo_cs",
-      "community": 48,
+      "community": 54,
       "norm_label": "financeadvisor.services.assemblyinfo.cs"
     },
     {
@@ -1836,7 +2169,7 @@
       "source_file": "src/FinanceAdvisor.Services/obj/Release/net10.0/FinanceAdvisor.Services.GlobalUsings.g.cs",
       "source_location": "L1",
       "id": "src_financeadvisor_services_obj_release_net10_0_financeadvisor_services_globalusings_g_cs",
-      "community": 49,
+      "community": 55,
       "norm_label": "financeadvisor.services.globalusings.g.cs"
     }
   ],
@@ -2373,19 +2706,19 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "src/FinanceAdvisor.API/Controllers/TelegramController.cs",
-      "source_location": "L40",
+      "source_location": "L42",
       "weight": 1.0,
       "_src": "telegramcontroller_telegramcontroller",
-      "_tgt": "telegramcontroller_telegramcontroller_webhookasync",
+      "_tgt": "telegramcontroller_telegramcontroller_webhook",
       "source": "telegramcontroller_telegramcontroller",
-      "target": "telegramcontroller_telegramcontroller_webhookasync",
+      "target": "telegramcontroller_telegramcontroller_webhook",
       "confidence_score": 1.0
     },
     {
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "src/FinanceAdvisor.API/Controllers/TelegramController.cs",
-      "source_location": "L81",
+      "source_location": "L75",
       "weight": 1.0,
       "_src": "telegramcontroller_telegramcontroller",
       "_tgt": "telegramcontroller_telegramcontroller_logauthdebug",
@@ -2397,24 +2730,12 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "src/FinanceAdvisor.API/Controllers/TelegramController.cs",
-      "source_location": "L86",
+      "source_location": "L80",
       "weight": 1.0,
       "_src": "telegramcontroller_telegramcontroller",
-      "_tgt": "telegramcontroller_telegramcontroller_logwebhookprocessed",
+      "_tgt": "telegramcontroller_telegramcontroller_logupdateenqueued",
       "source": "telegramcontroller_telegramcontroller",
-      "target": "telegramcontroller_telegramcontroller_logwebhookprocessed",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "method",
-      "confidence": "EXTRACTED",
-      "source_file": "src/FinanceAdvisor.API/Controllers/TelegramController.cs",
-      "source_location": "L92",
-      "weight": 1.0,
-      "_src": "telegramcontroller_telegramcontroller",
-      "_tgt": "telegramcontroller_telegramcontroller_logwebhooktimeout",
-      "source": "telegramcontroller_telegramcontroller",
-      "target": "telegramcontroller_telegramcontroller_logwebhooktimeout",
+      "target": "telegramcontroller_telegramcontroller_logupdateenqueued",
       "confidence_score": 1.0
     },
     {
@@ -2423,9 +2744,9 @@
       "source_file": "src/FinanceAdvisor.API/Controllers/TelegramController.cs",
       "source_location": "L48",
       "weight": 1.0,
-      "_src": "telegramcontroller_telegramcontroller_webhookasync",
+      "_src": "telegramcontroller_telegramcontroller_webhook",
       "_tgt": "telegramcontroller_telegramcontroller_logauthdebug",
-      "source": "telegramcontroller_telegramcontroller_webhookasync",
+      "source": "telegramcontroller_telegramcontroller_webhook",
       "target": "telegramcontroller_telegramcontroller_logauthdebug",
       "confidence_score": 1.0
     },
@@ -2433,24 +2754,12 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "src/FinanceAdvisor.API/Controllers/TelegramController.cs",
-      "source_location": "L71",
+      "source_location": "L70",
       "weight": 1.0,
-      "_src": "telegramcontroller_telegramcontroller_webhookasync",
-      "_tgt": "telegramcontroller_telegramcontroller_logwebhookprocessed",
-      "source": "telegramcontroller_telegramcontroller_webhookasync",
-      "target": "telegramcontroller_telegramcontroller_logwebhookprocessed",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "confidence": "EXTRACTED",
-      "source_file": "src/FinanceAdvisor.API/Controllers/TelegramController.cs",
-      "source_location": "L75",
-      "weight": 1.0,
-      "_src": "telegramcontroller_telegramcontroller_webhookasync",
-      "_tgt": "telegramcontroller_telegramcontroller_logwebhooktimeout",
-      "source": "telegramcontroller_telegramcontroller_webhookasync",
-      "target": "telegramcontroller_telegramcontroller_logwebhooktimeout",
+      "_src": "telegramcontroller_telegramcontroller_webhook",
+      "_tgt": "telegramcontroller_telegramcontroller_logupdateenqueued",
+      "source": "telegramcontroller_telegramcontroller_webhook",
+      "target": "telegramcontroller_telegramcontroller_logupdateenqueued",
       "confidence_score": 1.0
     },
     {
@@ -2481,7 +2790,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/FinanceAdvisor.API/Startup/DependencyInjection.cs",
-      "source_location": "L26",
+      "source_location": "L28",
       "weight": 1.0,
       "_src": "src_financeadvisor_api_startup_dependencyinjection_cs",
       "_tgt": "dependencyinjection_dependencyinjection",
@@ -2493,7 +2802,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "src/FinanceAdvisor.API/Startup/DependencyInjection.cs",
-      "source_location": "L28",
+      "source_location": "L30",
       "weight": 1.0,
       "_src": "dependencyinjection_dependencyinjection",
       "_tgt": "dependencyinjection_dependencyinjection_addfinanceadvisorlogging",
@@ -2505,7 +2814,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "src/FinanceAdvisor.API/Startup/DependencyInjection.cs",
-      "source_location": "L38",
+      "source_location": "L40",
       "weight": 1.0,
       "_src": "dependencyinjection_dependencyinjection",
       "_tgt": "dependencyinjection_dependencyinjection_addfinanceadvisorservices",
@@ -2535,6 +2844,210 @@
       "_tgt": "keyvaultconfiguration_keyvaultconfiguration_addazurekeyvault",
       "source": "keyvaultconfiguration_keyvaultconfiguration",
       "target": "keyvaultconfiguration_keyvaultconfiguration_addazurekeyvault",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/FinanceAdvisor.API/Infrastructure/UpdateChannel.cs",
+      "source_location": "L8",
+      "weight": 1.0,
+      "_src": "src_financeadvisor_api_infrastructure_updatechannel_cs",
+      "_tgt": "updatechannel_updatechannel",
+      "source": "src_financeadvisor_api_infrastructure_updatechannel_cs",
+      "target": "updatechannel_updatechannel",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "src/FinanceAdvisor.API/Infrastructure/UpdateChannel.cs",
+      "source_location": "L8",
+      "weight": 1.0,
+      "_src": "updatechannel_updatechannel",
+      "_tgt": "iupdatechannel",
+      "source": "updatechannel_updatechannel",
+      "target": "iupdatechannel",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/FinanceAdvisor.API/Infrastructure/UpdateChannel.cs",
+      "source_location": "L20",
+      "weight": 1.0,
+      "_src": "updatechannel_updatechannel",
+      "_tgt": "updatechannel_updatechannel_tryenqueue",
+      "source": "updatechannel_updatechannel",
+      "target": "updatechannel_updatechannel_tryenqueue",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/FinanceAdvisor.API/Infrastructure/UpdateChannel.cs",
+      "source_location": "L22",
+      "weight": 1.0,
+      "_src": "updatechannel_updatechannel",
+      "_tgt": "updatechannel_updatechannel_readallasync",
+      "source": "updatechannel_updatechannel",
+      "target": "updatechannel_updatechannel_readallasync",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/FinanceAdvisor.API/Workers/TelegramUpdateWorker.cs",
+      "source_location": "L10",
+      "weight": 1.0,
+      "_src": "src_financeadvisor_api_workers_telegramupdateworker_cs",
+      "_tgt": "telegramupdateworker_telegramupdateworker",
+      "source": "src_financeadvisor_api_workers_telegramupdateworker_cs",
+      "target": "telegramupdateworker_telegramupdateworker",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "src/FinanceAdvisor.API/Workers/TelegramUpdateWorker.cs",
+      "source_location": "L10",
+      "weight": 1.0,
+      "_src": "telegramupdateworker_telegramupdateworker",
+      "_tgt": "backgroundservice",
+      "source": "telegramupdateworker_telegramupdateworker",
+      "target": "backgroundservice",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/FinanceAdvisor.API/Workers/TelegramUpdateWorker.cs",
+      "source_location": "L26",
+      "weight": 1.0,
+      "_src": "telegramupdateworker_telegramupdateworker",
+      "_tgt": "telegramupdateworker_telegramupdateworker_executeasync",
+      "source": "telegramupdateworker_telegramupdateworker",
+      "target": "telegramupdateworker_telegramupdateworker_executeasync",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/FinanceAdvisor.API/Workers/TelegramUpdateWorker.cs",
+      "source_location": "L35",
+      "weight": 1.0,
+      "_src": "telegramupdateworker_telegramupdateworker",
+      "_tgt": "telegramupdateworker_telegramupdateworker_processmessageasync",
+      "source": "telegramupdateworker_telegramupdateworker",
+      "target": "telegramupdateworker_telegramupdateworker_processmessageasync",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/FinanceAdvisor.API/Workers/TelegramUpdateWorker.cs",
+      "source_location": "L57",
+      "weight": 1.0,
+      "_src": "telegramupdateworker_telegramupdateworker",
+      "_tgt": "telegramupdateworker_telegramupdateworker_logdequeued",
+      "source": "telegramupdateworker_telegramupdateworker",
+      "target": "telegramupdateworker_telegramupdateworker_logdequeued",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/FinanceAdvisor.API/Workers/TelegramUpdateWorker.cs",
+      "source_location": "L62",
+      "weight": 1.0,
+      "_src": "telegramupdateworker_telegramupdateworker",
+      "_tgt": "telegramupdateworker_telegramupdateworker_logprocessingstarted",
+      "source": "telegramupdateworker_telegramupdateworker",
+      "target": "telegramupdateworker_telegramupdateworker_logprocessingstarted",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/FinanceAdvisor.API/Workers/TelegramUpdateWorker.cs",
+      "source_location": "L67",
+      "weight": 1.0,
+      "_src": "telegramupdateworker_telegramupdateworker",
+      "_tgt": "telegramupdateworker_telegramupdateworker_logprocessingcompleted",
+      "source": "telegramupdateworker_telegramupdateworker",
+      "target": "telegramupdateworker_telegramupdateworker_logprocessingcompleted",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/FinanceAdvisor.API/Workers/TelegramUpdateWorker.cs",
+      "source_location": "L72",
+      "weight": 1.0,
+      "_src": "telegramupdateworker_telegramupdateworker",
+      "_tgt": "telegramupdateworker_telegramupdateworker_logprocessingfailed",
+      "source": "telegramupdateworker_telegramupdateworker",
+      "target": "telegramupdateworker_telegramupdateworker_logprocessingfailed",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src/FinanceAdvisor.API/Workers/TelegramUpdateWorker.cs",
+      "source_location": "L30",
+      "weight": 1.0,
+      "_src": "telegramupdateworker_telegramupdateworker_executeasync",
+      "_tgt": "telegramupdateworker_telegramupdateworker_logdequeued",
+      "source": "telegramupdateworker_telegramupdateworker_executeasync",
+      "target": "telegramupdateworker_telegramupdateworker_logdequeued",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src/FinanceAdvisor.API/Workers/TelegramUpdateWorker.cs",
+      "source_location": "L31",
+      "weight": 1.0,
+      "_src": "telegramupdateworker_telegramupdateworker_executeasync",
+      "_tgt": "telegramupdateworker_telegramupdateworker_processmessageasync",
+      "source": "telegramupdateworker_telegramupdateworker_executeasync",
+      "target": "telegramupdateworker_telegramupdateworker_processmessageasync",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src/FinanceAdvisor.API/Workers/TelegramUpdateWorker.cs",
+      "source_location": "L38",
+      "weight": 1.0,
+      "_src": "telegramupdateworker_telegramupdateworker_processmessageasync",
+      "_tgt": "telegramupdateworker_telegramupdateworker_logprocessingstarted",
+      "source": "telegramupdateworker_telegramupdateworker_processmessageasync",
+      "target": "telegramupdateworker_telegramupdateworker_logprocessingstarted",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src/FinanceAdvisor.API/Workers/TelegramUpdateWorker.cs",
+      "source_location": "L48",
+      "weight": 1.0,
+      "_src": "telegramupdateworker_telegramupdateworker_processmessageasync",
+      "_tgt": "telegramupdateworker_telegramupdateworker_logprocessingcompleted",
+      "source": "telegramupdateworker_telegramupdateworker_processmessageasync",
+      "target": "telegramupdateworker_telegramupdateworker_logprocessingcompleted",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src/FinanceAdvisor.API/Workers/TelegramUpdateWorker.cs",
+      "source_location": "L53",
+      "weight": 1.0,
+      "_src": "telegramupdateworker_telegramupdateworker_processmessageasync",
+      "_tgt": "telegramupdateworker_telegramupdateworker_logprocessingfailed",
+      "source": "telegramupdateworker_telegramupdateworker_processmessageasync",
+      "target": "telegramupdateworker_telegramupdateworker_logprocessingfailed",
       "confidence_score": 1.0
     },
     {
@@ -2688,6 +3201,30 @@
       "source_location": "L178",
       "weight": 1.0,
       "_src": "src_financeadvisor_core_constants_appconstants_cs",
+      "_tgt": "appconstants_newsreranking",
+      "source": "src_financeadvisor_core_constants_appconstants_cs",
+      "target": "appconstants_newsreranking",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/FinanceAdvisor.Core/Constants/AppConstants.cs",
+      "source_location": "L230",
+      "weight": 1.0,
+      "_src": "src_financeadvisor_core_constants_appconstants_cs",
+      "_tgt": "appconstants_channel",
+      "source": "src_financeadvisor_core_constants_appconstants_cs",
+      "target": "appconstants_channel",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/FinanceAdvisor.Core/Constants/AppConstants.cs",
+      "source_location": "L237",
+      "weight": 1.0,
+      "_src": "src_financeadvisor_core_constants_appconstants_cs",
       "_tgt": "appconstants_fallbackmessages",
       "source": "src_financeadvisor_core_constants_appconstants_cs",
       "target": "appconstants_fallbackmessages",
@@ -2835,6 +3372,42 @@
       "_tgt": "iqueryrouter_iqueryrouter_route",
       "source": "iqueryrouter_iqueryrouter",
       "target": "iqueryrouter_iqueryrouter_route",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/FinanceAdvisor.Core/Interfaces/IUpdateChannel.cs",
+      "source_location": "L6",
+      "weight": 1.0,
+      "_src": "src_financeadvisor_core_interfaces_iupdatechannel_cs",
+      "_tgt": "iupdatechannel_iupdatechannel",
+      "source": "src_financeadvisor_core_interfaces_iupdatechannel_cs",
+      "target": "iupdatechannel_iupdatechannel",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/FinanceAdvisor.Core/Interfaces/IUpdateChannel.cs",
+      "source_location": "L14",
+      "weight": 1.0,
+      "_src": "iupdatechannel_iupdatechannel",
+      "_tgt": "iupdatechannel_iupdatechannel_tryenqueue",
+      "source": "iupdatechannel_iupdatechannel",
+      "target": "iupdatechannel_iupdatechannel_tryenqueue",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/FinanceAdvisor.Core/Interfaces/IUpdateChannel.cs",
+      "source_location": "L18",
+      "weight": 1.0,
+      "_src": "iupdatechannel_iupdatechannel",
+      "_tgt": "iupdatechannel_iupdatechannel_readallasync",
+      "source": "iupdatechannel_iupdatechannel",
+      "target": "iupdatechannel_iupdatechannel_readallasync",
       "confidence_score": 1.0
     },
     {
@@ -4065,7 +4638,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "src/FinanceAdvisor.Services/Orchestration/SemanticKernelOrchestrator.cs",
-      "source_location": "L51",
+      "source_location": "L67",
       "weight": 1.0,
       "_src": "semantickernelorchestrator_semantickernelorchestrator",
       "_tgt": "semantickernelorchestrator_semantickernelorchestrator_validateserviceid",
@@ -4077,7 +4650,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "src/FinanceAdvisor.Services/Orchestration/SemanticKernelOrchestrator.cs",
-      "source_location": "L63",
+      "source_location": "L79",
       "weight": 1.0,
       "_src": "semantickernelorchestrator_semantickernelorchestrator",
       "_tgt": "semantickernelorchestrator_semantickernelorchestrator_processqueryasync",
@@ -4089,7 +4662,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "src/FinanceAdvisor.Services/Orchestration/SemanticKernelOrchestrator.cs",
-      "source_location": "L160",
+      "source_location": "L179",
       "weight": 1.0,
       "_src": "semantickernelorchestrator_semantickernelorchestrator",
       "_tgt": "semantickernelorchestrator_semantickernelorchestrator_loggatherercompleted",
@@ -4101,7 +4674,19 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "src/FinanceAdvisor.Services/Orchestration/SemanticKernelOrchestrator.cs",
-      "source_location": "L165",
+      "source_location": "L184",
+      "weight": 1.0,
+      "_src": "semantickernelorchestrator_semantickernelorchestrator",
+      "_tgt": "semantickernelorchestrator_semantickernelorchestrator_logshortcircuittriggered",
+      "source": "semantickernelorchestrator_semantickernelorchestrator",
+      "target": "semantickernelorchestrator_semantickernelorchestrator_logshortcircuittriggered",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/FinanceAdvisor.Services/Orchestration/SemanticKernelOrchestrator.cs",
+      "source_location": "L189",
       "weight": 1.0,
       "_src": "semantickernelorchestrator_semantickernelorchestrator",
       "_tgt": "semantickernelorchestrator_semantickernelorchestrator_logllmtimeout",
@@ -4113,7 +4698,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "src/FinanceAdvisor.Services/Orchestration/SemanticKernelOrchestrator.cs",
-      "source_location": "L170",
+      "source_location": "L194",
       "weight": 1.0,
       "_src": "semantickernelorchestrator_semantickernelorchestrator",
       "_tgt": "semantickernelorchestrator_semantickernelorchestrator_logllmratelimited",
@@ -4125,7 +4710,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "src/FinanceAdvisor.Services/Orchestration/SemanticKernelOrchestrator.cs",
-      "source_location": "L175",
+      "source_location": "L199",
       "weight": 1.0,
       "_src": "semantickernelorchestrator_semantickernelorchestrator",
       "_tgt": "semantickernelorchestrator_semantickernelorchestrator_logllmfailed",
@@ -4137,7 +4722,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "src/FinanceAdvisor.Services/Orchestration/SemanticKernelOrchestrator.cs",
-      "source_location": "L180",
+      "source_location": "L204",
       "weight": 1.0,
       "_src": "semantickernelorchestrator_semantickernelorchestrator",
       "_tgt": "semantickernelorchestrator_semantickernelorchestrator_logllmcompleted",
@@ -4149,7 +4734,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "src/FinanceAdvisor.Services/Orchestration/SemanticKernelOrchestrator.cs",
-      "source_location": "L103",
+      "source_location": "L119",
       "weight": 1.0,
       "_src": "semantickernelorchestrator_semantickernelorchestrator_processqueryasync",
       "_tgt": "semantickernelorchestrator_semantickernelorchestrator_loggatherercompleted",
@@ -4161,7 +4746,19 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "src/FinanceAdvisor.Services/Orchestration/SemanticKernelOrchestrator.cs",
-      "source_location": "L138",
+      "source_location": "L124",
+      "weight": 1.0,
+      "_src": "semantickernelorchestrator_semantickernelorchestrator_processqueryasync",
+      "_tgt": "semantickernelorchestrator_semantickernelorchestrator_logshortcircuittriggered",
+      "source": "semantickernelorchestrator_semantickernelorchestrator_processqueryasync",
+      "target": "semantickernelorchestrator_semantickernelorchestrator_logshortcircuittriggered",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src/FinanceAdvisor.Services/Orchestration/SemanticKernelOrchestrator.cs",
+      "source_location": "L155",
       "weight": 1.0,
       "_src": "semantickernelorchestrator_semantickernelorchestrator_processqueryasync",
       "_tgt": "semantickernelorchestrator_semantickernelorchestrator_logllmcompleted",
@@ -4173,7 +4770,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "src/FinanceAdvisor.Services/Orchestration/SemanticKernelOrchestrator.cs",
-      "source_location": "L145",
+      "source_location": "L164",
       "weight": 1.0,
       "_src": "semantickernelorchestrator_semantickernelorchestrator_processqueryasync",
       "_tgt": "semantickernelorchestrator_semantickernelorchestrator_logllmtimeout",
@@ -4185,7 +4782,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "src/FinanceAdvisor.Services/Orchestration/SemanticKernelOrchestrator.cs",
-      "source_location": "L150",
+      "source_location": "L169",
       "weight": 1.0,
       "_src": "semantickernelorchestrator_semantickernelorchestrator_processqueryasync",
       "_tgt": "semantickernelorchestrator_semantickernelorchestrator_logllmratelimited",
@@ -4197,7 +4794,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "src/FinanceAdvisor.Services/Orchestration/SemanticKernelOrchestrator.cs",
-      "source_location": "L155",
+      "source_location": "L174",
       "weight": 1.0,
       "_src": "semantickernelorchestrator_semantickernelorchestrator_processqueryasync",
       "_tgt": "semantickernelorchestrator_semantickernelorchestrator_logllmfailed",
@@ -4233,7 +4830,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/FinanceAdvisor.Services/Plugins/NewsPlugin.cs",
-      "source_location": "L10",
+      "source_location": "L17",
       "weight": 1.0,
       "_src": "src_financeadvisor_services_plugins_newsplugin_cs",
       "_tgt": "newsplugin_newsplugin",
@@ -4245,12 +4842,360 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "src/FinanceAdvisor.Services/Plugins/NewsPlugin.cs",
-      "source_location": "L19",
+      "source_location": "L109",
       "weight": 1.0,
       "_src": "newsplugin_newsplugin",
       "_tgt": "newsplugin_newsplugin_gettopheadlinesasync",
       "source": "newsplugin_newsplugin",
       "target": "newsplugin_newsplugin_gettopheadlinesasync",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/FinanceAdvisor.Services/Plugins/NewsPlugin.cs",
+      "source_location": "L135",
+      "weight": 1.0,
+      "_src": "newsplugin_newsplugin",
+      "_tgt": "newsplugin_newsplugin_rerankasync",
+      "source": "newsplugin_newsplugin",
+      "target": "newsplugin_newsplugin_rerankasync",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/FinanceAdvisor.Services/Plugins/NewsPlugin.cs",
+      "source_location": "L210",
+      "weight": 1.0,
+      "_src": "newsplugin_newsplugin",
+      "_tgt": "newsplugin_newsplugin_parsescores",
+      "source": "newsplugin_newsplugin",
+      "target": "newsplugin_newsplugin_parsescores",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/FinanceAdvisor.Services/Plugins/NewsPlugin.cs",
+      "source_location": "L224",
+      "weight": 1.0,
+      "_src": "newsplugin_newsplugin",
+      "_tgt": "newsplugin_newsplugin_blendedfallback",
+      "source": "newsplugin_newsplugin",
+      "target": "newsplugin_newsplugin_blendedfallback",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/FinanceAdvisor.Services/Plugins/NewsPlugin.cs",
+      "source_location": "L246",
+      "weight": 1.0,
+      "_src": "newsplugin_newsplugin",
+      "_tgt": "newsplugin_newsplugin_applydiversity",
+      "source": "newsplugin_newsplugin",
+      "target": "newsplugin_newsplugin_applydiversity",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/FinanceAdvisor.Services/Plugins/NewsPlugin.cs",
+      "source_location": "L295",
+      "weight": 1.0,
+      "_src": "newsplugin_newsplugin",
+      "_tgt": "newsplugin_newsplugin_applymacroguarantee",
+      "source": "newsplugin_newsplugin",
+      "target": "newsplugin_newsplugin_applymacroguarantee",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/FinanceAdvisor.Services/Plugins/NewsPlugin.cs",
+      "source_location": "L325",
+      "weight": 1.0,
+      "_src": "newsplugin_newsplugin",
+      "_tgt": "newsplugin_newsplugin_computefreshnessboost",
+      "source": "newsplugin_newsplugin",
+      "target": "newsplugin_newsplugin_computefreshnessboost",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/FinanceAdvisor.Services/Plugins/NewsPlugin.cs",
+      "source_location": "L342",
+      "weight": 1.0,
+      "_src": "newsplugin_newsplugin",
+      "_tgt": "newsplugin_newsplugin_classifyarticle",
+      "source": "newsplugin_newsplugin",
+      "target": "newsplugin_newsplugin_classifyarticle",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/FinanceAdvisor.Services/Plugins/NewsPlugin.cs",
+      "source_location": "L362",
+      "weight": 1.0,
+      "_src": "newsplugin_newsplugin",
+      "_tgt": "newsplugin_newsplugin_ismacrosignal",
+      "source": "newsplugin_newsplugin",
+      "target": "newsplugin_newsplugin_ismacrosignal",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/FinanceAdvisor.Services/Plugins/NewsPlugin.cs",
+      "source_location": "L368",
+      "weight": 1.0,
+      "_src": "newsplugin_newsplugin",
+      "_tgt": "newsplugin_newsplugin_fallbackbyrecency",
+      "source": "newsplugin_newsplugin",
+      "target": "newsplugin_newsplugin_fallbackbyrecency",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/FinanceAdvisor.Services/Plugins/NewsPlugin.cs",
+      "source_location": "L371",
+      "weight": 1.0,
+      "_src": "newsplugin_newsplugin",
+      "_tgt": "newsplugin_newsplugin_logpluginerror",
+      "source": "newsplugin_newsplugin",
+      "target": "newsplugin_newsplugin_logpluginerror",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/FinanceAdvisor.Services/Plugins/NewsPlugin.cs",
+      "source_location": "L374",
+      "weight": 1.0,
+      "_src": "newsplugin_newsplugin",
+      "_tgt": "newsplugin_newsplugin_logrerankeremptyscores",
+      "source": "newsplugin_newsplugin",
+      "target": "newsplugin_newsplugin_logrerankeremptyscores",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/FinanceAdvisor.Services/Plugins/NewsPlugin.cs",
+      "source_location": "L377",
+      "weight": 1.0,
+      "_src": "newsplugin_newsplugin",
+      "_tgt": "newsplugin_newsplugin_logrerankerlowconfidence",
+      "source": "newsplugin_newsplugin",
+      "target": "newsplugin_newsplugin_logrerankerlowconfidence",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/FinanceAdvisor.Services/Plugins/NewsPlugin.cs",
+      "source_location": "L380",
+      "weight": 1.0,
+      "_src": "newsplugin_newsplugin",
+      "_tgt": "newsplugin_newsplugin_logrerankercomplete",
+      "source": "newsplugin_newsplugin",
+      "target": "newsplugin_newsplugin_logrerankercomplete",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/FinanceAdvisor.Services/Plugins/NewsPlugin.cs",
+      "source_location": "L383",
+      "weight": 1.0,
+      "_src": "newsplugin_newsplugin",
+      "_tgt": "newsplugin_newsplugin_logrerankerllmfailed",
+      "source": "newsplugin_newsplugin",
+      "target": "newsplugin_newsplugin_logrerankerllmfailed",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src/FinanceAdvisor.Services/Plugins/NewsPlugin.cs",
+      "source_location": "L125",
+      "weight": 1.0,
+      "_src": "newsplugin_newsplugin_gettopheadlinesasync",
+      "_tgt": "newsplugin_newsplugin_rerankasync",
+      "source": "newsplugin_newsplugin_gettopheadlinesasync",
+      "target": "newsplugin_newsplugin_rerankasync",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src/FinanceAdvisor.Services/Plugins/NewsPlugin.cs",
+      "source_location": "L130",
+      "weight": 1.0,
+      "_src": "newsplugin_newsplugin_gettopheadlinesasync",
+      "_tgt": "newsplugin_newsplugin_logpluginerror",
+      "source": "newsplugin_newsplugin_gettopheadlinesasync",
+      "target": "newsplugin_newsplugin_logpluginerror",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src/FinanceAdvisor.Services/Plugins/NewsPlugin.cs",
+      "source_location": "L163",
+      "weight": 1.0,
+      "_src": "newsplugin_newsplugin_rerankasync",
+      "_tgt": "newsplugin_newsplugin_parsescores",
+      "source": "newsplugin_newsplugin_rerankasync",
+      "target": "newsplugin_newsplugin_parsescores",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src/FinanceAdvisor.Services/Plugins/NewsPlugin.cs",
+      "source_location": "L167",
+      "weight": 1.0,
+      "_src": "newsplugin_newsplugin_rerankasync",
+      "_tgt": "newsplugin_newsplugin_logrerankeremptyscores",
+      "source": "newsplugin_newsplugin_rerankasync",
+      "target": "newsplugin_newsplugin_logrerankeremptyscores",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src/FinanceAdvisor.Services/Plugins/NewsPlugin.cs",
+      "source_location": "L168",
+      "weight": 1.0,
+      "_src": "newsplugin_newsplugin_rerankasync",
+      "_tgt": "newsplugin_newsplugin_fallbackbyrecency",
+      "source": "newsplugin_newsplugin_rerankasync",
+      "target": "newsplugin_newsplugin_fallbackbyrecency",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src/FinanceAdvisor.Services/Plugins/NewsPlugin.cs",
+      "source_location": "L178",
+      "weight": 1.0,
+      "_src": "newsplugin_newsplugin_rerankasync",
+      "_tgt": "newsplugin_newsplugin_logrerankerlowconfidence",
+      "source": "newsplugin_newsplugin_rerankasync",
+      "target": "newsplugin_newsplugin_logrerankerlowconfidence",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src/FinanceAdvisor.Services/Plugins/NewsPlugin.cs",
+      "source_location": "L179",
+      "weight": 1.0,
+      "_src": "newsplugin_newsplugin_rerankasync",
+      "_tgt": "newsplugin_newsplugin_blendedfallback",
+      "source": "newsplugin_newsplugin_rerankasync",
+      "target": "newsplugin_newsplugin_blendedfallback",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src/FinanceAdvisor.Services/Plugins/NewsPlugin.cs",
+      "source_location": "L187",
+      "weight": 1.0,
+      "_src": "newsplugin_newsplugin_rerankasync",
+      "_tgt": "newsplugin_newsplugin_computefreshnessboost",
+      "source": "newsplugin_newsplugin_rerankasync",
+      "target": "newsplugin_newsplugin_computefreshnessboost",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src/FinanceAdvisor.Services/Plugins/NewsPlugin.cs",
+      "source_location": "L193",
+      "weight": 1.0,
+      "_src": "newsplugin_newsplugin_rerankasync",
+      "_tgt": "newsplugin_newsplugin_applydiversity",
+      "source": "newsplugin_newsplugin_rerankasync",
+      "target": "newsplugin_newsplugin_applydiversity",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src/FinanceAdvisor.Services/Plugins/NewsPlugin.cs",
+      "source_location": "L197",
+      "weight": 1.0,
+      "_src": "newsplugin_newsplugin_rerankasync",
+      "_tgt": "newsplugin_newsplugin_applymacroguarantee",
+      "source": "newsplugin_newsplugin_rerankasync",
+      "target": "newsplugin_newsplugin_applymacroguarantee",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src/FinanceAdvisor.Services/Plugins/NewsPlugin.cs",
+      "source_location": "L199",
+      "weight": 1.0,
+      "_src": "newsplugin_newsplugin_rerankasync",
+      "_tgt": "newsplugin_newsplugin_logrerankercomplete",
+      "source": "newsplugin_newsplugin_rerankasync",
+      "target": "newsplugin_newsplugin_logrerankercomplete",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src/FinanceAdvisor.Services/Plugins/NewsPlugin.cs",
+      "source_location": "L205",
+      "weight": 1.0,
+      "_src": "newsplugin_newsplugin_rerankasync",
+      "_tgt": "newsplugin_newsplugin_logrerankerllmfailed",
+      "source": "newsplugin_newsplugin_rerankasync",
+      "target": "newsplugin_newsplugin_logrerankerllmfailed",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src/FinanceAdvisor.Services/Plugins/NewsPlugin.cs",
+      "source_location": "L262",
+      "weight": 1.0,
+      "_src": "newsplugin_newsplugin_applydiversity",
+      "_tgt": "newsplugin_newsplugin_classifyarticle",
+      "source": "newsplugin_newsplugin_applydiversity",
+      "target": "newsplugin_newsplugin_classifyarticle",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src/FinanceAdvisor.Services/Plugins/NewsPlugin.cs",
+      "source_location": "L300",
+      "weight": 1.0,
+      "_src": "newsplugin_newsplugin_applymacroguarantee",
+      "_tgt": "newsplugin_newsplugin_ismacrosignal",
+      "source": "newsplugin_newsplugin_applymacroguarantee",
+      "target": "newsplugin_newsplugin_ismacrosignal",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src/FinanceAdvisor.Services/Plugins/NewsPlugin.cs",
+      "source_location": "L364",
+      "weight": 1.0,
+      "_src": "newsplugin_newsplugin_ismacrosignal",
+      "_tgt": "newsplugin_newsplugin_classifyarticle",
+      "source": "newsplugin_newsplugin_classifyarticle",
+      "target": "newsplugin_newsplugin_ismacrosignal",
       "confidence_score": 1.0
     },
     {

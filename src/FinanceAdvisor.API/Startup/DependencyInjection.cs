@@ -1,5 +1,7 @@
 namespace FinanceAdvisor.API.Startup;
 
+using FinanceAdvisor.API.Infrastructure;
+using FinanceAdvisor.API.Workers;
 using FinanceAdvisor.Core.Constants;
 using FinanceAdvisor.Core.Interfaces;
 using FinanceAdvisor.Core.Models.Configuration;
@@ -72,6 +74,9 @@ internal static class DependencyInjection
             TelegramSettings telegram = sp.GetRequiredService<IOptions<TelegramSettings>>().Value;
             return new TelegramBotClient(telegram.BotToken);
         });
+
+        services.AddSingleton<IUpdateChannel, UpdateChannel>();
+        services.AddHostedService<TelegramUpdateWorker>();
 
         services.AddSingleton<IQueryRouter, QueryRouter>();
         services.AddScoped<ITelegramWebhookService, TelegramWebhookService>();
