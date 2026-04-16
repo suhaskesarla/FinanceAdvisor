@@ -114,16 +114,20 @@ internal sealed class NewsPlugin
             var articles = await _newsEngine.GetTopHeadlinesAsync(ct);
 
             if (articles.Length == 0)
+            {
                 return AppConstants.FallbackMessages.NewsUnavailable;
+            }
 
             var selected = await RerankAsync(kernel, userQuery, articles, ct);
             return JsonSerializer.Serialize(selected);
         }
         catch (Exception ex) when (ex is not OperationCanceledException)
         {
+#pragma warning disable CA1848 // LoggerMessage delegates not warranted for exception catch paths
             _logger.LogError(
                 "News plugin failed. UserQuery={UserQuery} Error={Error}",
                 userQuery, ex.Message);
+#pragma warning restore CA1848
             return AppConstants.FallbackMessages.NewsUnavailable;
         }
     }
@@ -160,9 +164,11 @@ internal sealed class NewsPlugin
 
             if (scores is null || scores.Count == 0)
             {
+#pragma warning disable CA1848 // LoggerMessage delegates not warranted for fallback warning paths
                 _logger.LogWarning(
                     "News reranker returned empty scores. UserQuery={UserQuery} Falling back to recency.",
                     userQuery);
+#pragma warning restore CA1848
                 return FallbackByRecency(articles);
             }
 
@@ -173,9 +179,11 @@ internal sealed class NewsPlugin
             if (maxScore < AppConstants.NewsReranking.LowConfidenceMaxScore
                 && spread < AppConstants.NewsReranking.LowConfidenceSpread)
             {
+#pragma warning disable CA1848 // LoggerMessage delegates not warranted for collapse-detection warning paths
                 _logger.LogWarning(
                     "News reranker: low-confidence collapse detected. MaxScore={MaxScore} Spread={Spread} UserQuery={UserQuery} Using blended fallback.",
                     maxScore, spread, userQuery);
+#pragma warning restore CA1848
                 return BlendedFallback(scores, articles);
             }
 
@@ -196,17 +204,21 @@ internal sealed class NewsPlugin
             // Macro guarantee: ensure at least one macro/flows article if any exists in the pool
             NewsArticleDto[] final = ApplyMacroGuarantee(selected, boostedScores, articles);
 
+#pragma warning disable CA1848 // LoggerMessage delegates not warranted for informational completion logging
             _logger.LogInformation(
                 "News reranker returning {Count} articles. MaxScore={MaxScore} UserQuery={UserQuery}",
                 final.Length, maxScore, userQuery);
+#pragma warning restore CA1848
 
             return final;
         }
         catch (Exception ex) when (ex is not OperationCanceledException)
         {
+#pragma warning disable CA1848 // LoggerMessage delegates not warranted for exception catch paths
             _logger.LogWarning(
                 "News reranker LLM call failed. UserQuery={UserQuery} Error={Error} Falling back to recency.",
                 userQuery, ex.Message);
+#pragma warning restore CA1848
             return FallbackByRecency(articles);
         }
     }
@@ -216,7 +228,9 @@ internal sealed class NewsPlugin
         int start = llmOutput.IndexOf('[');
         int end = llmOutput.LastIndexOf(']');
         if (start < 0 || end <= start)
+        {
             return null;
+        }
 
         string json = llmOutput[start..(end + 1)];
         return JsonSerializer.Deserialize<List<NewsScore>>(json, _caseInsensitiveOptions);
@@ -257,7 +271,9 @@ internal sealed class NewsPlugin
         {
             var article = articles.ElementAtOrDefault(score.Id - 1);
             if (article is null)
+            {
                 continue;
+            }
 
             string category = ClassifyArticle(article.Title);
             categoryCounts.TryGetValue(category, out int count);
@@ -267,7 +283,9 @@ internal sealed class NewsPlugin
                 categoryCounts[category] = count + 1;
                 selected.Add(article);
                 if (selected.Count >= AppConstants.NewsReranking.MaxResults)
+                {
                     break;
+                }
             }
             else
             {
@@ -279,7 +297,10 @@ internal sealed class NewsPlugin
         foreach (var article in overflow)
         {
             if (selected.Count >= AppConstants.NewsReranking.MaxResults)
+            {
                 break;
+            }
+
             selected.Add(article);
         }
 
@@ -293,7 +314,9 @@ internal sealed class NewsPlugin
         NewsArticleDto[] articles)
     {
         if (selected.Count == 0 || selected.Any(a => IsMacroSignal(a.Title)))
+        {
             return [.. selected];
+        }
 
         var selectedLinks = selected.Select(a => a.Link).ToHashSet(StringComparer.OrdinalIgnoreCase);
 
@@ -305,7 +328,9 @@ internal sealed class NewsPlugin
                 && IsMacroSignal(a.Title));
 
         if (bestMacro is null)
+        {
             return [.. selected];
+        }
 
         // Append if there is a free slot; otherwise replace the last (lowest-ranked) article
         return selected.Count < AppConstants.NewsReranking.MaxResults
@@ -317,9 +342,14 @@ internal sealed class NewsPlugin
     {
         var age = DateTime.UtcNow - publishedAt.ToUniversalTime();
         if (age.TotalHours <= AppConstants.NewsReranking.FreshnessRecentHoursThreshold)
+        {
             return AppConstants.NewsReranking.FreshnessBoostRecent;
+        }
+
         if (publishedAt.ToUniversalTime().Date == DateTime.UtcNow.Date)
+        {
             return AppConstants.NewsReranking.FreshnessBoostSameDay;
+        }
         return 0.0;
     }
 
@@ -329,11 +359,19 @@ internal sealed class NewsPlugin
     {
         string lower = title.ToLowerInvariant();
         if (_flowsKeywords.Any(k => lower.Contains(k)))
+        {
             return _categoryFlows;
+        }
+
         if (_macroKeywords.Any(k => lower.Contains(k)))
+        {
             return _categoryMacro;
+        }
+
         if (_sectorKeywords.Any(k => lower.Contains(k)))
+        {
             return _categorySector;
+        }
         return _categoryStock;
     }
 
