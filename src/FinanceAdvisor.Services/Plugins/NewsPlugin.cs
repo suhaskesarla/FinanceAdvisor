@@ -12,7 +12,7 @@ using FinanceAdvisor.Core.Interfaces;
 using Microsoft.Extensions.Logging;
 using Microsoft.SemanticKernel;
 
-internal sealed class NewsPlugin
+internal sealed partial class NewsPlugin
 {
     private const string _rerankerPrompt = """
         You are a financial news relevance scoring system.
@@ -123,11 +123,7 @@ internal sealed class NewsPlugin
         }
         catch (Exception ex) when (ex is not OperationCanceledException)
         {
-#pragma warning disable CA1848 // LoggerMessage delegates not warranted for exception catch paths
-            _logger.LogError(
-                "News plugin failed. UserQuery={UserQuery} Error={Error}",
-                userQuery, ex.Message);
-#pragma warning restore CA1848
+            LogPluginError(_logger, userQuery, ex.Message);
             return AppConstants.FallbackMessages.NewsUnavailable;
         }
     }
@@ -164,11 +160,7 @@ internal sealed class NewsPlugin
 
             if (scores is null || scores.Count == 0)
             {
-#pragma warning disable CA1848 // LoggerMessage delegates not warranted for fallback warning paths
-                _logger.LogWarning(
-                    "News reranker returned empty scores. UserQuery={UserQuery} Falling back to recency.",
-                    userQuery);
-#pragma warning restore CA1848
+                LogRerankerEmptyScores(_logger, userQuery);
                 return FallbackByRecency(articles);
             }
 
@@ -179,11 +171,7 @@ internal sealed class NewsPlugin
             if (maxScore < AppConstants.NewsReranking.LowConfidenceMaxScore
                 && spread < AppConstants.NewsReranking.LowConfidenceSpread)
             {
-#pragma warning disable CA1848 // LoggerMessage delegates not warranted for collapse-detection warning paths
-                _logger.LogWarning(
-                    "News reranker: low-confidence collapse detected. MaxScore={MaxScore} Spread={Spread} UserQuery={UserQuery} Using blended fallback.",
-                    maxScore, spread, userQuery);
-#pragma warning restore CA1848
+                LogRerankerLowConfidence(_logger, maxScore, spread, userQuery);
                 return BlendedFallback(scores, articles);
             }
 
@@ -204,21 +192,13 @@ internal sealed class NewsPlugin
             // Macro guarantee: ensure at least one macro/flows article if any exists in the pool
             NewsArticleDto[] final = ApplyMacroGuarantee(selected, boostedScores, articles);
 
-#pragma warning disable CA1848 // LoggerMessage delegates not warranted for informational completion logging
-            _logger.LogInformation(
-                "News reranker returning {Count} articles. MaxScore={MaxScore} UserQuery={UserQuery}",
-                final.Length, maxScore, userQuery);
-#pragma warning restore CA1848
+            LogRerankerComplete(_logger, final.Length, maxScore, userQuery);
 
             return final;
         }
         catch (Exception ex) when (ex is not OperationCanceledException)
         {
-#pragma warning disable CA1848 // LoggerMessage delegates not warranted for exception catch paths
-            _logger.LogWarning(
-                "News reranker LLM call failed. UserQuery={UserQuery} Error={Error} Falling back to recency.",
-                userQuery, ex.Message);
-#pragma warning restore CA1848
+            LogRerankerLlmFailed(_logger, userQuery, ex.Message);
             return FallbackByRecency(articles);
         }
     }
@@ -383,6 +363,21 @@ internal sealed class NewsPlugin
 
     private static NewsArticleDto[] FallbackByRecency(NewsArticleDto[] articles) =>
         [.. articles.OrderByDescending(a => a.PublishedAt).Take(AppConstants.NewsReranking.FallbackCount)];
+
+    [LoggerMessage(Level = LogLevel.Error, Message = "News plugin failed. UserQuery={UserQuery} Error={Error}")]
+    private static partial void LogPluginError(ILogger logger, string userQuery, string error);
+
+    [LoggerMessage(Level = LogLevel.Warning, Message = "News reranker returned empty scores. UserQuery={UserQuery} Falling back to recency.")]
+    private static partial void LogRerankerEmptyScores(ILogger logger, string userQuery);
+
+    [LoggerMessage(Level = LogLevel.Warning, Message = "News reranker: low-confidence collapse detected. MaxScore={MaxScore} Spread={Spread} UserQuery={UserQuery} Using blended fallback.")]
+    private static partial void LogRerankerLowConfidence(ILogger logger, double maxScore, double spread, string userQuery);
+
+    [LoggerMessage(Level = LogLevel.Information, Message = "News reranker returning {Count} articles. MaxScore={MaxScore} UserQuery={UserQuery}")]
+    private static partial void LogRerankerComplete(ILogger logger, int count, double maxScore, string userQuery);
+
+    [LoggerMessage(Level = LogLevel.Warning, Message = "News reranker LLM call failed. UserQuery={UserQuery} Error={Error} Falling back to recency.")]
+    private static partial void LogRerankerLlmFailed(ILogger logger, string userQuery, string error);
 
     private sealed record NewsScore(int Id, double Score);
 }
