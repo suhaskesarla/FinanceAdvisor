@@ -9,7 +9,9 @@ using System.Threading.Tasks;
 using FinanceAdvisor.Core.Constants;
 using FinanceAdvisor.Core.DTOs;
 using FinanceAdvisor.Core.Interfaces;
+using FinanceAdvisor.Core.Models.Configuration;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
 using Microsoft.SemanticKernel;
 
 internal sealed partial class NewsPlugin
@@ -95,11 +97,13 @@ internal sealed partial class NewsPlugin
 
     private readonly INewsEngine _newsEngine;
     private readonly ILogger<NewsPlugin> _logger;
+    private readonly string _rerankerServiceId;
 
-    public NewsPlugin(INewsEngine newsEngine, ILogger<NewsPlugin> logger)
+    public NewsPlugin(INewsEngine newsEngine, ILogger<NewsPlugin> logger, IOptions<AiProviderSettings> aiOptions)
     {
         _newsEngine = newsEngine;
         _logger = logger;
+        _rerankerServiceId = aiOptions.Value.GathererServiceId;
     }
 
     [KernelFunction("get_top_headlines")]
@@ -148,7 +152,7 @@ internal sealed partial class NewsPlugin
         {
             FunctionResult result = await kernel.InvokePromptAsync(
                 _rerankerPrompt,
-                new KernelArguments
+                new KernelArguments(new PromptExecutionSettings { ServiceId = _rerankerServiceId })
                 {
                     ["userQuery"] = userQuery,
                     ["articles"] = articlesJson,
