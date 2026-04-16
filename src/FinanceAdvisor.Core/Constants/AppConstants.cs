@@ -174,6 +174,58 @@ public static class AppConstants
         }
     }
 
+    /// <summary>Constants governing LLM-based news article reranking in NewsPlugin.</summary>
+    public static class NewsReranking
+    {
+        /// <summary>Number of articles to fetch from the RSS feed before reranking.</summary>
+        public const int FetchCount = 20;
+
+        /// <summary>Maximum character length of a summary sent to the LLM for scoring.</summary>
+        public const int SummaryMaxLength = 120;
+
+        /// <summary>Minimum relevance score (0–1) required for an article to pass the filter.</summary>
+        public const double MinRelevanceScore = 0.70;
+
+        /// <summary>Maximum number of articles returned after reranking.</summary>
+        public const int MaxResults = 4;
+
+        /// <summary>Minimum number of articles that must pass the score threshold; below this the recency fallback is used.</summary>
+        public const int MinPassingThreshold = 2;
+
+        /// <summary>Number of articles returned by the recency fallback when reranking yields insufficient results.</summary>
+        public const int FallbackCount = 3;
+
+        /// <summary>
+        /// Maximum top score below which scores are considered "all extremely low".
+        /// Combined with <see cref="LowConfidenceSpread"/>, triggers the recency fallback.
+        /// </summary>
+        public const double LowConfidenceMaxScore = 0.45;
+
+        /// <summary>
+        /// Maximum score range (max − min) below which scores are considered indistinguishable.
+        /// Combined with <see cref="LowConfidenceMaxScore"/>, triggers the recency fallback.
+        /// </summary>
+        public const double LowConfidenceSpread = 0.05;
+
+        /// <summary>Score boost for articles published within <see cref="FreshnessRecentHoursThreshold"/> hours.</summary>
+        public const double FreshnessBoostRecent = 0.08;
+
+        /// <summary>Score boost for articles published on the same calendar day but older than <see cref="FreshnessRecentHoursThreshold"/> hours.</summary>
+        public const double FreshnessBoostSameDay = 0.04;
+
+        /// <summary>Age threshold in hours below which an article is considered "recent" for the higher freshness boost.</summary>
+        public const int FreshnessRecentHoursThreshold = 6;
+
+        /// <summary>Maximum number of articles from the same implicit category (macro/sector/stock/flows) in the final selection.</summary>
+        public const int MaxPerCategory = 2;
+
+        /// <summary>Number of top LLM-ranked articles included in blended fallback mode.</summary>
+        public const int BlendedFallbackLlmCount = 2;
+
+        /// <summary>Number of recency-ordered articles appended in blended fallback mode.</summary>
+        public const int BlendedFallbackRecencyCount = 2;
+    }
+
     /// <summary>Fallback messages returned to users when a subsystem fails.</summary>
     public static class FallbackMessages
     {

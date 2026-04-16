@@ -51,7 +51,7 @@ internal sealed partial class RssNewsEngine : INewsEngine
             using var xmlReader = XmlReader.Create(stream, xmlSettings);
             var feed = SyndicationFeed.Load(xmlReader);
 
-            NewsArticleDto[] articles = [.. feed.Items.Take(5).Select(item =>
+            NewsArticleDto[] articles = [.. feed.Items.Take(AppConstants.NewsReranking.FetchCount).Select(item =>
             {
                 string title = StripHtml(item.Title?.Text ?? string.Empty);
                 string link = item.Links.FirstOrDefault()?.Uri.ToString() ?? string.Empty;
