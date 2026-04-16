@@ -5,8 +5,8 @@ using FinanceAdvisor.Core.DTOs;
 /// <summary>Retrieves top financial news headlines from an external feed.</summary>
 public interface INewsEngine
 {
-    /// <summary>Fetches the top financial news headlines.</summary>
+    /// <summary>Fetches recent financial news headlines from the configured feed.</summary>
     /// <param name="ct">Cancellation token.</param>
-    /// <returns>Array of top 5 articles.</returns>
+    /// <returns>Array of recent articles up to the configured fetch limit.</returns>
     Task<NewsArticleDto[]> GetTopHeadlinesAsync(CancellationToken ct = default);
 }

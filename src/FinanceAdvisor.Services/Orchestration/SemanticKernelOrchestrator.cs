@@ -122,9 +122,7 @@ internal sealed partial class SemanticKernelOrchestrator : IAIOrchestrator
             if (gatheredPayloadStr.Contains("USER_ACTION_REQUIRED", StringComparison.OrdinalIgnoreCase))
             {
                 LogShortCircuitTriggered(_logger, _gathererServiceId);
-                return gatheredPayloadStr
-                    .Replace("USER_ACTION_REQUIRED:", string.Empty, StringComparison.OrdinalIgnoreCase)
-                    .Trim();
+                return AppConstants.BotMessages.ZerodhaInvite;
             }
 
             sw.Restart();
