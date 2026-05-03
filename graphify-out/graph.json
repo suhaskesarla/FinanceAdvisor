@@ -639,16 +639,16 @@
       "source_file": "src/FinanceAdvisor.API/Infrastructure/UpdateChannel.cs",
       "source_location": "L1",
       "id": "src_financeadvisor_api_infrastructure_updatechannel_cs",
-      "community": 14,
+      "community": 13,
       "norm_label": "updatechannel.cs"
     },
     {
       "label": "UpdateChannel",
       "file_type": "code",
       "source_file": "src/FinanceAdvisor.API/Infrastructure/UpdateChannel.cs",
-      "source_location": "L8",
+      "source_location": "L9",
       "id": "updatechannel_updatechannel",
-      "community": 14,
+      "community": 13,
       "norm_label": "updatechannel"
     },
     {
@@ -657,26 +657,44 @@
       "source_file": "",
       "source_location": "",
       "id": "iupdatechannel",
-      "community": 14,
+      "community": 13,
       "norm_label": "iupdatechannel"
     },
     {
-      "label": ".TryEnqueue()",
+      "label": ".EnqueueAsync()",
       "file_type": "code",
       "source_file": "src/FinanceAdvisor.API/Infrastructure/UpdateChannel.cs",
-      "source_location": "L20",
-      "id": "updatechannel_updatechannel_tryenqueue",
-      "community": 14,
-      "norm_label": ".tryenqueue()"
+      "source_location": "L23",
+      "id": "updatechannel_updatechannel_enqueueasync",
+      "community": 13,
+      "norm_label": ".enqueueasync()"
     },
     {
       "label": ".ReadAllAsync()",
       "file_type": "code",
       "source_file": "src/FinanceAdvisor.API/Infrastructure/UpdateChannel.cs",
-      "source_location": "L22",
+      "source_location": "L34",
       "id": "updatechannel_updatechannel_readallasync",
-      "community": 14,
+      "community": 13,
       "norm_label": ".readallasync()"
+    },
+    {
+      "label": ".LogChannelNearCapacity()",
+      "file_type": "code",
+      "source_file": "src/FinanceAdvisor.API/Infrastructure/UpdateChannel.cs",
+      "source_location": "L37",
+      "id": "updatechannel_updatechannel_logchannelnearcapacity",
+      "community": 13,
+      "norm_label": ".logchannelnearcapacity()"
+    },
+    {
+      "label": ".LogEnqueued()",
+      "file_type": "code",
+      "source_file": "src/FinanceAdvisor.API/Infrastructure/UpdateChannel.cs",
+      "source_location": "L40",
+      "id": "updatechannel_updatechannel_logenqueued",
+      "community": 13,
+      "norm_label": ".logenqueued()"
     },
     {
       "label": "TelegramUpdateWorker.cs",
@@ -718,7 +736,7 @@
       "label": ".ProcessMessageAsync()",
       "file_type": "code",
       "source_file": "src/FinanceAdvisor.API/Workers/TelegramUpdateWorker.cs",
-      "source_location": "L35",
+      "source_location": "L42",
       "id": "telegramupdateworker_telegramupdateworker_processmessageasync",
       "community": 9,
       "norm_label": ".processmessageasync()"
@@ -727,7 +745,7 @@
       "label": ".LogDequeued()",
       "file_type": "code",
       "source_file": "src/FinanceAdvisor.API/Workers/TelegramUpdateWorker.cs",
-      "source_location": "L57",
+      "source_location": "L69",
       "id": "telegramupdateworker_telegramupdateworker_logdequeued",
       "community": 9,
       "norm_label": ".logdequeued()"
@@ -736,7 +754,7 @@
       "label": ".LogProcessingStarted()",
       "file_type": "code",
       "source_file": "src/FinanceAdvisor.API/Workers/TelegramUpdateWorker.cs",
-      "source_location": "L62",
+      "source_location": "L74",
       "id": "telegramupdateworker_telegramupdateworker_logprocessingstarted",
       "community": 9,
       "norm_label": ".logprocessingstarted()"
@@ -745,7 +763,7 @@
       "label": ".LogProcessingCompleted()",
       "file_type": "code",
       "source_file": "src/FinanceAdvisor.API/Workers/TelegramUpdateWorker.cs",
-      "source_location": "L67",
+      "source_location": "L79",
       "id": "telegramupdateworker_telegramupdateworker_logprocessingcompleted",
       "community": 9,
       "norm_label": ".logprocessingcompleted()"
@@ -754,7 +772,7 @@
       "label": ".LogProcessingFailed()",
       "file_type": "code",
       "source_file": "src/FinanceAdvisor.API/Workers/TelegramUpdateWorker.cs",
-      "source_location": "L72",
+      "source_location": "L84",
       "id": "telegramupdateworker_telegramupdateworker_logprocessingfailed",
       "community": 9,
       "norm_label": ".logprocessingfailed()"
@@ -945,7 +963,7 @@
       "source_file": "src/FinanceAdvisor.Core/Exceptions/ExternalApiTimeoutException.cs",
       "source_location": "L1",
       "id": "src_financeadvisor_core_exceptions_externalapitimeoutexception_cs",
-      "community": 13,
+      "community": 14,
       "norm_label": "externalapitimeoutexception.cs"
     },
     {
@@ -954,7 +972,7 @@
       "source_file": "src/FinanceAdvisor.Core/Exceptions/ExternalApiTimeoutException.cs",
       "source_location": "L4",
       "id": "externalapitimeoutexception_externalapitimeoutexception",
-      "community": 13,
+      "community": 14,
       "norm_label": "externalapitimeoutexception"
     },
     {
@@ -963,7 +981,7 @@
       "source_file": "",
       "source_location": "",
       "id": "exception",
-      "community": 13,
+      "community": 14,
       "norm_label": "exception"
     },
     {
@@ -972,7 +990,7 @@
       "source_file": "src/FinanceAdvisor.Core/Exceptions/InvalidProviderConfigurationException.cs",
       "source_location": "L1",
       "id": "src_financeadvisor_core_exceptions_invalidproviderconfigurationexception_cs",
-      "community": 13,
+      "community": 14,
       "norm_label": "invalidproviderconfigurationexception.cs"
     },
     {
@@ -981,7 +999,7 @@
       "source_file": "src/FinanceAdvisor.Core/Exceptions/InvalidProviderConfigurationException.cs",
       "source_location": "L7",
       "id": "invalidproviderconfigurationexception_invalidproviderconfigurationexception",
-      "community": 13,
+      "community": 14,
       "norm_label": "invalidproviderconfigurationexception"
     },
     {
@@ -990,7 +1008,7 @@
       "source_file": "src/FinanceAdvisor.Core/Exceptions/ZerodhaAuthException.cs",
       "source_location": "L1",
       "id": "src_financeadvisor_core_exceptions_zerodhaauthexception_cs",
-      "community": 13,
+      "community": 14,
       "norm_label": "zerodhaauthexception.cs"
     },
     {
@@ -999,7 +1017,7 @@
       "source_file": "src/FinanceAdvisor.Core/Exceptions/ZerodhaAuthException.cs",
       "source_location": "L4",
       "id": "zerodhaauthexception_zerodhaauthexception",
-      "community": 13,
+      "community": 14,
       "norm_label": "zerodhaauthexception"
     },
     {
@@ -1111,19 +1129,19 @@
       "norm_label": "iupdatechannel"
     },
     {
-      "label": ".TryEnqueue()",
+      "label": ".EnqueueAsync()",
       "file_type": "code",
       "source_file": "src/FinanceAdvisor.Core/Interfaces/IUpdateChannel.cs",
-      "source_location": "L14",
-      "id": "iupdatechannel_iupdatechannel_tryenqueue",
+      "source_location": "L11",
+      "id": "iupdatechannel_iupdatechannel_enqueueasync",
       "community": 18,
-      "norm_label": ".tryenqueue()"
+      "norm_label": ".enqueueasync()"
     },
     {
       "label": ".ReadAllAsync()",
       "file_type": "code",
       "source_file": "src/FinanceAdvisor.Core/Interfaces/IUpdateChannel.cs",
-      "source_location": "L18",
+      "source_location": "L15",
       "id": "iupdatechannel_iupdatechannel_readallasync",
       "community": 18,
       "norm_label": ".readallasync()"
@@ -2850,7 +2868,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/FinanceAdvisor.API/Infrastructure/UpdateChannel.cs",
-      "source_location": "L8",
+      "source_location": "L9",
       "weight": 1.0,
       "_src": "src_financeadvisor_api_infrastructure_updatechannel_cs",
       "_tgt": "updatechannel_updatechannel",
@@ -2862,7 +2880,7 @@
       "relation": "inherits",
       "confidence": "EXTRACTED",
       "source_file": "src/FinanceAdvisor.API/Infrastructure/UpdateChannel.cs",
-      "source_location": "L8",
+      "source_location": "L9",
       "weight": 1.0,
       "_src": "updatechannel_updatechannel",
       "_tgt": "iupdatechannel",
@@ -2874,24 +2892,72 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "src/FinanceAdvisor.API/Infrastructure/UpdateChannel.cs",
-      "source_location": "L20",
+      "source_location": "L23",
       "weight": 1.0,
       "_src": "updatechannel_updatechannel",
-      "_tgt": "updatechannel_updatechannel_tryenqueue",
+      "_tgt": "updatechannel_updatechannel_enqueueasync",
       "source": "updatechannel_updatechannel",
-      "target": "updatechannel_updatechannel_tryenqueue",
+      "target": "updatechannel_updatechannel_enqueueasync",
       "confidence_score": 1.0
     },
     {
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "src/FinanceAdvisor.API/Infrastructure/UpdateChannel.cs",
-      "source_location": "L22",
+      "source_location": "L34",
       "weight": 1.0,
       "_src": "updatechannel_updatechannel",
       "_tgt": "updatechannel_updatechannel_readallasync",
       "source": "updatechannel_updatechannel",
       "target": "updatechannel_updatechannel_readallasync",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/FinanceAdvisor.API/Infrastructure/UpdateChannel.cs",
+      "source_location": "L37",
+      "weight": 1.0,
+      "_src": "updatechannel_updatechannel",
+      "_tgt": "updatechannel_updatechannel_logchannelnearcapacity",
+      "source": "updatechannel_updatechannel",
+      "target": "updatechannel_updatechannel_logchannelnearcapacity",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/FinanceAdvisor.API/Infrastructure/UpdateChannel.cs",
+      "source_location": "L40",
+      "weight": 1.0,
+      "_src": "updatechannel_updatechannel",
+      "_tgt": "updatechannel_updatechannel_logenqueued",
+      "source": "updatechannel_updatechannel",
+      "target": "updatechannel_updatechannel_logenqueued",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src/FinanceAdvisor.API/Infrastructure/UpdateChannel.cs",
+      "source_location": "L27",
+      "weight": 1.0,
+      "_src": "updatechannel_updatechannel_enqueueasync",
+      "_tgt": "updatechannel_updatechannel_logchannelnearcapacity",
+      "source": "updatechannel_updatechannel_enqueueasync",
+      "target": "updatechannel_updatechannel_logchannelnearcapacity",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src/FinanceAdvisor.API/Infrastructure/UpdateChannel.cs",
+      "source_location": "L31",
+      "weight": 1.0,
+      "_src": "updatechannel_updatechannel_enqueueasync",
+      "_tgt": "updatechannel_updatechannel_logenqueued",
+      "source": "updatechannel_updatechannel_enqueueasync",
+      "target": "updatechannel_updatechannel_logenqueued",
       "confidence_score": 1.0
     },
     {
@@ -2934,7 +3000,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "src/FinanceAdvisor.API/Workers/TelegramUpdateWorker.cs",
-      "source_location": "L35",
+      "source_location": "L42",
       "weight": 1.0,
       "_src": "telegramupdateworker_telegramupdateworker",
       "_tgt": "telegramupdateworker_telegramupdateworker_processmessageasync",
@@ -2946,7 +3012,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "src/FinanceAdvisor.API/Workers/TelegramUpdateWorker.cs",
-      "source_location": "L57",
+      "source_location": "L69",
       "weight": 1.0,
       "_src": "telegramupdateworker_telegramupdateworker",
       "_tgt": "telegramupdateworker_telegramupdateworker_logdequeued",
@@ -2958,7 +3024,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "src/FinanceAdvisor.API/Workers/TelegramUpdateWorker.cs",
-      "source_location": "L62",
+      "source_location": "L74",
       "weight": 1.0,
       "_src": "telegramupdateworker_telegramupdateworker",
       "_tgt": "telegramupdateworker_telegramupdateworker_logprocessingstarted",
@@ -2970,7 +3036,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "src/FinanceAdvisor.API/Workers/TelegramUpdateWorker.cs",
-      "source_location": "L67",
+      "source_location": "L79",
       "weight": 1.0,
       "_src": "telegramupdateworker_telegramupdateworker",
       "_tgt": "telegramupdateworker_telegramupdateworker_logprocessingcompleted",
@@ -2982,7 +3048,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "src/FinanceAdvisor.API/Workers/TelegramUpdateWorker.cs",
-      "source_location": "L72",
+      "source_location": "L84",
       "weight": 1.0,
       "_src": "telegramupdateworker_telegramupdateworker",
       "_tgt": "telegramupdateworker_telegramupdateworker_logprocessingfailed",
@@ -2994,7 +3060,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "src/FinanceAdvisor.API/Workers/TelegramUpdateWorker.cs",
-      "source_location": "L30",
+      "source_location": "L32",
       "weight": 1.0,
       "_src": "telegramupdateworker_telegramupdateworker_executeasync",
       "_tgt": "telegramupdateworker_telegramupdateworker_logdequeued",
@@ -3006,7 +3072,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "src/FinanceAdvisor.API/Workers/TelegramUpdateWorker.cs",
-      "source_location": "L31",
+      "source_location": "L33",
       "weight": 1.0,
       "_src": "telegramupdateworker_telegramupdateworker_executeasync",
       "_tgt": "telegramupdateworker_telegramupdateworker_processmessageasync",
@@ -3018,7 +3084,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "src/FinanceAdvisor.API/Workers/TelegramUpdateWorker.cs",
-      "source_location": "L38",
+      "source_location": "L45",
       "weight": 1.0,
       "_src": "telegramupdateworker_telegramupdateworker_processmessageasync",
       "_tgt": "telegramupdateworker_telegramupdateworker_logprocessingstarted",
@@ -3030,7 +3096,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "src/FinanceAdvisor.API/Workers/TelegramUpdateWorker.cs",
-      "source_location": "L48",
+      "source_location": "L55",
       "weight": 1.0,
       "_src": "telegramupdateworker_telegramupdateworker_processmessageasync",
       "_tgt": "telegramupdateworker_telegramupdateworker_logprocessingcompleted",
@@ -3042,7 +3108,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "src/FinanceAdvisor.API/Workers/TelegramUpdateWorker.cs",
-      "source_location": "L53",
+      "source_location": "L65",
       "weight": 1.0,
       "_src": "telegramupdateworker_telegramupdateworker_processmessageasync",
       "_tgt": "telegramupdateworker_telegramupdateworker_logprocessingfailed",
@@ -3390,19 +3456,19 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "src/FinanceAdvisor.Core/Interfaces/IUpdateChannel.cs",
-      "source_location": "L14",
+      "source_location": "L11",
       "weight": 1.0,
       "_src": "iupdatechannel_iupdatechannel",
-      "_tgt": "iupdatechannel_iupdatechannel_tryenqueue",
+      "_tgt": "iupdatechannel_iupdatechannel_enqueueasync",
       "source": "iupdatechannel_iupdatechannel",
-      "target": "iupdatechannel_iupdatechannel_tryenqueue",
+      "target": "iupdatechannel_iupdatechannel_enqueueasync",
       "confidence_score": 1.0
     },
     {
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "src/FinanceAdvisor.Core/Interfaces/IUpdateChannel.cs",
-      "source_location": "L18",
+      "source_location": "L15",
       "weight": 1.0,
       "_src": "iupdatechannel_iupdatechannel",
       "_tgt": "iupdatechannel_iupdatechannel_readallasync",

@@ -25,10 +25,17 @@ internal sealed partial class TelegramUpdateWorker : BackgroundService
 
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)
     {
-        await foreach (IncomingMessageDto message in _channel.ReadAllAsync(stoppingToken))
+        try
         {
-            LogDequeued(_logger, message.CorrelationId);
-            await ProcessMessageAsync(message, stoppingToken);
+            await foreach (IncomingMessageDto message in _channel.ReadAllAsync(stoppingToken))
+            {
+                LogDequeued(_logger, message.CorrelationId);
+                await ProcessMessageAsync(message, stoppingToken);
+            }
+        }
+        catch (OperationCanceledException)
+        {
+            // Host is shutting down — exit cleanly
         }
     }
 
@@ -46,6 +53,11 @@ internal sealed partial class TelegramUpdateWorker : BackgroundService
             await service.HandleUpdateAsync(message, ct);
             sw.Stop();
             LogProcessingCompleted(_logger, message.CorrelationId, sw.ElapsedMilliseconds);
+        }
+        catch (OperationCanceledException)
+        {
+            sw.Stop();
+            throw;
         }
         catch (Exception ex)
         {

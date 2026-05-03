@@ -40,7 +40,7 @@ public sealed partial class TelegramController : ControllerBase
     /// </summary>
     /// <param name="update">The Telegram update payload.</param>
     [HttpPost("webhook")]
-    public IActionResult Webhook([FromBody] Update update)
+    public async Task<IActionResult> Webhook([FromBody] Update update)
     {
         if (!Request.Headers.TryGetValue("X-Telegram-Bot-Api-Secret-Token", out StringValues headerValue)
             || headerValue != _settings.WebhookSecret)
@@ -66,7 +66,7 @@ public sealed partial class TelegramController : ControllerBase
             CorrelationId = correlationId,
         };
 
-        _updateChannel.TryEnqueue(message);
+        await _updateChannel.EnqueueAsync(message);
         LogUpdateEnqueued(_logger, correlationId, firstName);
 
         return Ok();

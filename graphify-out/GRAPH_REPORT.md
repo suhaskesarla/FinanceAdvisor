@@ -1,11 +1,11 @@
 # Graph Report - .  (2026-04-16)
 
 ## Corpus Check
-- 59 files · ~16,606 words
+- 59 files · ~16,830 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 241 nodes · 254 edges · 56 communities detected
+- 243 nodes · 258 edges · 56 communities detected
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
@@ -137,12 +137,12 @@ Cohesion: 0.29
 Nodes (2): IDisposable, TelegramWebhookServiceTests
 
 ### Community 13 - "Community 13"
-Cohesion: 0.29
-Nodes (4): Exception, ExternalApiTimeoutException, InvalidProviderConfigurationException, ZerodhaAuthException
+Cohesion: 0.38
+Nodes (2): IUpdateChannel, UpdateChannel
 
 ### Community 14 - "Community 14"
-Cohesion: 0.4
-Nodes (2): IUpdateChannel, UpdateChannel
+Cohesion: 0.29
+Nodes (4): Exception, ExternalApiTimeoutException, InvalidProviderConfigurationException, ZerodhaAuthException
 
 ### Community 15 - "Community 15"
 Cohesion: 0.4
